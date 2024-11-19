@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p>Вход</p>
+        </header>
+        <main class="main">
+            <form id="registrationForm"> 
+                    <p><input class="form_login" type="text" id="username" name="username" placeholder="Имя" required></p><br>
+                    <p><input class="form_login" type="password" id="password" name="password" placeholder="Пароль" required></p><br>
+            </form>          
+                <div class="checkin">
+                    <input class="checkbox_custom" id="Запомнить" type="checkbox" name="Запомнить" value="yes"><label for="Запомнить">Запомнить</label>
+                </div>
+        </main>
+            <script>
+                function register() {
+                const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+                    window.location.href = 'index4.html';
+                }
+        </script>     
+        <footer class="footer_btn">
+            <a href="index4.html"><input class="footer_login_btn" type="button" onclick="register()" value="Войти"></a>
+        </footer>       
+
+    </div>
+</body>
+</html>

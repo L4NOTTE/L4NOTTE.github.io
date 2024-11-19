@@ -1,0 +1,60 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+} 
+@font-face { 
+    font-family: Rubik-Medium; 
+    src: url(../fonts/Rubik/Rubik-Medium.ttf); 
+} 
+@font-face { 
+    font-family: Rubik-Regular; 
+    src: url(../fonts/Rubik/Rubik-Regular.ttf); 
+} 
+.container { 
+    height: 394px; 
+    width: 304px; 
+    border-radius: 8px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    border: solid 1px #333333; 
+    margin: 0 auto;
+}
+.header { 
+    color: #333333; 
+    font-size: 28px; 
+    font-family: Rubik-Medium; 
+    margin-top: 36px;
+} 
+.form_login { 
+    font-family: Rubik-Regular; 
+    font-size: 16px; 
+    color: #828282; 
+    outline: none; 
+    border: none; 
+    margin: 24px 36px auto 36px; 
+    border-bottom: solid 1px #333333; 
+} 
+.checkin { 
+    font-size: 16px; 
+    font-family: Rubik-Regular; 
+    color: #333333; 
+    margin: 0 36px 111px 36px;
+}
+.checkbox_custom {
+    margin-right: 8px;
+} 
+.footer_login_btn { 
+    background-color: #E5261E; 
+    border: none; 
+    width: 113px; 
+    height: 38px; 
+    border-radius: 4px; 
+    color: white; 
+    font-family: Rubik-Medium; 
+    font-size: 16px;
+    margin: 0 auto 36px auto;
+} 
+.footer_login_btn:hover {
+    background: #CC221B; 
+}

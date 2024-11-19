@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: Rubik-Medium;
+    src: url(../fonts/Rubik/Rubik-Medium.ttf);
+}
+@font-face {
+    font-family: Rubik-Regular;
+    src: url(../fonts/Rubik/Rubik-Regular.ttf);
+}.container{
+    width: 1180px;
+    height: 100vh;
+    margin: 0 auto;
+}
+.header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+.header__logo{
+    display: flex;
+    align-items: center;
+}
+.header__logo_name{
+    margin-left: 11.88px;
+    font-size: 20px;
+    color: #333333;
+    font-family: Rubik-Medium;
+}
+.header_search_txt{
+    width: 320px;
+    height: 25px;
+    border: none;
+    border-bottom: 1px solid #333333;
+    font-family: Rubik-Medium;
+    font-size: 16px;
+    color: #333333;  
+}
+.header_search_txt::placeholder {
+    font-size: 16px;
+    font-family: Rubik-Regular;
+    color: #828282
+}
+.header_search_txt:focus {
+    outline: none;
+}
+.header_search_btn {
+    background: none;
+    border: none;
+    color: #e5261e;
+    font-size: 16px;
+    margin-left: 32px;
+}
+.header_login{
+    display: flex;
+    align-items: center;
+}
+.header_login_btn {
+    background: none;
+    border: none;
+    width: 113px;
+    height: 38px;
+    color: #e5261e;
+    font-family: Rubik-Medium;
+    font-size: 16 px;
+}
+.Form_Register {
+    font-family: Rubik-Medium;
+    font-size: 16px;
+    color: #333333;
+    margin-right: 18px;
+}
+.nav_ul{
+    display: flex;
+    width: 311px;
+    justify-content: space-between;
+    margin: 44px auto 32px auto;
+}
+.nav_ul_li{
+    list-style-type: none;
+}
+.nav_ul_a{
+    text-decoration: none;
+    font-family: Rubik-Medium;
+    font-size: 28px;
+    color: #333333;
+}
+.nav_ul_a:hover {
+    color: #E5261E;
+    border-bottom: #E5261E solid 2px;
+    padding-bottom: 9px;
+}
+.new_zagalovok{
+    font-family: Rubik-Medium;
+    font-size: 24px;
+    color: #333333;
+}
+.movies{
+    display: flex;
+}
+.movies_item {
+    width: 280px;
+    position: relative;
+    margin-right: 20px;
+}
+.movies_item_img{
+    width: 280px;
+    height: 370px;
+    border-radius: 8px;
+    margin: 16px 0 16px 0;
+}
+.movies_item_img1{
+    width: 280px;
+    height: 370px;
+    border-radius: 8px;
+    margin: 16px 0 16px 0;
+}
+.movies_item_img2{
+    width: 280px;
+    height: 370px;
+    border-radius: 8px;
+    margin: 16px 0 16px 0;
+}
+.movies_item_img3{
+    width: 280px;
+    height: 370px;
+    border-radius: 8px;
+    margin: 16px 0 16px 0;
+}
+.movies_item_txt{
+    font-family: Rubik-Regular;
+    font-size: 20px;
+    color: #333333;
+}
+.movies_item_descpition {
+    width: 280px;
+    height: 370px;
+    background-color: rgba(51,51,51,0.8);
+    color: #F2F2F2;
+    line-height: 140%;
+    border-radius: 8px;
+    font-family: Rubik-Regular;
+    font-size: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    opacity: 0;
+}
+.movies_item:hover .movies_item_descpition {
+    opacity: 1;
+}
+.Janri_zagalovok{
+    font-size: 24px;
+    font-family: Rubik-Medium;
+    color:#333333;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+.genre{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.genre1{
+    width: 280px;
+    height: 208px;
+    margin-right: 20px;
+    background: linear-gradient(127.83deg, #F2C94C 8.44%, #F29A4A 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    opacity: 0.8;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    
+}
+.genre1:hover{
+    background: linear-gradient(127.83deg, #F2C94C 8.44%, #F29A4A 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    opacity: 1;
+}
+.genre2{
+    width: 280px;
+    height: 208px;
+    margin-right: 20px;
+    background: linear-gradient(127.83deg, #F2994A 8.44%, #EB5757 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    opacity: 0.8;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+.genre2:hover{
+    opacity: 1;
+    background: linear-gradient(127.83deg, #F2994A 8.44%, #EB5757 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    
+}
+.genre3{
+    width: 280px;
+    height: 208px;
+    margin-right: 20px;
+    background: linear-gradient(127.83deg, #56CCF2 8.44%, #2F80ED 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    opacity: 0.8;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+.genre3:hover{
+    opacity: 1;
+    background: linear-gradient(127.83deg, #56CCF2 8.44%, #2F80ED 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+.genre4{
+    width: 280px;
+    height: 208px;
+    margin-right: 20px;
+    background: linear-gradient(127.83deg, #828282 8.44%, #333333 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    opacity: 0.8;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+.genre4:hover{
+    opacity: 1;
+    background: linear-gradient(127.83deg, #828282 8.44%, #333333 91.36%);
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+}
+.genre1_txt1 {
+    color: white;
+    font-family: Rubik-Regular;
+    font-size: 20px;
+    position: absolute;
+    top: 160px; 
+
+}
+.genre1_emoji {
+    font-size: 48px;
+}
+.footer{
+    display: flex;
+    width: 1440;
+    height: 120;
+    margin-top: 102px;
+    background-color: #F2F2F2;
+}
+.footer_logo {
+    display: flex;
+}
+.footer_logo_img{
+    margin-right: 39.98px;
+}
+.footer_name {
+    font-family: Rubik-Medium;
+    font-size: 16px;
+    color: #333333;
+}
+.footer_number {
+    font-family: Rubik-Medium;
+    font-size: 16px;
+    color: #333333;
+}
+.footer_site {
+    font-family: Rubik-Medium;
+    font-size: 16px;
+    color: #1F4766;
+    text-decoration: none;
+}
+.footer_logo2 {
+    margin-top: 6px;
+}
+.footer_logo3 {
+    margin-top: 10px;
+}
