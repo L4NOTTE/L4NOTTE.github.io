@@ -61,6 +61,7 @@
     text-decoration: none;
     margin-right: 42px;
     opacity: 0.7;
+    cursor: pointer;
 }
 .header__logo_a1 {
     color: white;
@@ -69,7 +70,7 @@
     text-decoration: none;
     margin-right: 42px;
     opacity: 0.7;
-    
+    cursor: pointer;
 }
 .header__logo_a2 {
     color: white;
@@ -77,6 +78,7 @@
     font-family: Montserrat-SemiBold;
     text-decoration: none;
     opacity: 0.7;
+    cursor: pointer;
 }
 .header__logo_txt{
     display: flex;
@@ -107,6 +109,7 @@
     border: solid 1.5px FCFCFC;
     margin-left: 128px;
     text-decoration: none;
+    cursor: pointer;
 }
 .Register {
     width: 125px;
@@ -118,6 +121,7 @@
     border: none;
     margin: auto 218px auto 13px;
     text-decoration: none;
+    cursor: pointer;
 }   
 .hero{
     width: 1600px;
@@ -250,7 +254,11 @@
 .block6_img3 {
     margin-right: 120px;
 }
-.block7 {
+
+.shop{
+    display: flex;
+}
+.block7_txt {
     display: flex;
     font-size: 48px;
     font-family: Montserrat-Bold;
@@ -258,43 +266,68 @@
     width: 430px;
     height: 190px;
     text-align: center;
-    margin: 149px 87px 32px 283px;
+    margin: 149px 88px 32px 284px;
 }
-.block8{
+.block7_txt1{
     width: 428px;
     height: 116px;
     font-family: Montserrat-Regular;
     font-size: 18px;
     color: #202020;
-    margin: 0px 85px 80px 283px;
+    margin: 0px 88px 80px 284px;
     text-align: center;
 }
 .block9_back{
     width: 798px;
     height: 113px;
     background-color: #202020;
-}
-.block9_img{
-    width: 798px;
-    height: 810px;
-    background-image: url(../images/3.jpeg);
-    background-size: cover;
-    background-position: center center;
-}
-.bloc9_img2{
-    width: 798px;
-    height: 810px;
-    background-image: url(../images/4.jpeg);
-    background-size: cover;
-    background-position: center center;
+    display: flex;
+    align-content: space-around;
+    align-items: center;
 }
 .block9_txt1{
     font-family: Montserrat-SemiBold;
     color: #FCFCFC;
     font-size: 24px;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    display: flex;
+    position: relative;
 }
 .block9_txt2{
     font-family: Montserrat-Bold;
     color: #FFB90E;
     font-size: 20px;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+.shop_kart1{
+    margin-top: 130px;
+}
+.shop_kart2{
+    margin-left: 207px;
+    z-index: -1;
+}
+
+.block10_a {
+    width: 144px;
+    height: 46px;
+    color:white;
+    font-size: 18px;
+    font-family: Montserrat-SemiBold;
+    background-color: #FFA520;
+    outline: none;
+    border: none;
+}
+.block10_g {
+    font-family: Montserrat-Medium;
+    font-size: 24px;
+    color: #202020;
+    outline: none;
+    text-decoration: none !important;
+    
 }
