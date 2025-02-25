@@ -1,0 +1,300 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: Montserrat-SemiBold;
+    src: url(../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+@font-face {
+    font-family: Lora-Bold-Italic;
+    src: url(../fonts/Lora/Lora-BoldItalic.ttf);
+}
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url(../fonts/Montserrat/Montserrat-Medium.ttf);
+}
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+.container {
+    width: 1600px;
+    height: 100vh;
+    background-color: white;
+    opacity: 0.7;
+}
+.header{
+    display: flex;
+    width: 1600px;
+    height: 102px;
+    background-color: #202020;
+    align-items: center;
+}
+.header_logo {
+    display: flex;
+    align-items: center;
+}
+.header__logo_name {
+    font-family: 'Lora';
+    font-style: italic;
+    font-size: 28px;
+    margin-left: 215px;
+    color: #FFA520;
+}
+.header__logo_name1 {
+    font-family: 'Lora';
+    font-style: italic;
+    font-size: 28px;
+    color: white;
+    margin-left: 1px;
+    margin-right: 191px;
+}
+.header__logo_a {
+    color: white;
+    font-size: 16px;
+    font-family: Montserrat-Bold;
+    text-decoration: none;
+    margin-right: 42px;
+    opacity: 0.7;
+}
+.header__logo_a1 {
+    color: white;
+    font-size: 16px;
+    font-family: Montserrat-SemiBold;
+    text-decoration: none;
+    margin-right: 42px;
+    opacity: 0.7;
+    
+}
+.header__logo_a2 {
+    color: white;
+    font-size: 16px;
+    font-family: Montserrat-SemiBold;
+    text-decoration: none;
+    opacity: 0.7;
+}
+.header__logo_txt{
+    display: flex;
+    opacity: 0.7;
+    font-size: 16px;
+    font-family: Montserrat-Bold;
+    margin-right: 42px;
+    text-decoration: none;
+    color: white;
+}
+.header__logo_a2:hover{
+    opacity: 1;
+}
+.header__logo_a1:hover{
+    opacity: 1;
+}
+.header__logo_a:hover {
+    opacity: 1;
+}
+.Log_in {
+    width: 106px;
+    height: 46px;
+    border: solid  1.5px;
+    background-color: #202020;
+    color: #FCFCFC;
+    font-size: 18px;
+    font-family: Montserrat-Medium;
+    border: solid 1.5px FCFCFC;
+    margin-left: 128px;
+    text-decoration: none;
+}
+.Register {
+    width: 125px;
+    height: 46px;
+    color: #FCFCFC;
+    font-size: 18px;
+    font-family: Montserrat-Medium;
+    background-color: #FFA520;
+    border: none;
+    margin: auto 218px auto 13px;
+    text-decoration: none;
+}   
+.hero{
+    width: 1600px;
+    display: flex;
+}
+.home_logo {
+    font-size: 60px;
+    font-family: Montserrat-Bold;
+    color: #202020;
+    margin: 160px 0 0 210px;
+}
+.home_logo1{
+    font-size: 60px;
+    font-family: Montserrat-Bold;
+    color: #202020;
+    margin: 0 92px 32px 210px;
+}
+.home_main {
+    font-size: 20px;
+    font-family: Montserrat-Regular;
+    color: #202020;
+    opacity: 0.8;
+    margin: 0px 89px 0 215px;
+}
+.block2 {
+    display: flex;
+    align-items: center;
+    background-color: #FCFCFC;
+    width: 580px;
+    height: 66px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: 80px 111px 0px 215px;
+}
+.block2_img {
+    width: 32px;
+    height: 32px;
+    margin-left: 12px;
+}
+.block2_txt {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #000000;
+    margin-left: 8px;
+    margin-right: 219px;
+    border: none;
+    outline: none;
+    width: 210px;
+    height: 26px;
+}
+.block2_a {
+    width: 87px;
+    height: 42px;
+    background-color: #202020;
+    color: #FCFCFC;
+    border: none;
+    font-size: 16px;
+    font-family: Montserrat-Medium;
+    margin-right: 12px;
+    opacity: 1;
+    cursor: pointer;
+}
+.block3 {
+    margin: 64px 391px 144px 215px;
+}
+.block4_img {
+    width: 694px;
+    height: 923px;
+    background-image: url(../images/1.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+.block5 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 713px 400px 85px 764px;
+    width: 436px;
+    height: 126px;
+    background-color: #FCFCFC;
+    border: 2.5px solid #000000;
+    z-index: +1;
+}
+.block5_txt1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 123px;
+    height: 62px;
+    background-color: #FFA520;
+    font-family: Montserrat-Bold;
+    font-size: 32px;
+    color: #FCFCFC;
+    margin-right: 28px;
+}
+.block5_txt2 {
+    font-family: Montserrat-Medium;
+    font-size: 24px;
+    color: #202020;
+}
+.block5_line1 {
+    margin:8px auto 8px auto;
+    width: 201px;
+    height: 7px;
+    background-color:#202020;
+    border-radius: 3px;
+    opacity: 0.8;
+}
+.block5_line2 {
+    width: 130px;
+    height: 7px;
+    border-radius: 3px;
+    opacity: 0.8;
+    background-color: #202020;
+}
+.block6 {
+    width: 1600px;
+    height: 280px;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.block6_img1 {
+    margin-left: 120px;
+}
+.block6_img2 {
+    margin: 0 120px 0 120px;
+}
+.block6_img3 {
+    margin-right: 120px;
+}
+.block7 {
+    display: flex;
+    font-size: 48px;
+    font-family: Montserrat-Bold;
+    color: #202020;
+    width: 430px;
+    height: 190px;
+    text-align: center;
+    margin: 149px 87px 32px 283px;
+}
+.block8{
+    width: 428px;
+    height: 116px;
+    font-family: Montserrat-Regular;
+    font-size: 18px;
+    color: #202020;
+    margin: 0px 85px 80px 283px;
+    text-align: center;
+}
+.block9_back{
+    width: 798px;
+    height: 113px;
+    background-color: #202020;
+}
+.block9_img{
+    width: 798px;
+    height: 810px;
+    background-image: url(../images/3.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+.bloc9_img2{
+    width: 798px;
+    height: 810px;
+    background-image: url(../images/4.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+.block9_txt1{
+    font-family: Montserrat-SemiBold;
+    color: #FCFCFC;
+    font-size: 24px;
+}
+.block9_txt2{
+    font-family: Montserrat-Bold;
+    color: #FFB90E;
+    font-size: 20px;
+}
