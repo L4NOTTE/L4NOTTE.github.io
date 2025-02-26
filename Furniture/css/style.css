@@ -24,12 +24,11 @@
     src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
 }
 .container {
-    width: 1600px;
-    height: 100vh;
+    width: 100%;
+    max-width: 1600px;
     margin: 0 auto;;
     background-color: white;
     opacity: 0.7;
-    
 }
 .header{
     display: flex;
