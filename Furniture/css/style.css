@@ -480,14 +480,15 @@
     background-color: #202020;
     height: 582px;
     align-items: center;
+    justify-content: space-between;
+
   }
   
   .blog_cards {
-    height: 582px;
     display: flex;
     flex-direction: column;
-    padding-left: 207px;
     justify-content: center;
+    margin-left: 207px;
   }
   
   .blog_txt1 {
@@ -516,66 +517,77 @@
   }
   
   .blog_img {
-    display: flex;
-    gap: 32px;
-    margin-left: auto;
-    padding-right: 207px;
-  }
-  
-  .shop_kart11, .shop_kart12 {
     position: relative;
-    width: 398px;
-    height: auto;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 420px;
   }
-  
-  .shop_kart11 img, .shop_kart12 img {
-    width: 398px;
+  .shop_kart11 img {
+    width: 502px;
     height: auto;
+    left: 0;
+    z-index: 2;
     display: block;
   }
   
-  .block12_back1, .block12_back2 {
+  .shop_kart12 img {
+    width: 685px;
+    height: auto;
+    z-index: 1;
+    display: block;
+  }
+  
+  .block12_back1{
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    width: 398px;
+    width: 385px;
     height: 113px;
     background-color: #202020;
     display: flex;
     flex-direction: column;
-    gap: 12px;
     justify-content: center;
+    padding: 27px 72px;
+    gap: 12px;
+  }
+  .block12_back2 {
+    position: absolute;
+    bottom: 0;
+    width: 685px;
+    height: 113px;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 70px;
+    gap: 12px;
   }
   
   .block12_txt1 {
-    margin-left: 77px;
     font-family: Montserrat-SemiBold;
     color: #FCFCFC;
-    font-size: 24px;
+    font-size: 18px;
   }
   
   .block12_txt2 {
-    margin-left: 77px;
     font-family: Montserrat-Bold;
     color: #FFB90E;
-    font-size: 20px;
+    font-size: 16px;
   }
-  
   .page {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 394px;
   }
   
   .page_cards {
     width: 100%;
+    max-width: 1200px;
     display: flex;
     align-items: end;
-    justify-content: center;
-    margin-left: 450px;
+    justify-content: end;
   }
   
   .page_txt {
@@ -592,8 +604,6 @@
     grid-gap: 32px;
     width: 100%;
     max-width: 1200px;
-    padding: 0 207px;
-    margin-bottom: 140px;
   }
   
   .page_img img {
@@ -606,38 +616,30 @@
     width: 100%;
     background-color: #202020;
     height: 409px;
+    margin-top: 140px;
+  }
+  .footer_cards{
     display: flex;
-    flex-direction: column;
-    padding: 40px 207px 0;
-    gap: 20px;
+    justify-content: center;
   }
-  
-  .footer_col1, .footer_col2, .footer_col3, .footer_col4 {
-    display: flex;
-    flex: 1;
+  .fot1{
+    margin: 81px 0 0 278px;
   }
-  
-  .footer_col1 {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
   .footer_logo {
     font-family: Lora-Bold-Italic;
     font-size: 28px;
     color: #FFB90E;
-    margin-bottom: 10px;
+    margin-bottom: 17px;
   }
-  
-  .footer_col2 {
+  .footer_col2{
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px
   }
-  
   .footer_contact {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
   
   .footer_contact p {
@@ -649,158 +651,82 @@
   .footer_social img {
     width: 100px;
     height: auto;
+    margin-top: 20px;
   }
-  
-  .footer_col3, .footer_col4 {
+  .fot2{
+    width: 214px;
+    height: 124px;
+    margin: 81px 162px 0px 165px;
+  }
+  .footer_col3{
+    display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
-  
-  .footer_title {
-    font-family: Montserrat-Medium;
-    font-size: 14px;
-    color: #FFFFFF;
-    margin-bottom: 10px;
-  }
-  
   .footer_link {
     font-family: Montserrat-Medium;
     font-size: 14px;
     color: #CCCCCC;
-    margin-bottom: 5px;
     cursor: pointer;
   }
-  
+
+  .fot3{
+    display: flex;
+    flex-direction: column;
+    margin: 81px 277px 0 0;
+  }
+  .footer_title {
+    font-family: Montserrat-Bold;
+    font-size: 20px;
+    color: #FFFFFF;
+  }
   .footer_news {
     font-family: Montserrat-Medium;
     font-size: 14px;
-    color: #FFFFFF;
-    margin-bottom: 10px;
+    color: #CCCCCC;
+    margin-top: 20px;
   }
-  
+  .line_bottom{    
+    margin-top: 38px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+  }
   .footer_input {
     width: 200px;
     height: 30px;
     font-family: Montserrat-Medium;
     font-size: 14px;
-    color: #000000;
-    padding: 5px;
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    color: #CCCCCC;
+    margin-left: 8px;
+    margin-right: 112px;
     border: none;
     outline: none;
-    margin-right: 10px;
+    width: 210px;
+    height: 26px;
+    background-color: #202020;
+    margin-bottom: 9px;
   }
   
   .footer_line {
     border: 1px solid #CCCCCC;
-    margin: 20px 0;
+    margin-top: 39px;
   }
   
   .footer_bottom {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    margin: 29px 262px 0px 285px;
   }
   
   .footer_copyright {
-    font-family: Montserrat-Medium;
+    font-family: Montserrat-Regular;
     font-size: 14px;
     color: #CCCCCC;
   }
   
   .footer_payment {
-    width: 150px;
+    width: 293px;
     height: auto;
-  }
-  
-  /* Адаптивность (опционально) */
-  @media (max-width: 768px) {
-    .header {
-      height: auto;
-      flex-direction: column;
-      padding: 10px 0;
-    }
-  
-    .header_logo {
-      flex-direction: column;
-      margin-left: 0;
-    }
-  
-    .header__logo_name, .header__logo_name1 {
-      margin: 0;
-    }
-  
-    .header__logo_txt {
-      margin: 5px 0;
-    }
-  
-    .Log_in, .Register {
-      margin: 10px 0;
-    }
-  
-    .shop {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .shop_kart1, .shop_kart2 {
-      margin: 20px 0;
-      width: 90%;
-    }
-  
-    .shop_kart1 img, .shop_kart2 img {
-      width: 100%;
-    }
-  
-    .block9_back1, .block9_back2 {
-      width: 100%;
-    }
-  
-    .block10_a, .block10_g {
-      margin: 20px auto;
-      display: block;
-      text-align: center;
-    }
-  
-    .blog, .blog_cards {
-      height: auto;
-      flex-direction: column;
-      padding: 20px;
-    }
-  
-    .blog_img {
-      flex-direction: column;
-      padding: 0;
-      margin: 0 auto;
-    }
-  
-    .shop_kart11, .shop_kart12 {
-      width: 100%;
-      margin: 20px 0;
-    }
-  
-    .shop_kart11 img, .shop_kart12 img {
-      width: 100%;
-    }
-  
-    .block12_back1, .block12_back2 {
-      width: 100%;
-    }
-  
-    .page_img {
-      grid-template-columns: repeat(2, 1fr); /* 2 колонки на мобильных */
-      padding: 0 20px;
-      max-width: 100%;
-    }
-  
-    .footer {
-      height: auto;
-      padding: 20px;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer_col1, .footer_col2, .footer_col3, .footer_col4 {
-      width: 100%;
-      margin-bottom: 20px;
-    }
   }
