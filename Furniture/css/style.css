@@ -356,26 +356,23 @@
   }
   
   .block9_back1 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     width: 798px;
     height: 113px;
     background-color: #202020;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: -113px;
     justify-content: center;
+    align-items: space-between;
   }
   
   .block9_back2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
     width: 780px;
     height: 113px;
+    margin-top: -113px;
     background-color: #202020;
     display: flex;
     flex-direction: column;
@@ -538,7 +535,7 @@
   }
   
   .block12_back1{
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 385px;
     height: 113px;
@@ -548,9 +545,10 @@
     justify-content: center;
     padding: 27px 72px;
     gap: 12px;
+    margin-top: -113px;
   }
   .block12_back2 {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 685px;
     height: 113px;
@@ -560,6 +558,7 @@
     justify-content: center;
     padding: 24px 70px;
     gap: 12px;
+    margin-top: -113px;
   }
   
   .block12_txt1 {
@@ -573,6 +572,10 @@
     color: #FFB90E;
     font-size: 16px;
   }
+  .star-rating {
+    color: #ffffff;
+    font-size: 24px;
+}
   .page {
     width: 100%;
     display: flex;
@@ -730,3 +733,342 @@
     width: 293px;
     height: auto;
   }
+  /* Адаптив для устройств с узким экраном (например, iPhone 12 Pro) */
+@media only screen and (max-width: 420px) {
+  /* Хедер и навигация */
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 5%;
+    justify-content: center;
+  }
+  .header_logo {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+  .header__logo_name, 
+  .header__logo_name1 {
+    margin: 5px 0;
+    font-size: 20px;
+  }
+  .header_logo_txt {
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .header__logo_a, 
+  .header__logo_a1, 
+  .header__logo_a2 {
+    font-size: 14px;
+    margin: 3px 0;
+  }
+  .Log_in, .Register {
+    width: 80px;
+    height: 34px;
+    font-size: 14px;
+    margin: 5px;
+  }
+
+  /* Главный блок (hero) */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+  }
+  .home_logo, .home_logo1 {
+    font-size: 36px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .home_main {
+    font-size: 16px;
+    margin: 10px auto;
+    text-align: center;
+    width: 90%;
+  }
+
+  /* Блок с email-подпиской (block2) */
+  .block2 {
+    width: 90%;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 5px;
+    flex-direction: row;
+  }
+  .block2_img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+  }
+  .block2_txt {
+    width: 60%;
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  .block2_a {
+    width: 80px;
+    height: 34px;
+    font-size: 14px;
+  }
+
+  /* Изображения и блоки */
+  .img1,
+  .block3_img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .block5 {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .block5_txt1 {
+    font-size: 24px;
+    width: auto;
+    margin: 0 auto;
+  }
+  .block5_txt2 {
+    font-size: 18px;
+  }
+  .block5_line1, .block5_line2 {
+    width: 80%;
+    height: 4px;
+    margin: 4px auto;
+  }
+
+  /* Блок с иконками (block6) */
+  .block6 {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    justify-content: center;
+  }
+  .block6_img, 
+  .block6_img1, 
+  .block6_img2, 
+  .block6_img3 {
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Секция "Shop" */
+  .shop {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .block7 {
+    margin: 20px auto;
+    text-align: center;
+  }
+  .block7_txt {
+    font-size: 32px;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .block7_txt1 {
+    font-size: 16px;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .shop_kart1, .shop_kart2 {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .shop_kart1 img, .shop_kart2 img {
+    width: 100%;
+    height: auto;
+  }
+  .block9_back1, .block9_back2 {
+    width: 100%;
+    margin-top: -100px;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .block9_txt1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  .block9_txt2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  .block10_a {
+    width: 100px;
+    height: 34px;
+    font-size: 14px;
+    margin: 10px auto;
+  }
+  .block10_g {
+    font-size: 16px;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+  /* Секция "Product" */
+  .product_txt {
+    font-size: 32px;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .product_zag {
+    font-size: 20px;
+  }
+  .product_osn {
+    font-size: 14px;
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .prod {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .prod1 {
+    margin: 10px 0;
+  }
+  .product_cards {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .block11 {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  /* Секция "Blog" */
+  .blog {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 20px;
+  }
+  .blog_cards {
+    text-align: center;
+    margin: 10px auto;
+  }
+  .blog_txt1 {
+    font-size: 32px;
+  }
+  .blog_txt2 {
+    font-size: 14px;
+    text-align: center;
+    margin: 10px auto;
+  }
+  .blog_btn {
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    margin: 10px auto;
+  }
+  .blog_img {
+    margin: 20px auto;
+  }
+  .shop_kart11 img, .shop_kart12 img {
+    width: 100%;
+    height: auto;
+  }
+  .block12_back1, .block12_back2 {
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .block12_txt1 {
+    font-size: 16px;
+  }
+  .block12_txt2 {
+    font-size: 14px;
+  }
+
+  /* Секция "Page" */
+  .page {
+    margin-top: 40px;
+    text-align: center;
+  }
+  .page_cards {
+    justify-content: center;
+  }
+  .page_txt {
+    font-size: 32px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .page_img {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px auto;
+  }
+
+  /* Футер */
+  .footer {
+    height: auto;
+    padding: 20px 10px;
+  }
+  .footer_cards {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .fot1, .fot2, .fot3 {
+    margin: 20px 0;
+  }
+  .footer_logo {
+    font-size: 24px;
+  }
+  .footer_col2, .footer_col3, .footer_col4 {
+    align-items: center;
+    text-align: center;
+  }
+  .footer_contact p {
+    font-size: 12px;
+  }
+  .footer_social img {
+    width: 80px;
+  }
+  .footer_col3 a, .footer_link {
+    font-size: 12px;
+  }
+  .footer_title {
+    font-size: 18px;
+  }
+  .footer_news {
+    font-size: 12px;
+  }
+  .footer_input {
+    width: 80%;
+    max-width: 200px;
+    height: 26px;
+    font-size: 14px;
+  }
+  .footer_line {
+    margin-top: 20px;
+  }
+  .footer_bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer_copyright {
+    font-size: 12px;
+  }
+  .footer_payment {
+    width: 80%;
+    max-width: 250px;
+    margin: 10px auto;
+  }
+}
