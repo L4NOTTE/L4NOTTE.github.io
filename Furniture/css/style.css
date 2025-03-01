@@ -733,8 +733,8 @@
     width: 293px;
     height: auto;
   }
-  /* Адаптив для устройств с узким экраном (например, iPhone 12 Pro) */
-@media only screen and (max-width: 420px) {
+
+@media only screen and (max-width: 1179px) {
   /* Хедер и навигация */
   .header {
     flex-direction: column;
@@ -747,8 +747,7 @@
     align-items: center;
     margin: 0;
   }
-  .header__logo_name, 
-  .header__logo_name1 {
+  .header__logo_name{
     margin: 5px 0;
     font-size: 20px;
   }
@@ -830,7 +829,7 @@
   }
   .block5_txt1 {
     font-size: 24px;
-    width: auto;
+    width: 30%;
     margin: 0 auto;
   }
   .block5_txt2 {
@@ -890,7 +889,7 @@
   }
   .block9_back1, .block9_back2 {
     width: 100%;
-    margin-top: -100px;
+    margin-top: -73px;
     height: auto;
     padding: 10px;
     text-align: center;
@@ -915,7 +914,6 @@
     margin: 10px auto;
   }
 
-  /* Секция "Product" */
   .product_txt {
     font-size: 32px;
     width: 90%;
@@ -924,6 +922,7 @@
   }
   .product_zag {
     font-size: 20px;
+    margin-left: 30px;
   }
   .product_osn {
     font-size: 14px;
@@ -950,7 +949,6 @@
     margin: 20px auto;
   }
 
-  /* Секция "Blog" */
   .blog {
     flex-direction: column;
     align-items: center;
@@ -996,7 +994,6 @@
     font-size: 14px;
   }
 
-  /* Секция "Page" */
   .page {
     margin-top: 40px;
     text-align: center;
@@ -1015,7 +1012,6 @@
     margin: 20px auto;
   }
 
-  /* Футер */
   .footer {
     height: auto;
     padding: 20px 10px;
@@ -1051,8 +1047,8 @@
     font-size: 12px;
   }
   .footer_input {
-    width: 80%;
-    max-width: 200px;
+    width: 60%;
+    max-width: 100px;
     height: 26px;
     font-size: 14px;
   }
