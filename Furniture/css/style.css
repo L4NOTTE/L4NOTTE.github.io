@@ -58,16 +58,8 @@
     font-style: italic;
     font-size: 28px;
     margin-left: 215px;
-    color: #FFA520;
-  }
-  
-  .header__logo_name1 {
-    font-family: 'Lora';
-    font-style: italic;
-    font-size: 28px;
-    color: white;
-    margin-left: 1px;
     margin-right: 191px;
+    color: #FFA520;
   }
   
   .header__logo_a {
