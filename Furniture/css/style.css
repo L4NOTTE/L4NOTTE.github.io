@@ -731,6 +731,7 @@
 
   /* Главный блок (hero) */
   .hero {
+    width: 100%
     flex-direction: column;
     align-items: center;
     padding: 20px 5%;
@@ -746,7 +747,6 @@
     text-align: center;
     width: 63%;
   }
-
   /* Блок с email-подпиской (block2) */
   .block2 {
     width: 90%;
