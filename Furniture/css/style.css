@@ -731,10 +731,13 @@
 
   /* Главный блок (hero) */
   .hero {
-    width: 100%
+    width: 100%;
     flex-direction: column;
     align-items: center;
     padding: 20px 5%;
+  }
+  .hero_white{
+    width: 100%
   }
   .home_logo, .home_logo1 {
     font-size: 36px;
