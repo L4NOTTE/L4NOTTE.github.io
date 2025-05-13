@@ -35,6 +35,22 @@
         <p>Изучение <span>ЭИС</span> развивает аналитическое мышление и навыки формализации знаний, что особенно важно в эпоху цифровизации.</p>
       </div>
     </section>
+
+    <section id="ai-demo">
+      <h2>Демо-чат с AI</h2>
+      
+      <div class="demo-chat">
+        <textarea 
+          id="userInput" 
+          placeholder="Задайте вопрос (пример: 'Что такое экспертная система?')..."
+          rows="4"
+        ></textarea>
+        
+        <button onclick="generateDemoResponse()">Спросить</button>
+        <div id="demoResponse" class="demo-response"></div>
+      </div>
+    </section>
+
     <section id="components">
       <div class="components_header">
         <img class="components_img" src="img/components.png" alt="components">
