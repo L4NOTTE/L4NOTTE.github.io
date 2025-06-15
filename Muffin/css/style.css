@@ -600,6 +600,10 @@
             .order-image {
                 margin-left: -10px;
             }
+            .menu {
+                display: flex;
+                flex-direction: column;
+            }
             header {
                 padding: 20px;
             }
@@ -626,6 +630,11 @@
             .footer-content,
             .contacts-grid {
                 grid-template-columns: 1fr;
+            }
+            .menu {
+                display: flex;
+                flex-direction: column;
+                line-height: 1px;
             }
             .hero-images {
                 display: none;
