@@ -741,24 +741,47 @@ h3 {
 }
 
 @media (max-width: 480px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .header {
+    padding: 20px 15px 40px 15px;
+    text-align: center;
+  }
+
   .header_tt {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin: 0 auto;
+    margin: 0;
+  }
+
+  .logo {
+    margin: 10px 0;
+    width: 150px;
+    height: auto;
   }
 
   .contact-phone {
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 18px;
+    text-align: center;
   }
 
   .top-nav {
     flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 60px;
+    gap: 15px;
+    margin: 20px 0 30px 0;
+    text-align: center;
+  }
+
+  .top-nav a {
+    font-size: 16px;
   }
 
   .search {
@@ -767,100 +790,144 @@ h3 {
 
   .header h1 {
     font-size: 28px;
-    display: flex;
-    margin: 0 20px;
+    margin: 20px 15px;
   }
 
   .header p {
     font-size: 16px;
-    margin: 20px 20px;
+    margin: 15px 15px 25px 15px;
+    line-height: 1.5;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
   .downloadBtn {
-    display: flex;
-    width: 90%;
-    font-size: 18px;
-    align-items: flex-start;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
   }
 
   .infographic {
-    margin-left: 40px;
+    margin: 30px 15px;
+    font-size: 36px;
+    text-align: center;
   }
 
   .infographic_txt {
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 30px;
+  }
+
+  .infographic_block {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  .about {
+    margin: 50px 15px 50px 15px;
   }
 
   .about h2 {
-    margin-left: 40px;
-  }
-
-  .about img {
-    width: 350px;
-  }
-
-  .about-left,
-  .about-right {
-    width: 350px;
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    text-align: center;
   }
 
   .about-content {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    max-width: 350px;
     text-align: center;
+  }
+
+  .about-left img {
+    width: 100%;
+    height: auto;
   }
 
   .bid {
     width: 100%;
+    font-size: 16px;
+    padding: 10px;
   }
 
   h3 {
-    margin-left: 40px;
-    margin-right: 40px;
+    font-size: 24px;
+    margin: 30px 15px;
+    text-align: center;
   }
 
   .products {
-    gap: 5%;
-    padding: 40px auto;
+    padding: 20px 10px;
+    gap: 20px;
   }
 
   .product-card {
-    display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
   }
 
   .product-card img {
-    width: 260px;
-    height: 150px;
-    object-fit: contain;
+    width: 100%;
+    height: auto;
+    margin: 0 0 15px 0;
+  }
+
+  .product-txt {
+    width: 100%;
+  }
+
+  .card-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .product-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    padding: 40px 15px;
   }
 
   .contact-section {
-    display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    margin: 0;
   }
 
   .contact-title {
-    margin-bottom: 80px;
-    font-size: 48px;
-    margin-left: 80px;
+    font-size: 24px;
+    margin-bottom: 30px;
   }
 
   .contact-columns {
-    margin: 0 auto;
-    display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
+    margin: 0;
   }
 
   .contact-card {
-    max-width: 360px;
-    padding: auto 10px;
-    font-size: 22px;
+    max-width: 300px;
+    font-size: 14px;
+    padding: 15px;
   }
 }
