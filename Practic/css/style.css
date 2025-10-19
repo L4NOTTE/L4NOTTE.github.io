@@ -133,7 +133,7 @@ body {
 .infographic {
   margin: 0 auto;
   padding: 80px 0;
-  font-size: 48px;
+  font-size: 60px;
   margin-left: 250px;
 }
 
@@ -173,7 +173,7 @@ body {
 }
 
 .about h2 {
-  font-size: 48px;
+  font-size: 56px;
   margin-bottom: 60px;
   margin-left: 250px;
 }
@@ -261,7 +261,7 @@ body {
 }
 
 h3 {
-  font-size: 64px;
+  font-size: 52px;
   color: #005AA5;
   margin-left: 250px;
   margin-bottom: 140px;
@@ -687,4 +687,5 @@ h3 {
     font-size: 16px;
   }
 }
+
 
