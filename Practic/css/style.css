@@ -12,10 +12,9 @@ body {
   font-family: "Europe", sans-serif;
   color: #000000;
   background-color: #ffffff;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* === Шапка === */
 .header {
   background-color: #0A2648;
   color: #ffffff;
@@ -130,111 +129,119 @@ body {
   background-color: #ffffff79;
 }
 
-/* === Блок компетенций ===
+
 .infographic {
-  display: flex;
-  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
   font-size: 48px;
-  margin: 50px auto 100px 0;
+}
+
+.infographic h2 {
+  margin-bottom: 60px;
+  text-align: left;
+  margin-left: 80px;
 }
 
 .infographic_txt {
   display: flex;
-  gap: 18%;
-  flex-wrap: wrap;
   justify-content: center;
-  position: relative;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 100px;
+}
 
-} */
-
-.ifnographic_block {
-  width: 300px;
+.infographic_block {
+  flex: 1 1 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  font-size: 26px;
 }
 
-.ifnographic_img {
-  display: flex;
+.infographic_img {
   width: 118px;
   height: 125px;
   object-fit: contain;
-  margin-bottom: 60px;
-}
-
-
-.infographic {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  font-size: 48px;
-}
-
-.infographic_txt {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 18%;
-}
-
-.infographic h2 {
-  font-size: 48px;
-  margin-bottom: 60px;
-  margin-left: 60px;
-  /* смещение левее центра */
-  text-align: left;
-  gap: 20%;
+  margin-bottom: 25px;
 }
 
 .about {
   display: flex;
   flex-direction: column;
-  max-width: 1500px;
-  margin: 200px auto 80px;
+  align-items: center;
+  margin: 180px auto 60px auto;
+  width: 100%;
+  max-width: 1600px;
   padding: 0 20px;
-  color: #202020;
 }
 
 .about h2 {
   font-size: 48px;
   font-weight: 700;
+  align-self: flex-start;
   margin-bottom: 60px;
-  text-align: left;
+  margin-left: 0;
+  font-size: 48px;
 }
 
-/* Контейнер для двух колонок */
 .about-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 100px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
-/* Левая колонка */
-.block_1 {
-  flex: 1 1 45%;
+.about-left {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  width: 750px;
 }
 
-.block_1 img {
+.about-left img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-.block_1 p {
-  font-size: 18px;
+.about-left p {
+  margin: 35px 0;
   line-height: 1.6;
+  font-size: 26px;
+}
+
+.about-left .bid {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  color: #fff;
+  background: #005CAE;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 35px;
+  transition: background 0.3s;
+}
+
+.about-left .bid:hover {
+  background-color: #007ae5;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  line-height: 1.6;
+  font-size: 26px;
+}
+
+.about-right p {
+  margin-bottom: 35px;
 }
 
 .bid {
@@ -250,7 +257,6 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background 0.3s;
 }
 
@@ -258,20 +264,6 @@ body {
   background-color: #007ae5;
 }
 
-/* Правая колонка */
-.block_2 {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.block_2 p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* === Продукция === */
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -284,13 +276,15 @@ body {
 .product-grid {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 98px;
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 60px;
   max-width: 800px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -302,20 +296,22 @@ body {
 }
 
 .product-card .card-header {
-  font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: #0a2342;
+  font-size: 48px;
+  margin-bottom: 42px;
+  color: #000000;
+}
+
+.product-card p {
+  font-size: 26px;
+  margin: 35px 0;
 }
 
 .product-card img {
   width: 100%;
   max-width: 300px;
-  margin-bottom: 1rem;
   border-radius: 6px;
 }
 
-/* === Контакты === */
 .footer {
   background-color: #f6f8fa;
   padding: 30px 10px
@@ -337,6 +333,7 @@ body {
 .card {
   display: flex;
   gap: 10%;
+  font-size: 24px;
 }
 
 .card-footer {
@@ -364,14 +361,33 @@ body {
   color: #000000;
 }
 
-@media (max-width: 1440px) {
-  .infographic_txt {
-    gap: 10%;
+@media (min-width: 1441px) and (max-width: 1700px) {
+  .about-content {
+    gap: 50px;
+  }
+
+  .block_1,
+  .block_2 {
+    width: 600px;
+  }
+
+  .block_1 img {
+    width: 600px;
   }
 }
 
-/* === Адаптив: до 1200px === */
-@media (max-width: 1200px) {
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .about h2 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .footer {
+    padding: 70px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
   .header h1 {
     font-size: 52px;
     margin-left: 120px;
@@ -403,13 +419,53 @@ body {
     max-width: 1100px;
   }
 
+  .about h2 {
+    font-size: 48px;
+    text-align: center;
+  }
+
   .about-content {
     gap: 80px;
   }
+
+  .footer {
+    padding: 70px;
+  }
 }
 
-/* === Адаптив: до 992px (планшеты) === */
-@media (max-width: 992px) {
+@media (min-width: 769px) and (max-width: 992px) {
+
+  .about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .about h2 {
+    margin-left: 95px;
+    text-align: left;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .about-left img {
+    width: 100%;
+  }
+
+
   .logo {
     margin: 20px 0 20px 25px;
   }
@@ -440,21 +496,19 @@ body {
     gap: 20px;
   }
 
-  .infographic {
-    font-size: 48px;
+  .infographic h2 {
+    text-align: center;
+    margin-left: 0;
   }
 
   .infographic_txt {
-    gap: 3%;
-  }
-
-  .about {
-    margin: 120px auto 60px;
-    padding: 0 15px;
-  }
-
-  .about-content {
+    flex-direction: column;
+    align-items: center;
     gap: 60px;
+  }
+
+  .infographic_block {
+    width: 100%;
   }
 
   .products {
@@ -466,8 +520,13 @@ body {
     max-width: 700px;
   }
 
-  .card {
-    padding: 20px;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    padding: 40px;
   }
 
   .footer h1 {
@@ -475,8 +534,7 @@ body {
   }
 }
 
-/* === Адаптив: до 768px (телефоны в горизонтали / планшеты) === */
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .header {
     padding-bottom: 30px;
   }
@@ -519,23 +577,16 @@ body {
     font-size: 48px;
   }
 
-  .infographic_txt {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+  .about h2 {
+    font-size: 48px;
+    text-align: center;
   }
 
   .about-content {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
     text-align: center;
-    gap: 50px;
-  }
-
-  .block_1,
-  .block_2 {
-    flex: 1 1 100%;
-    max-width: 600px;
   }
 
   .bid {
@@ -603,17 +654,12 @@ body {
   }
 
   .about h2 {
-    font-size: 32px;
+    font-size: 48px;
     text-align: center;
   }
 
   .about-content {
     gap: 40px;
-  }
-
-  .block_1 p,
-  .block_2 p {
-    font-size: 16px;
   }
 
   .bid {
