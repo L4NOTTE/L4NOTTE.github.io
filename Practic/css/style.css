@@ -114,22 +114,6 @@ body {
   background-color: #00aaff;
 }
 
-.catalogBtn {
-  background-color: #00000000;
-  color: #ffffff;
-  border: solid 2px #ffffff;
-  padding: 10px 40px;
-  border-radius: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.catalogBtn:hover {
-  background-color: #ffffff79;
-}
-
-
 .infographic {
   margin: 0 auto;
   padding: 80px 0;
@@ -322,50 +306,45 @@ h3 {
 
 .footer {
   background-color: #f6f8fa;
-  padding: 30px 10px
+  padding: 120px 0;
 }
 
-.footer h1 {
-  font-size: 48px;
-  margin-top: 82px;
+.contact-section {
+  display: flex;
+  align-items: flex-start;
   margin-left: 250px;
+  justify-content: space-between;
 }
 
-.contact-form {
+.contact-title {
+  font-size: 48px;
+  color: #000;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.contact-columns {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30%;
+  gap: 50px;
+  margin: auto 73px auto 338px;
 }
 
-.card {
-  display: flex;
-  gap: 10%;
-  font-size: 24px;
-}
-
-.card-footer {
-  margin-top: 82px;
+.contact-column {
   display: flex;
   flex-direction: column;
+  gap: 45px;
 }
+
 
 .contact-card {
-  display: flex;
-  flex-direction: column;
   background-color: #fff;
   padding: 30px 60px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  min-width: 350px;
-  text-align: start;
-  margin: 0 0 45px 0;
-  min-height: 155px;
-
-}
-
-.contact-card p {
-  font-weight: 500;
-  color: #000000;
+  font-size: 24px;
+  color: #000;
+  max-width: 500px;
+  min-width: 145px;
 }
 
 @media (min-width: 1441px) and (max-width: 1700px) {
@@ -388,6 +367,11 @@ h3 {
     align-items: center;
     margin: 0 auto;
   }
+
+  .products {
+    gap: 3%;
+    padding: 40px 50px;
+  }
 }
 
 @media (min-width: 1201px) and (max-width: 1440px) {
@@ -403,6 +387,33 @@ h3 {
   .products {
     gap: 3%;
     padding: 40px 50px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 120px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    gap: 50px;
+    display: flex;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    font-size: 22px;
   }
 }
 
@@ -455,7 +466,7 @@ h3 {
 
   .products {
     gap: 3%;
-    padding: 40px 50px;
+    padding: 40px 40px;
   }
 
   .product-card {
@@ -463,10 +474,34 @@ h3 {
     flex-direction: column;
   }
 
-  .footer {
-    padding: 70px;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    gap: 50px;
+    display: flex;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    font-size: 22px;
   }
 }
+
 
 @media (min-width: 769px) and (max-width: 992px) {
   .logo {
@@ -547,26 +582,38 @@ h3 {
 
   .products {
     gap: 3%;
-    padding: 40px 50px;
+    padding: 40px 40px;
   }
 
   .product-card {
     display: flex;
     flex-direction: column;
+    padding: 20px;
   }
 
-  .contact-form {
+  .contact-section {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
   }
 
-  .footer {
-    padding: 40px;
-  }
-
-  .footer h1 {
-    font-size: 42px;
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
     margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    min-width: 145px;
+    font-size: 22px;
   }
 }
 
@@ -583,6 +630,11 @@ h3 {
 
   .contact-phone {
     margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .search {
+    display: none;
   }
 
   .top-nav {
@@ -594,14 +646,14 @@ h3 {
 
   .header h1 {
     font-size: 38px;
-    margin: 0 auto;
-    text-align: center;
+    margin: 100px 80px;
+    text-align: left;
   }
 
   .header p {
     font-size: 18px;
-    margin: 20px auto;
-    text-align: center;
+    margin: 20px 80px;
+    text-align: left;
   }
 
   .cta-buttons {
@@ -610,12 +662,22 @@ h3 {
   }
 
   .infographic {
-    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .infographic_txt {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
   }
 
   .about h2 {
-    font-size: 48px;
-    text-align: center;
+    margin-left: 80px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 500px;
   }
 
   .about-content {
@@ -629,89 +691,176 @@ h3 {
     align-self: center;
   }
 
+  h3 {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
   .products {
-    flex-direction: column;
-    align-items: center;
+    gap: 3%;
+    padding: 40px 40px;
   }
 
   .product-card {
-    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 500px
   }
 
-  .footer h1 {
-    font-size: 36px;
+  .product-card img {
+    width: 450px;
+    height: 350px;
+    object-fit: contain;
   }
 
-  .contact-form {
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-  }
-
-  .card {
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
   }
 
   .contact-card {
-    min-width: auto;
-    width: 90%;
-    text-align: center;
+    max-width: 460px;
+    padding: auto 50px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 480px) {
+  .header_tt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .contact-phone {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+
+  .search {
+    display: none;
+  }
+
   .header h1 {
     font-size: 28px;
+    display: flex;
+    margin: 0 20px;
   }
 
   .header p {
     font-size: 16px;
+    margin: 20px 20px;
   }
 
-  .downloadBtn,
-  .catalogBtn {
+  .downloadBtn {
+    display: flex;
     width: 90%;
     font-size: 18px;
+    align-items: flex-start;
   }
 
   .infographic {
-    font-size: 48px;
+    margin-left: 40px;
   }
 
   .infographic_txt {
     flex-direction: column;
-    gap: 40px;
-  }
-
-  .ifnographic_img {
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 60px;
   }
 
   .about h2 {
-    font-size: 48px;
-    text-align: center;
+    margin-left: 40px;
+  }
+
+  .about img {
+    width: 430px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 430px;
   }
 
   .about-content {
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
+    text-align: center;
   }
 
   .bid {
     width: 100%;
   }
 
-  .product-card {
-    padding: 1.5rem;
+  h3 {
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
-  .footer h1 {
-    font-size: 30px;
+  .products {
+    gap: 5%;
+    padding: 40px auto;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+  }
+
+  .product-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+  }
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .contact-card {
-    padding: 20px;
-    font-size: 16px;
+    max-width: 360px;
+    padding: auto 10px;
+    font-size: 22px;
   }
 }
