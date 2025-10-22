@@ -68,13 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Запускает анимацию при загрузке и скролле
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
-
-    // Обработчик для кнопки скачивания
-    document.getElementById('downloadBtn').addEventListener('click', function () {
-        this.style.transform = "scale(0.95)";
-        setTimeout(() => {
-            this.style.transform = "scale(1)";
-        }, 150);
-        alert('Каталог будет скачан!');
-    });
+    document.querySelector('.downloadBtn').addEventListener('click', function(e) {
+  // Анимация при клике
+  this.style.transform = "scale(0.95)";
+  setTimeout(() => {
+    this.style.transform = "scale(1)";
+  }, 150);
+  
+  // Можно добавить отслеживание кликов (опционально)
+  console.log('Пользователь скачал каталог');
 });
+   
+});
+
