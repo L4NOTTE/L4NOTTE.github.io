@@ -277,32 +277,11 @@ body {
   font-size: 26px;
 }
 
-.infographic_block:hover {
-  transform: translateY(-10px);
-}
-
-.infographic_block:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.infographic_block:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.infographic_block:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
 .infographic_img {
   width: 118px;
   height: 125px;
   object-fit: contain;
   margin-bottom: 25px;
-  transition: transform 0.3s ease;
-}
-
-.infographic_block:hover .infographic_img {
-  animation: bounce 0.6s ease;
 }
 
 .about {
@@ -1190,5 +1169,6 @@ h3 {
     padding: 15px;
   }
 }
+
 
 
