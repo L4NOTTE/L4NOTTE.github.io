@@ -215,6 +215,9 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .downloadBtn:hover {
@@ -1187,4 +1190,5 @@ h3 {
     padding: 15px;
   }
 }
+
 
