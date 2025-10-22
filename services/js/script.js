@@ -42,7 +42,7 @@ sidebarToggles.forEach(toggle => {
         const sub = this.nextElementSibling;
         const isActive = this.classList.contains('active');
 
-        // Закрываем все открытые списки
+        // Закрывает все открытые списки
         document.querySelectorAll('.sub.active').forEach(activeSub => {
             if (activeSub !== sub) {
                 activeSub.classList.remove('active');
@@ -50,8 +50,9 @@ sidebarToggles.forEach(toggle => {
             }
         });
 
-        // Переключаем текущий список
+        // Переключает текущий список
         this.classList.toggle('active');
         sub.classList.toggle('active');
     });
+
 });
