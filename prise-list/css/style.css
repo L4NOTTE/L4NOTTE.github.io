@@ -272,8 +272,6 @@ body {
   align-items: center;
   text-align: center;
   font-size: 26px;
-  animation: fadeInUp 0.8s ease-out both;
-  transition: transform 0.3s ease;
 }
 
 .infographic_block:hover {
@@ -1189,3 +1187,4 @@ h3 {
     padding: 15px;
   }
 }
+
