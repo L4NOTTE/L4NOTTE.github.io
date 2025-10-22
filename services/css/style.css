@@ -496,6 +496,7 @@ body {
 
   .service_info {
     padding: 0;
+    width: 70vw
   }
 
   .service_info p {
