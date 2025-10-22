@@ -745,9 +745,6 @@ h3 {
   }
 }
 
-
-
-
 /* Анимации для медиа-запросов */
 @media (min-width: 1441px) and (max-width: 1700px) {
   .about-content {
@@ -1290,13 +1287,15 @@ h3 {
   }
 
   .products {
+    display: flex;
+    align-items: center;
     padding: 20px 10px;
     gap: 20px;
   }
 
   .product-card {
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     padding: 15px;
   }
 
