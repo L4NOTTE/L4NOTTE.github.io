@@ -81,3 +81,70 @@ document.addEventListener('DOMContentLoaded', function () {
    
 });
 
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Элементы модального окна
+  const modal = document.getElementById('applicationModal');
+  const openButtons = document.querySelectorAll('.bid, .about-left .bid');
+  const closeBtn = document.querySelector('.close');
+  const form = document.getElementById('applicationForm');
+
+  // Открытие модального окна
+  openButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+    });
+  });
+
+  // Закрытие модального окна
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  // Закрытие при клике вне модального окна
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Обработка отправки формы
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Здесь можно добавить отправку данных на сервер
+    const formData = new FormData(form);
+    
+    // Временное сообщение об успехе
+    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+    
+    // Закрывает модальное окно
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Очищаем форму
+    form.reset();
+  });
+
+  // Валидация файлов
+  const fileInput = document.getElementById('file');
+  fileInput.addEventListener('change', function() {
+    const files = this.files;
+    const maxSize = 5 * 1024 * 1024; // 5MB в байтах
+    
+    for (let file of files) {
+      if (file.size > maxSize) {
+        alert(`Файл "${file.name}" слишком большой. Максимальный размер: 5MB`);
+        this.value = ''; // Очищаем input
+        break;
+      }
+    }
+  });
+
+  // Функционал поиска (оставляем ваш существующий код)
+  const searchIcon = document.querySelector('.search');
+  // ... остальной код поиска ...
+});
