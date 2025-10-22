@@ -13,6 +13,7 @@ body {
   color: #000000;
   background-color: #ffffff;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 @keyframes fadeInUp {
@@ -313,7 +314,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 750px;
-  animation: fadeInLeft 1s ease-out;
+  animation: fadeInUp 1s ease-out;
 }
 
 .about-left img {
@@ -361,7 +362,7 @@ body {
   width: 750px;
   line-height: 1.6;
   font-size: 26px;
-  animation: fadeInRight 1s ease-out;
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .about-right p {
@@ -595,6 +596,8 @@ h3 {
 }
 
 .modal-content {
+  position: relative;
+  z-index: 1001;
   background-color: #fff;
   margin: 5% auto;
   padding: 40px;
@@ -603,6 +606,9 @@ h3 {
   max-width: 600px;
   position: relative;
   animation: slideIn 0.3s ease;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 @keyframes slideIn {
@@ -649,6 +655,7 @@ h3 {
 .form-group {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form-group label {
@@ -659,11 +666,12 @@ h3 {
 
 .form-group input,
 .form-group textarea {
-  padding: 12px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 5px;
+  padding: 14px 12px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -1107,13 +1115,14 @@ h3 {
   .product-card {
     display: flex;
     flex-direction: column;
-    width: 430px
+    width: 90vw
   }
 
   .product-card img {
-    width: 430px;
+    width: 400px;
     height: 350px;
     object-fit: contain;
+    margin: 0;
   }
 
   .contact-section {
@@ -1188,18 +1197,21 @@ h3 {
     font-size: 16px;
   }
 
-  .search {
+  /* .search {
     display: block;
   }
 
   .search-input {
     width: 180px;
     right: -30px;
-  }
+  } */
 
   .header h1 {
     font-size: 28px;
-    margin: 20px 15px;
+    margin: 15px;
+    width: 250px;
+    align-items: start;
+    text-align: flex-start;
   }
 
   .header p {
@@ -1223,7 +1235,7 @@ h3 {
 
   .infographic {
     margin: 30px 80px;
-    font-size: 44px;
+    font-size: 40px;
   }
 
   .infographic_txt {
@@ -1284,7 +1296,7 @@ h3 {
 
   .product-card {
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     padding: 15px;
   }
 
