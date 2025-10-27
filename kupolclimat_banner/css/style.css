@@ -893,7 +893,7 @@ body {
     }
 }
 
-@media (max-width: 1600px) and (min-width: 1201px) {
+@media (max-width: 1600px) and (min-width: 1301px) {
 
     .hero,
     .about-section,
@@ -940,7 +940,7 @@ body {
 }
 
 /* 1200px - 993px */
-@media (max-width: 1200px) and (min-width: 993px) {
+@media (max-width: 1300px) and (min-width: 993px) {
 
     .hero,
     .about-section,
@@ -1004,7 +1004,6 @@ body {
     .applications-grid,
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
 
     .promo-section1,
