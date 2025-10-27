@@ -42,6 +42,7 @@ body {
 .phone-number {
     font-size: 32px;
     font-weight: 400;
+    text-decoration: none;
 }
 
 .phone-icon {
