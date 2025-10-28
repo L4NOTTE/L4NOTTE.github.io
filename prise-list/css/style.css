@@ -77,7 +77,6 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
 }
 
 .search-input {
@@ -1194,26 +1193,16 @@ h3 {
     font-size: 16px;
   }
 
-  /* .search {
-    display: block;
-  }
-
-  .search-input {
-    width: 180px;
-    right: -30px;
-  } */
-
   .header h1 {
     font-size: 28px;
     margin: 15px;
     width: 250px;
-    align-items: start;
-    text-align: flex-start;
+    text-align: start;
   }
 
   .header p {
     font-size: 16px;
-    margin: 15px 15px 25px 15px;
+    margin: 20px 15px 25px 15px;
     line-height: 1.5;
   }
 
