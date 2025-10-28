@@ -105,7 +105,6 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     color: #ffffff;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 20px;
     font-weight: 600;
     border: none;
@@ -117,23 +116,178 @@ body {
     border: 1px solid #ffffff;
     padding: 10px 20px;
     color: #ffffff;
-    font-family: "Roboto-SemiBold", sans-serif;
     font-size: 20px;
     font-weight: 600;
     background: transparent;
     cursor: pointer;
 }
 
-.promo-section1 {
+
+
+.rotating-banner {
     display: flex;
-    justify-content: center;
-    margin-top: 88px
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0044F7;
+    color: #fff;
+    border-radius: 6px;
+    max-width: 1500px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.promo-section2 {
+.rotating-banner.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.banner-1 {
+    padding: 90px 50px 90px 67px;
+}
+
+.banner-2 {
+    padding: 94px 43px 94px 46px;
+}
+
+.banner-1 img {
+    width: 155px;
+    height: 155px;
+    object-fit: cover;
+}
+
+.banner-2 .banner-images {
+    display: flex;
+    gap: 49px;
+}
+
+.banner-2 img {
+    width: auto;
+    height: 110px;
+    object-fit: contain;
+}
+
+.banner-1 .banner-text {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    max-width: 690px;
+    margin: 0 48px;
+}
+
+.banner-2 .banner-text h1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    max-width: 310px;
+    margin: 0 40px 0 48px;
+}
+
+.banner-2 .banner-text p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    max-width: 310px;
+    margin: 20px 40px 0 48px;
+}
+
+.banner-btn {
+    background: #fff;
+    color: #0D5AA6;
+    font-weight: 600;
+    border: none;
+    padding: 10px 22px;
+    cursor: pointer;
+    font-size: 48px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.banner-btn:hover {
+    background: #e5e5e5;
+}
+
+.banner-btn::after {
+    content: ">";
+    font-size: 48px;
+}
+
+.banner-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator-dot.active {
+    background: #fff;
+}
+
+#banner-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    position: relative;
+    min-height: 400px;
 }
+
+@keyframes bannerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rotating-banner.active {
+    animation: bannerFadeIn 0.6s ease-out;
+}
+
+.banner-btn:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.indicator-dot:focus {
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rotating-banner {
+        transition: none;
+        animation: none;
+    }
+
+    .rotating-banner.active {
+        animation: none;
+    }
+}
+
 
 .about-section {
     padding: 140px 248px;
@@ -894,6 +1048,27 @@ body {
 }
 
 @media (max-width: 1600px) and (min-width: 1301px) {
+    .banner-1 .banner-text {
+        font-size: 48px;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 56px;
+    }
+
+    .banner-btn {
+        font-size: 42px;
+        padding: 8px 20px;
+    }
+
+    .banner-1 img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .banner-2 img {
+        height: 100px;
+    }
 
     .hero,
     .about-section,
@@ -941,6 +1116,44 @@ body {
 
 /* 1200px - 993px */
 @media (max-width: 1300px) and (min-width: 993px) {
+
+    .banner-1,
+    .banner-2 {
+        padding: 70px 40px;
+    }
+
+    .banner-1 .banner-text {
+        font-size: 42px;
+        margin: 0 30px;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 42px;
+        margin: 0 30px 0 30px;
+    }
+
+    .banner-2 .banner-text p {
+        margin: 15px 30px 0 30px;
+        font-size: 18px;
+    }
+
+    .banner-btn {
+        font-size: 24px;
+        padding: 8px 18px;
+    }
+
+    .banner-1 img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .banner-2 img {
+        height: 55px;
+    }
+
+    .banner-2 .banner-images {
+        gap: 30px;
+    }
 
     .hero,
     .about-section,
@@ -1005,27 +1218,50 @@ body {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .promo-section1,
-    .promo-section2 {
-        margin: 50px 50px;
-    }
-
-    .promo-section1,
-    .promo-section2 {
-        margin: 50px 50px;
-    }
-
-    .promo {
-        width: 100%;
-        height: auto;
-    }
 }
 
 /* 992px - 769px */
 @media (max-width: 992px) and (min-width: 851px) {
     .header-top {
         padding: 30px 40px;
+    }
+
+    .banner-1,
+    .banner-2 {
+        padding: 60px 30px;
+    }
+
+    .banner-1 .banner-text {
+        font-size: 36px;
+        margin: 0 20px;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 36px;
+        margin: 0 20px 0 20px;
+    }
+
+    .banner-2 .banner-text p {
+        margin: 10px 20px 0 20px;
+        font-size: 16px;
+    }
+
+    .banner-btn {
+        font-size: 22px;
+        padding: 6px 16px;
+    }
+
+    .banner-1 img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .banner-2 img {
+        height: 45px;
+    }
+
+    .banner-2 .banner-images {
+        gap: 20px;
     }
 
     .hero,
@@ -1105,26 +1341,69 @@ body {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .promo-section1,
-    .promo-section2 {
-        margin: 50px 50px;
-    }
-
-    .promo {
-        width: 100%;
-        height: auto;
-    }
 }
 
 @media (max-width: 850px) {
+    .rotating-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px !important;
+        gap: 30px;
+    }
 
-    /* Скрываем десктопную навигацию */
+    .banner-1 .banner-text {
+        font-size: 32px;
+        margin: 0;
+        line-height: 1.3;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 36px;
+        margin: 0;
+        max-width: none;
+    }
+
+    .banner-2 .banner-text p {
+        font-size: 18px;
+        margin: 10px 0 0 0;
+        max-width: none;
+    }
+
+    .banner-btn {
+        font-size: 28px;
+        padding: 8px 20px;
+        justify-content: center;
+    }
+
+    .banner-1 img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .banner-2 .banner-images {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner-2 img {
+        height: 60px;
+    }
+
+    #banner-container {
+        min-height: 300px;
+        padding: 20px 0;
+    }
+
+    .banner-indicator {
+        bottom: 10px;
+    }
+
     .nav:not(.active) {
         display: none;
     }
 
-    /* Показываем кнопку меню */
+
     .menu-toggle {
         display: flex;
         position: fixed;
@@ -1133,7 +1412,6 @@ body {
         z-index: 1000;
     }
 
-    /* Общие отступы */
     .header-top {
         padding: 20px;
         flex-direction: column;
@@ -1153,7 +1431,6 @@ body {
         padding-right: 20px;
     }
 
-    /* Хедер */
     .phone-number {
         font-size: 24px;
     }
@@ -1168,7 +1445,6 @@ body {
         height: 75px;
     }
 
-    /* Герой секция */
     .hero {
         padding: 80px 20px 0;
     }
@@ -1203,7 +1479,6 @@ body {
         text-align: center;
     }
 
-    /* О компании */
     .about-title {
         font-size: 32px;
         margin-bottom: 30px;
@@ -1224,7 +1499,6 @@ body {
         font-size: 18px;
     }
 
-    /* Продукция */
     .products-title {
         font-size: 32px;
         margin-bottom: 30px;
@@ -1250,7 +1524,6 @@ body {
         min-height: auto;
     }
 
-    /* Преимущества */
     .advantages-section {
         flex-direction: column;
         gap: 30px;
@@ -1278,7 +1551,6 @@ body {
         font-size: 18px;
     }
 
-    /* Процесс */
     .process-steps {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1296,7 +1568,6 @@ body {
         margin-left: 0;
     }
 
-    /* Сферы применения */
     .section-title {
         font-size: 32px;
     }
@@ -1310,7 +1581,6 @@ body {
     .application-card {
         margin-top: 0;
         padding: 15px;
-        /* text-align: center; */
     }
 
     .application-image {
@@ -1319,7 +1589,6 @@ body {
         margin: 15px 0px;
     }
 
-    /* Проекты */
     .projects-title {
         font-size: 32px;
     }
@@ -1339,7 +1608,6 @@ body {
         min-height: auto;
     }
 
-    /* Контакты */
     .contact-title {
         font-size: 32px;
     }
@@ -1356,7 +1624,6 @@ body {
         max-width: 300px;
     }
 
-    /* Футер */
     .footer_links {
         padding: 30px 20px 40px;
         flex-direction: column;
@@ -1391,21 +1658,57 @@ body {
         width: 400px;
         height: auto;
     }
-
-    /* Промо секции */
-    .promo-section1,
-    .promo-section2 {
-        margin: 50px 50px;
-    }
-
-    .promo {
-        width: 100%;
-        height: auto;
-    }
-
 }
 
 @media (max-width: 550px) {
+    .rotating-banner {
+        padding: 30px 15px !important;
+        gap: 20px;
+    }
+
+    .banner-1 .banner-text {
+        font-size: 24px;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 28px;
+    }
+
+    .banner-2 .banner-text p {
+        font-size: 16px;
+    }
+
+    .banner-btn {
+        font-size: 24px;
+        padding: 6px 16px;
+    }
+
+    .banner-1 img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .banner-2 img {
+        height: 50px;
+    }
+
+    .banner-2 .banner-images {
+        gap: 10px;
+    }
+
+    #banner-container {
+        min-height: 250px;
+    }
+
+    .banner-indicator {
+        gap: 8px;
+    }
+
+    .indicator-dot {
+        width: 10px;
+        height: 10px;
+    }
+
     .hero-title {
         font-size: 28px;
     }
@@ -1481,10 +1784,49 @@ body {
     }
 }
 
-/* 360px и меньше - ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ */
+
 @media (max-width: 360px) {
     .hero-title {
         font-size: 24px;
+    }
+
+    .rotating-banner {
+        padding: 20px 10px !important;
+        gap: 15px;
+    }
+
+    .banner-1 .banner-text {
+        font-size: 20px;
+    }
+
+    .banner-2 .banner-text h1 {
+        font-size: 24px;
+    }
+
+    .banner-2 .banner-text p {
+        font-size: 14px;
+    }
+
+    .banner-btn {
+        font-size: 20px;
+        padding: 5px 12px;
+    }
+
+    .banner-1 img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .banner-2 img {
+        height: 40px;
+    }
+
+    .banner-2 .banner-images {
+        gap: 8px;
+    }
+
+    #banner-container {
+        min-height: 200px;
     }
 
     .about-title,
@@ -1540,7 +1882,7 @@ body {
     }
 }
 
-/* Мобильное меню - ОТДЕЛЬНО */
+
 @media (max-width: 850px) {
     .nav {
         position: fixed;
