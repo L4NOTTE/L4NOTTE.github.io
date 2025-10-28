@@ -1,4 +1,3 @@
-// js/script.js
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Сайт загружен!');
 
@@ -209,4 +208,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     console.log('Все скрипты инициализированы');
+
 });
