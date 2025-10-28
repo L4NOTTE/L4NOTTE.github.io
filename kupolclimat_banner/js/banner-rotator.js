@@ -75,7 +75,7 @@ class BannerRotator {
             currentActive.classList.remove('active');
         }
         
-        // Устанавливаем таймаут для плавной смены
+        // Устанавливает таймаут для плавной смены
         setTimeout(() => {
             this.container.innerHTML = this.banners[index];
             const newBanner = this.container.querySelector('.rotating-banner');
@@ -92,7 +92,7 @@ class BannerRotator {
         indicators.forEach((dot, index) => {
             dot.classList.toggle('active', index === this.currentBanner);
             
-            // Добавляем обработчики клика на индикаторы
+            // Добавляет обработчики клика на индикаторы
             dot.addEventListener('click', () => {
                 this.showBanner(index);
                 this.restartRotation();
@@ -124,7 +124,7 @@ class BannerRotator {
     }
     
     handleBannerClick() {
-        // Здесь можно добавить логику при клике на кнопку "СМОТРЕТЬ"
+        // можно добавить логику при клике на кнопку "СМОТРЕТЬ"
         if (this.currentBanner === 0) {
             window.location.href = '/sale';
         } else {
