@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    // Создаем контейнер для списка файлов
+    // Создает контейнер для списка файлов
     const fileInput = document.getElementById('file');
     const fileList = document.createElement('div');
     fileList.className = 'file-list';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             updateFileList();
-            this.value = ''; // Очищаем input
+            this.value = ''; // Очищает input
         });
     }
 
@@ -155,12 +155,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const formData = new FormData(form);
 
-        // Добавляем файлы в FormData
+        // Добавляет файлы в FormData
         selectedFiles.forEach(file => {
             formData.append('files', file);
         });
 
-        // Показываем индикатор загрузки
+        // Показывает индикатор загрузки
         const submitBtn = form.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Отправка...';
@@ -170,11 +170,11 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => {
             alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
 
-            // Восстанавливаем кнопку
+            // Восстанавливает кнопку
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
 
-            // Закрываем модальное окно и очищаем форму
+            // Закрывает модальное окно и очищает форму
             closeModal();
             form.reset();
             selectedFiles = [];
@@ -208,5 +208,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     console.log('Все скрипты инициализированы');
-
 });
