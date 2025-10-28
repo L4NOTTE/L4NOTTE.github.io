@@ -1,4 +1,3 @@
-/* css/style.css */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -226,12 +225,12 @@ body {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .indicator-dot {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
@@ -290,7 +289,7 @@ body {
 
 
 .about-section {
-    padding: 0 248px 140px 248px;
+    padding: 140px 248px 0 248px;
 }
 
 .about-title {
@@ -1102,16 +1101,6 @@ body {
         gap: 10px;
         margin-top: 30px;
     }
-
-    .promo-section1,
-    .promo-section2 {
-        margin: 50px 50px;
-    }
-
-    .promo {
-        width: 100%;
-        height: auto;
-    }
 }
 
 /* 1200px - 993px */
@@ -1681,6 +1670,7 @@ body {
     .banner-btn {
         font-size: 24px;
         padding: 6px 16px;
+        margin-bottom: 20px;
     }
 
     .banner-1 img {
@@ -1701,12 +1691,12 @@ body {
     }
 
     .banner-indicator {
-        gap: 8px;
+        gap: 15px;
     }
 
     .indicator-dot {
-        width: 10px;
-        height: 10px;
+        width: 15px;
+        height: 15px;
     }
 
     .hero-title {
@@ -1728,6 +1718,10 @@ body {
     .section-title,
     .contact-title {
         font-size: 28px;
+    }
+
+    .about-section {
+        padding-bottom: 0;
     }
 
     .about-feature {
