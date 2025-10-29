@@ -139,6 +139,7 @@ body {
 }
 
 .contact-phone {
+  color: #ffffff;
   margin-right: 50px;
   font-size: 32px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -1337,3 +1338,4 @@ h3 {
     padding: 15px;
   }
 }
+
