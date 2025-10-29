@@ -5,6 +5,12 @@ class BannerRotator {
         this.rotationInterval = rotationInterval;
         this.intervalId = null;
         
+        // Проверяем, существует ли контейнер
+        if (!this.container) {
+            console.error('Контейнер баннеров не найден:', containerId);
+            return;
+        }
+        
         this.banners = [
             this.createBanner1(),
             this.createBanner2()
@@ -14,6 +20,8 @@ class BannerRotator {
     }
     
     init() {
+        console.log('Инициализация баннеров в контейнере:', this.container);
+        
         if (!this.container) return;
         
         this.showBanner(0);
@@ -30,7 +38,7 @@ class BannerRotator {
     createBanner1() {
         return `
             <div class="rotating-banner banner-1">
-                <img src="img/Климат_белый.png" alt="Распродажа">
+                <img src="img/Климат_белый.png" alt="Распродажа" onerror="console.error('Ошибка загрузки изображения 1')">
                 <div class="banner-text">
                     РАСПРОДАЖА<br>
                     СКЛАДСКИХ ОСТАТКОВ<br>
@@ -48,10 +56,10 @@ class BannerRotator {
         return `
             <div class="rotating-banner banner-2">
                 <span class="banner-images">
-                    <img src="img/1.png" alt="Продукция 1">
-                    <img src="img/2.png" alt="Продукция 2">
-                    <img src="img/3.png" alt="Продукция 3">
-                    <img src="img/4.png" alt="Продукция 4">
+                    <img src="img/1.png" alt="Продукция 1" onerror="console.error('Ошибка загрузки изображения 2-1')">
+                    <img src="img/2.png" alt="Продукция 2" onerror="console.error('Ошибка загрузки изображения 2-2')">
+                    <img src="img/3.png" alt="Продукция 3" onerror="console.error('Ошибка загрузки изображения 2-3')">
+                    <img src="img/4.png" alt="Продукция 4" onerror="console.error('Ошибка загрузки изображения 2-4')">
                 </span>
                 <div class="banner-text">
                     <h1>КАТАЛОГ</h1>
@@ -67,6 +75,8 @@ class BannerRotator {
     }
     
     showBanner(index) {
+        if (!this.container) return;
+        
         this.currentBanner = index;
         
         // Анимация исчезновения
@@ -75,7 +85,7 @@ class BannerRotator {
             currentActive.classList.remove('active');
         }
         
-        // Устанавливает таймаут для плавной смены
+        // Устанавливаем таймаут для плавной смены
         setTimeout(() => {
             this.container.innerHTML = this.banners[index];
             const newBanner = this.container.querySelector('.rotating-banner');
@@ -92,7 +102,7 @@ class BannerRotator {
         indicators.forEach((dot, index) => {
             dot.classList.toggle('active', index === this.currentBanner);
             
-            // Добавляет обработчики клика на индикаторы
+            // Добавляем обработчики клика на индикаторы
             dot.addEventListener('click', () => {
                 this.showBanner(index);
                 this.restartRotation();
@@ -106,6 +116,9 @@ class BannerRotator {
     }
     
     startRotation() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
         this.intervalId = setInterval(() => {
             this.nextBanner();
         }, this.rotationInterval);
@@ -124,7 +137,7 @@ class BannerRotator {
     }
     
     handleBannerClick() {
-        // можно добавить логику при клике на кнопку "СМОТРЕТЬ"
+        // Можно добавить логику при клике на кнопку "СМОТРЕТЬ"
         if (this.currentBanner === 0) {
             window.location.href = '/sale';
         } else {
@@ -135,18 +148,22 @@ class BannerRotator {
 
 // Инициализация после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
-    const bannerRotator = new BannerRotator('banner-container', 7000);
+    console.log('DOM загружен, инициализация баннеров...');
     
-    // Пауза при наведении мыши
-    const container = document.getElementById('banner-container');
-    if (container) {
-        container.addEventListener('mouseenter', () => {
-            bannerRotator.stopRotation();
+    const bannerContainer = document.getElementById('banner-container');
+    if (bannerContainer) {
+        console.log('Контейнер баннеров найден');
+        const bannerRotator = new BannerRotator('banner-container', 7000);
+        
+        // Пауза при наведении мыши
+        bannerContainer.addEventListener('mouseenter', () => {
+            if (bannerRotator) bannerRotator.stopRotation();
         });
         
-        container.addEventListener('mouseleave', () => {
-            bannerRotator.restartRotation();
+        bannerContainer.addEventListener('mouseleave', () => {
+            if (bannerRotator) bannerRotator.restartRotation();
         });
+    } else {
+        console.error('Контейнер баннеров НЕ НАЙДЕН!');
     }
-    console.log('Все скрипты инициализированы');
 });
