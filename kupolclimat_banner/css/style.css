@@ -39,6 +39,7 @@ body {
 }
 
 .phone-number {
+    color: #ffffff;
     font-size: 32px;
     font-weight: 400;
     text-decoration: none;
@@ -61,9 +62,12 @@ body {
     gap: 165px;
 }
 
-.nav div {
+.nav div,
+a {
     font-size: 24px;
     font-weight: 400;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .search-icon {
