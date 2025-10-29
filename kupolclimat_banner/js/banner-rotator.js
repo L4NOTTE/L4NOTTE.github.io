@@ -148,4 +148,5 @@ document.addEventListener('DOMContentLoaded', function() {
             bannerRotator.restartRotation();
         });
     }
+    console.log('Все скрипты инициализированы');
 });
