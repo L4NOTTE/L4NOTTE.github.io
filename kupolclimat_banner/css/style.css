@@ -13,11 +13,44 @@ body {
 
 .header {
     width: 100%;
-    background: #0a2648;
     color: #ffffff;
     height: auto;
     position: relative;
     padding-bottom: 55px;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    /* Помещаем видео за контентом */
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Чтобы видео покрывало всю область */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 38, 72, 0.6);
+    /* Полупрозрачный синий поверх видео */
+    z-index: -1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
 }
 
 .header-top {
