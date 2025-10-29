@@ -1,288 +1,1473 @@
-<!DOCTYPE html>
-<html lang="ru">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Шамсимухаметов ПП.08</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+html {
+  scroll-behavior: smooth;
+}
 
-<body>
-  <header class="header">
-    <div class="header_tt">
-      <div class="logo"><img src="img/Лого.png" alt="picture_1"></div>
-      <div class="contact-phone">8(999)-999‑99‑99</div>
-    </div>
-    <hr>
-    <nav class="top-nav">
-      <a href="#product">ПРОДУКЦИЯ</a>
-      <a href="#">ВЫПОЛНЕНЫЕ ПРОЕКТЫ</a>
-      <a href="#">НОВОСТИ</a>
-      <a href="#contact">КОНТАКТЫ</a>
-    </nav>
+body {
+  font-family: "Europe", sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  margin-right: 20px;
+  top: 100%;
+  width: 600px;
+  padding: 10px 15px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: white;
+  color: #000;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.search-input.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(5px);
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 141, 210, 0.3);
+}
+
+.search {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search:hover {
+  transform: scale(1.1);
+  animation: pulse 1s infinite;
+}
+
+.header {
+  background-color: #0A2648;
+  color: #ffffff;
+  height: auto;
+  padding-bottom: 45px;
+}
+
+.header_tt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 214px;
+  height: 90px;
+  margin: 40px 0 40px 46px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.contact-phone {
+  margin-right: 50px;
+  font-size: 32px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 83px;
+  flex-wrap: wrap;
+  margin: 27px auto 122px auto;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.top-nav a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #008DD2;
+  transition: width 0.3s;
+}
+
+.top-nav a:hover {
+  color: #008DD2;
+  transform: translateY(-2px);
+}
+
+.top-nav a:hover::after {
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 64px;
+  max-height: 72px;
+  display: flex;
+  margin-left: 250px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.header p {
+  display: flex;
+  max-width: 1085px;
+  margin: 30px auto 51px 250px;
+  font-size: 26px;
+  text-align: start;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 250px;
+  gap: 2%;
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.downloadBtn {
+  background-color: #008DD2;
+  color: #ffffff;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.downloadBtn:hover {
+  background-color: #00aaff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 141, 210, 0.4);
+}
+
+.downloadBtn:active {
+  transform: translateY(-1px);
+}
+
+.downloadBtn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.downloadBtn:active::after {
+  width: 100px;
+  height: 100px;
+}
+
+.infographic {
+  margin: 0 auto;
+  padding: 80px 0;
+  font-size: 60px;
+  margin-left: 250px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.infographic h2 {
+  margin-bottom: 60px;
+}
+
+.infographic_txt {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.infographic_block {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 26px;
+}
+
+.infographic_img {
+  width: 118px;
+  height: 125px;
+  object-fit: contain;
+  margin-bottom: 25px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 180px auto 267px auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about h2 {
+  font-size: 56px;
+  margin-bottom: 60px;
+  margin-left: 250px;
+}
+
+.about-content {
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about-left img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.about-left img:hover {
+  transform: scale(1.02);
+}
+
+.about-left p {
+  margin: 35px 0;
+  line-height: 1.6;
+  font-size: 26px;
+}
+
+.about-left .contact-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  color: #fff;
+  background: #005CAE;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 35px;
+  transition: all 0.3s ease;
+}
+
+.about-left .contact-btn:hover {
+  background-color: #007ae5;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 92, 174, 0.4);
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  line-height: 1.6;
+  font-size: 26px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.about-right p {
+  margin-bottom: 35px;
+}
+
+.contact-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  background: #005CAE;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #007ae5;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 92, 174, 0.4);
+}
+
+h3 {
+  font-size: 52px;
+  color: #005AA5;
+  margin-left: 250px;
+  margin-bottom: 140px;
+  animation: fadeInLeft 1s ease-out;
+}
 
 
-    <h1>Транспортные кондиционеры</h1>
-    <p>В 2020 году завод организовал производство климатического оборудования <br> для техники специального назначения.
-      Уровень качества, дизайн, цена обеспечивают <br> предприятию преимущество на российском рынке и ставят его в один
-      ряд ведущими <br> мировыми производителями.</p>
-    <div class="cta-buttons">
-      <a href="https://l4notte.github.io/prise-list/pdf/catalog.pdf" class="downloadBtn" download>Скачать каталог</a>
-    </div>
-  </header>
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f3f3f3;
+  padding: 40px 10px;
+  justify-content: center;
+  gap: 2%;
+}
 
-  <main>
+.product-grid {
+  margin-bottom: 98px;
+  animation: fadeInUp 0.8s ease-out both;
+}
 
-    <section>
-      <h2 class="infographic">Наши компетенции</h2>
-      <div class="infographic_txt">
-        <div class="infographic_block">
-          <img class="infographic_img" src="img/Модели.png" alt="picture_2" height="95px" width="115px">
-          <p>Широкий <br> модельный ряд</p>
-        </div>
-        <div class="infographic_block">
-          <img class="infographic_img" src="img/Система.png" alt="picture_3" height="95px" width="115px">
-          <p>Система менеджмента <br>качества ISO 9001</p>
-        </div>
-        <div class="infographic_block">
-          <img class="infographic_img" src="img/Экспертный.png" alt="picture_4">
-          <p>Экспертный подход в <br>разработке климатотехники <br>спецназначения</p>
-        </div>
-      </div>
-    </section>
+.product-grid:nth-child(1) {
+  animation-delay: 0.1s;
+}
 
-    <section class="about">
-      <h2>О нас</h2>
+.product-grid:nth-child(2) {
+  animation-delay: 0.2s;
+}
 
-      <div class="about-content">
-        <div class="about-left">
-          <img src="img/about.png" alt="picture_5">
-          <button class="bid">Оставить заявку</button>
-        </div>
+.product-grid:nth-child(3) {
+  animation-delay: 0.3s;
+}
 
-        <div class="about-right">
-          <p>Имеющиеся компетенции и кадровый потенциал АО "ИЭМЗ "Купол" создают уникальные возможности для серийного
-            производства транспортных климатических систем и систем термостатирования под любой вид транспорта в
-            соответствии с требованиями государственных стандартов. Возможны как моноблочное, так и раздельно-агрегатное
-            исполнения кондиционеров.</p>
-          <p>Последние конструкторские разработки позволяют реализовать раздельный климат-контроль с автоматическим
-            поддержанием заданной температуры во всем диапазоне эксплуатации изделия заказчика. По требованию заказчика
-            возможно реализовать в различных модификациях транспортных кондиционеров:</p>
-          <p>- обмен данных по цифровым протоколам связи от бортовой системы управления шасси</p>
-          <p>- возможность работы при различных видах электропитания, как постоянного, так и переменного тока</p>
-          <p>- мощность климатических установок в диапазоне от 1 до 20 кВт</p>
-          <p>- эксплуатация как на стоянке, так и в движении шасси</p>
-        </div>
-      </div>
-    </section>
+.product-grid:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
-    <h3>Технические характеристики</h3>
+.product-grid:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.product-grid:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.product-grid:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.product-grid:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+.product-card {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  padding: 60px;
+  max-width: 1600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  font-size: 48px;
+  color: #000000;
+  margin-bottom: 7px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.card-header::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #008DD2;
+  transition: width 0.3s ease;
+}
+
+.product-card:hover .card-header::after {
+  width: 100%;
+}
+
+.product-card p {
+  font-size: 26px;
+  margin: 35px auto;
+}
+
+.product-card img {
+  width: 543px;
+  max-width: 510px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-right: 156px;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.footer {
+  background-color: #f6f8fa;
+  padding: 120px 0;
+  animation: fadeInUp 1s ease-out;
+}
+
+.contact-section {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 250px;
+  justify-content: space-between;
+}
+
+.contact-title {
+  font-size: 48px;
+  color: #000;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.contact-columns {
+  display: flex;
+  gap: 50px;
+  margin: auto 73px auto 338px;
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
 
 
-    <section class="products" id="product">
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КСТ-4МГ.png" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КСТ‑4МГ</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
+.contact-card {
+  background-color: #fff;
+  padding: 30px 60px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-size: 24px;
+  color: #000;
+  max-width: 500px;
+  min-width: 145px;
+  animation: fadeInUp 0.6s ease-out both;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КТН-2.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КТН-2</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+}
 
-        </article>
-      </div>
+.contact-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КТНМ-4.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КТНМ-4</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
+.contact-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КТНМ-5.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КТНМ-5</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
+.contact-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/1К37.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">1К37</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/1К38-1.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">1К38-1</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КТС.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КТС</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
+.modal-content {
+  position: relative;
+  background: #ffffff;
+  margin: 5% auto;
+  padding: 40px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+}
 
-      <div class="product-grid">
-        <article class="product-card" data-animate>
-          <img src="img/КТС_v2.jpg" alt="Транспортный кондиционер">
-          <span class="products-txt">
-            <div class="card-header">КТС_2</div>
-            <p>Таким образом укрепление и развитие структуры требуют определения и уточнения новых предложений. С другой
-              стороны постоянный количественный рост и сфера нашей активности представляет собой интересный эксперимент
-              проверки систем массового участия.</p>
-            <p>Значимость этих проблем настолько очевидна, что консультация с широким активом играет важную роль в
-              формировании форм развития.</p>
-            <p>Не следует, однако забывать, что начало повседневной работы по формированию позиции влечет за собой
-              процесс
-              внедрения и модернизации существенных финансовых и административных условий.</p>
-          </span>
-        </article>
-      </div>
-  </main>
-  <footer class="footer" id="contact">
-    <section class="contact-section">
-      <h1 class="contact-title">Контакты</h1>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-      <div class="contact-columns">
-        <div class="contact-column">
-          <article class="contact-card">8(999)-999-99-99</article>
-          <article class="contact-card">8(999)-999-99-99</article>
-          <article class="contact-card">
-            426033, РФ, Удмуртская Республика,<br> г. Ижевск, ул. Песочная, 3
-          </article>
-        </div>
-        <div class="contact-column">
-          <article class="contact-card">8(999)-999-99-99</article>
-          <article class="contact-card">@kupol.ru</article>
-        </div>
-      </div>
-    </section>
-  </footer>
-  <!-- Модальное окно для заявки -->
-  <div id="applicationModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Оформление заказа</h2>
-      <form id="applicationForm" class="application-form">
-        <div class="form-group">
-          <label for="name">ФИО</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+  to {
+    opacity: 1;
+  }
+}
 
-        <div class="form-group">
-          <label for="phone">Телефон</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-        <div class="form-group">
-          <label for="message">Сообщение</label>
-          <textarea id="message" name="message" rows="4" placeholder="Опишите ваши требования..."></textarea>
-        </div>
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10001;
+}
 
-        <div class="form-group">
-          <label class="file-label">
-            <span>Загрузите файлы (до 5 МБ)</span>
-            <input type="file" id="file" name="file"
-              accept=".jpeg,.jpg,.png,.doc,.docx,.pdf,.xls,.xlsx,.bmp,.heif,.heic,.txt,.md,.webp,.zip,.rar" multiple>
-            <div class="file-hint">Подойдут файлы в формате .jpeg, .jpg, .png, .doc, .docx, .pdf, .xls, .xlsx, .bmp,
-              .heif, .heic, .txt, .md, .webp, .zip, .rar</div>
-          </label>
-        </div>
+.close:hover {
+  color: #005aa5;
+  background: #f5f5f5;
+  transform: rotate(90deg);
+}
 
-        <div class="form-group checkbox-group">
-          <input type="checkbox" id="agreement" name="agreement" required>
-          <label for="agreement">Я принимаю Согласие на обработку персональных данных</label>
-        </div>
+.modal h2 {
+  color: #0a2648;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+}
 
-        <button type="submit" class="submit-btn">Отправить заявку</button>
-      </form>
-    </div>
-  </div>
-  <script src="js/script.js"></script>
-</body>
+.modal h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #008dd2;
+  border-radius: 2px;
+}
 
-</html>
+/* Стили для формы */
+.application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 14px 16px;
+  font-size: 16px;
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #008dd2;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 141, 210, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.file-label {
+  border: 2px dashed #d0d0d0;
+  padding: 25px 20px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  position: relative;
+}
+
+.file-label:hover {
+  border-color: #008dd2;
+  background: #f8fbff;
+}
+
+.file-label input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-label span {
+  display: block;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.file-hint {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #008dd2;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+}
+
+.submit-btn {
+  background-color: #005aa5;
+  color: white;
+  border: none;
+  padding: 16px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+  background-color: #004080;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 141, 210, 0.3);
+}
+
+.file-list {
+  margin-top: 10px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f0f8ff;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.file-remove {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.file-remove:hover {
+  background: #ff4444;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 5% auto;
+    padding: 25px 20px;
+    width: 90%;
+    max-width: none;
+  }
+
+  .modal h2 {
+    font-size: 24px;
+  }
+
+  .close {
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    padding: 14px 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    margin: 10% auto;
+    padding: 20px 15px;
+  }
+
+  .modal h2 {
+    font-size: 22px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Анимации для медиа-запросов */
+@media (min-width: 1441px) and (max-width: 1700px) {
+  .about-content {
+    gap: 50px;
+  }
+
+  .block_1,
+  .block_2 {
+    width: 600px;
+  }
+
+  .block_1 img {
+    width: 600px;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .products {
+    gap: 3%;
+    padding: 40px 50px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .footer {
+    padding: 70px;
+  }
+
+  h3 {
+    margin-left: 120px;
+    margin-right: 160px
+  }
+
+  .products {
+    gap: 3%;
+    padding: 40px 50px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 120px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    gap: 50px;
+    display: flex;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .header h1 {
+    font-size: 50px;
+    margin-left: 120px;
+  }
+
+  .header p {
+    font-size: 20px;
+    margin-left: 120px;
+  }
+
+  .cta-buttons {
+    margin-left: 120px;
+  }
+
+  .top-nav {
+    gap: 60px;
+  }
+
+  .infographic {
+    font-size: 48px;
+    margin-left: 120px;
+  }
+
+  .infographic_txt {
+    gap: 4%
+  }
+
+  .about {
+    margin: 150px auto 60px;
+  }
+
+  .about h2 {
+    margin-left: 120px;
+  }
+
+  .about-content {
+    gap: 80px;
+    display: flex;
+    padding: 0 30px;
+  }
+
+  h3 {
+    margin-left: 120px;
+    margin-right: 80px
+  }
+
+  .products {
+    gap: 3%;
+    padding: 40px 40px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    gap: 50px;
+    display: flex;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    font-size: 22px;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .logo {
+    margin: 20px 0 20px 25px;
+  }
+
+  .contact-phone {
+    margin-right: 25px;
+    font-size: 26px;
+  }
+
+  .top-nav {
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .header h1 {
+    font-size: 44px;
+    margin-left: 80px;
+  }
+
+  .header p {
+    font-size: 20px;
+    margin-left: 80px;
+  }
+
+  .cta-buttons {
+    margin-left: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .infographic {
+    margin-left: 80px;
+  }
+
+  .infographic_txt {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .infographic_block {
+    width: 100%;
+  }
+
+  .about {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .about h2 {
+    margin-left: 80px;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .about-left img {
+    width: 100%;
+  }
+
+  h3 {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
+  .products {
+    gap: 3%;
+    padding: 40px 40px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    max-width: 440px;
+    min-width: 145px;
+    font-size: 22px;
+  }
+
+  .search-input {
+    width: 250px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .header {
+    padding-bottom: 30px;
+  }
+
+  .header_tt {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-phone {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+
+  .search {
+    display: block;
+  }
+
+  .search-input {
+    width: 200px;
+    right: -50px;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 60px;
+  }
+
+  .header h1 {
+    font-size: 38px;
+    margin: 80px 80px 20px;
+  }
+
+  .header p {
+    font-size: 18px;
+    margin: 20px 80px;
+    text-align: left;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .infographic {
+    margin-left: 80px;
+  }
+
+  .infographic_txt {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .about h2 {
+    margin-left: 80px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 430px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .contact-btn {
+    align-self: center;
+  }
+
+  h3 {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+
+  .products {
+    gap: 3%;
+    padding: 40px 40px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    width: 90vw
+  }
+
+  .product-card img {
+    width: 400px;
+    height: 350px;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    margin-bottom: 80px;
+    font-size: 48px;
+    margin-left: 80px;
+  }
+
+  .contact-columns {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    max-width: 460px;
+    padding: auto 50px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .header {
+    padding: 20px 15px 40px 15px;
+    text-align: center;
+  }
+
+  .header_tt {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .logo {
+    margin: 10px 0;
+    width: 150px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-phone {
+    margin: 10px 0;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0 30px 0;
+    text-align: center;
+  }
+
+  .top-nav a {
+    font-size: 16px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    margin: 15px;
+    width: 250px;
+    text-align: start;
+  }
+
+  .header p {
+    font-size: 16px;
+    margin: 20px 15px 25px 15px;
+    line-height: 1.5;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .downloadBtn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .infographic {
+    margin: 30px 80px;
+    font-size: 40px;
+  }
+
+  .infographic_txt {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .infographic_block {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  .about {
+    margin: 50px 15px 50px 15px;
+  }
+
+  .about h2 {
+    font-size: 38px;
+    margin: 0 0 20px 80px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-left,
+  .about-right {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+  }
+
+  .about-left img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-btn {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  h3 {
+    font-size: 26px;
+    margin: 30px 15px;
+    text-align: center;
+  }
+
+  .products {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .product-card {
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 15px 0;
+  }
+
+  .product-txt {
+    width: 100%;
+  }
+
+  .card-header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .product-card p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    padding: 40px 15px;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  .contact-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .contact-columns {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+  }
+
+  .contact-card {
+    max-width: 300px;
+    font-size: 14px;
+    padding: 15px;
+  }
+}
