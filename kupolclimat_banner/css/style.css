@@ -155,8 +155,17 @@ a {
     cursor: pointer;
 }
 
+/* Временно для отладки */
+#banner-container {
+    border: 2px solid red !important; /* Чтобы видеть контейнер */
+    min-height: 200px !important;
+    background-color: rgba(255,0,0,0.1) !important;
+}
 
-
+.rotating-banner {
+    border: 2px solid blue !important;
+}
+    
 .rotating-banner {
     display: flex;
     justify-content: space-between;
@@ -2020,4 +2029,5 @@ a {
         padding: 10px 12px;
         font-size: 14px;
     }
+
 }
