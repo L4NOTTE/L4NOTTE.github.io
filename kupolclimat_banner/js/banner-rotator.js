@@ -38,7 +38,7 @@ class BannerRotator {
     createBanner1() {
         return `
             <div class="rotating-banner banner-1">
-                <img src="img/Климат_белый.png" alt="Распродажа" onerror="console.error('Ошибка загрузки изображения 1')">
+                <img src="./img/Климат_белый.png" alt="Распродажа" onerror="console.error('Ошибка загрузки изображения 1')">
                 <div class="banner-text">
                     РАСПРОДАЖА<br>
                     СКЛАДСКИХ ОСТАТКОВ<br>
@@ -56,10 +56,10 @@ class BannerRotator {
         return `
             <div class="rotating-banner banner-2">
                 <span class="banner-images">
-                    <img src="img/1.png" alt="Продукция 1" onerror="console.error('Ошибка загрузки изображения 2-1')">
-                    <img src="img/2.png" alt="Продукция 2" onerror="console.error('Ошибка загрузки изображения 2-2')">
-                    <img src="img/3.png" alt="Продукция 3" onerror="console.error('Ошибка загрузки изображения 2-3')">
-                    <img src="img/4.png" alt="Продукция 4" onerror="console.error('Ошибка загрузки изображения 2-4')">
+                    <img src="./img/1.png" alt="Продукция 1" onerror="console.error('Ошибка загрузки изображения 2-1')">
+                    <img src="./img/2.png" alt="Продукция 2" onerror="console.error('Ошибка загрузки изображения 2-2')">
+                    <img src="./img/3.png" alt="Продукция 3" onerror="console.error('Ошибка загрузки изображения 2-3')">
+                    <img src="./img/4.png" alt="Продукция 4" onerror="console.error('Ошибка загрузки изображения 2-4')">
                 </span>
                 <div class="banner-text">
                     <h1>КАТАЛОГ</h1>
@@ -166,9 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Контейнер баннеров НЕ НАЙДЕН!');
     }
-
-    // Временный код для проверки
-    console.log('Banner container:', document.getElementById('banner-container'));
-    console.log('All banners:', document.querySelectorAll('.rotating-banner'));
 });
+
 
