@@ -166,4 +166,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Контейнер баннеров НЕ НАЙДЕН!');
     }
+
+    // Временный код для проверки
+    console.log('Banner container:', document.getElementById('banner-container'));
+    console.log('All banners:', document.querySelectorAll('.rotating-banner'));
 });
+
