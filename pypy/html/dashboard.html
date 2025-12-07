@@ -1,0 +1,82 @@
+<div id="dashboard" class="page active">
+  <h1 class="page-title">Добро пожаловать, Иван!</h1>
+
+  <div class="notification info">
+    <div>
+      <i class="fas fa-info-circle"></i> У вас запланирован прием у терапевта
+      завтра в 10:30
+    </div>
+    <button
+      class="close-notification"
+      onclick="this.parentElement.style.display='none'"
+    >
+      &times;
+    </button>
+  </div>
+
+  <div class="info-cards">
+    <div class="card">
+      <h3 class="card-title">
+        <i class="fas fa-calendar-check"></i> Ближайший прием
+      </h3>
+      <div class="card-content">
+        <p><strong>Дата:</strong> 15.06.2023</p>
+        <p><strong>Время:</strong> 10:30</p>
+        <p><strong>Врач:</strong> Петрова Е.С. (Терапевт)</p>
+        <p>
+          <strong>Статус:</strong>
+          <span class="status confirmed">Подтвержден</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">
+        <i class="fas fa-heartbeat"></i> Показатели здоровья
+      </h3>
+      <div class="card-content">
+        <p><strong>Давление:</strong> 120/80 (норма)</p>
+        <p><strong>Пульс:</strong> 72 уд/мин (норма)</p>
+        <p><strong>Последний визит:</strong> 01.05.2023</p>
+        <p><strong>Следующий визит:</strong> 15.06.2023</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title"><i class="fas fa-bell"></i> Уведомления</h3>
+      <div class="card-content">
+        <p>• Не забудьте принять лекарство "Аспирин" в 20:00</p>
+        <p>• Через 3 дня истекает рецепт на "Лозап"</p>
+        <p>• Результаты анализов готовы к просмотру</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Мои врачи</h2>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Врач</th>
+          <th>Специальность</th>
+          <th>Контакты</th>
+          <th>Последний визит</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Петрова Елена Сергеевна</td>
+          <td>Терапевт</td>
+          <td>+7 (495) 123-45-67</td>
+          <td>01.05.2023</td>
+        </tr>
+        <tr>
+          <td>Сидоров Алексей Владимирович</td>
+          <td>Кардиолог</td>
+          <td>+7 (495) 234-56-78</td>
+          <td>15.04.2023</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

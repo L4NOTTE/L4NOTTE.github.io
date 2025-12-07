@@ -1,0 +1,72 @@
+<!-- <meta charset="UTF-8" />
+<link rel="stylesheet" href="../css/style.css" />
+<body>
+  <div class="reg">
+    <h2>Здравствуйте</h2>
+    <form action="../html/login.html" method="post">
+      <p><input type="text" class="form" id="email" placeholder="email" /></p>
+      <p><input type="text" class="form" id="full-name" placeholder="user" /></p>
+      <p><input type="password" class="form" id="password" placeholder="password" /></p>
+      <button href="#" type="sumbit" class="btn">Регистрация</button>
+      <a href="#" type="submit" class="btn">Выход</a>
+    </form>
+  </div>
+</body> -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>МедКлиент</span>
+            </div>
+            <h2>Регистрация</h2>
+            <form action="../php/reg.php" method="post" id="regForm">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="full_name" id="full_name" placeholder="ФИО" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                <br>
+                <br>
+                <a href="../html/login.html" class="btn btn-secondary">Уже есть аккаунт?</a>
+                <div id="error-message" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            document.getElementById('error-message').textContent = 'Пароли не совпадают';
+            return false;
+        }
+        
+        if (password.length < 6) {
+            e.preventDefault();
+            document.getElementById('error-message').textContent = 'Пароль должен быть не менее 6 символов';
+            return false;
+        }
+    });
+    </script>
+</body>
+</html>

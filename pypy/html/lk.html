@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Личный кабинет пациента</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="container main-content">
+      <!-- Боковое меню -->
+      <nav class="sidebar">
+        <div class="menu-item active" onclick="showPage('dashboard')">
+          <i class="fas fa-home"></i>
+          <span>Главная</span>
+        </div>
+        <div class="menu-item" onclick="showPage('appointments')">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Мои записи</span>
+        </div>
+        <div class="menu-item" onclick="showPage('medical-records')">
+          <i class="fas fa-file-medical"></i>
+          <span>Медицинская карта</span>
+        </div>
+        <div class="menu-item" onclick="showPage('prescriptions')">
+          <i class="fas fa-pills"></i>
+          <span>Рецепты</span>
+        </div>
+        <div class="menu-item" onclick="showPage('doctors')">
+          <i class="fas fa-user-md"></i>
+          <span>Мои врачи</span>
+        </div>
+        <div class="menu-item" onclick="showPage('profile')">
+          <i class="fas fa-user-cog"></i>
+          <span>Настройки профиля</span>
+        </div>
+      </nav>
+
+      <!-- Основной контент -->
+      <main class="content">
+        <!-- Главная страница -->
+        <div id="dashboard" class="page active">
+          <h1 class="page-title">Добро пожаловать, Иван!</h1>
+
+          <div class="notification info">
+            <div>
+              <i class="fas fa-info-circle"></i> У вас запланирован прием у
+              терапевта завтра в 10:30
+            </div>
+            <button
+              class="close-notification"
+              onclick="this.parentElement.style.display='none'"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div class="info-cards">
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-calendar-check"></i> Ближайший прием
+              </h3>
+              <div class="card-content">
+                <p><strong>Дата:</strong> 15.06.2023</p>
+                <p><strong>Время:</strong> 10:30</p>
+                <p><strong>Врач:</strong> Петрова Е.С. (Терапевт)</p>
+                <p>
+                  <strong>Статус:</strong>
+                  <span class="status confirmed">Подтвержден</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-heartbeat"></i> Показатели здоровья
+              </h3>
+              <div class="card-content">
+                <p><strong>Давление:</strong> 120/80 (норма)</p>
+                <p><strong>Пульс:</strong> 72 уд/мин (норма)</p>
+                <p><strong>Последний визит:</strong> 01.05.2023</p>
+                <p><strong>Следующий визит:</strong> 15.06.2023</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-bell"></i> Уведомления
+              </h3>
+              <div class="card-content">
+                <p>• Не забудьте принять лекарство "Аспирин" в 20:00</p>
+                <p>• Через 3 дня истекает рецепт на "Лозап"</p>
+                <p>• Результаты анализов готовы к просмотру</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>Мои врачи</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Врач</th>
+                  <th>Специальность</th>
+                  <th>Контакты</th>
+                  <th>Последний визит</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Петрова Елена Сергеевна</td>
+                  <td>Терапевт</td>
+                  <td>+7 (495) 123-45-67</td>
+                  <td>01.05.2023</td>
+                </tr>
+                <tr>
+                  <td>Сидоров Алексей Владимирович</td>
+                  <td>Кардиолог</td>
+                  <td>+7 (495) 234-56-78</td>
+                  <td>15.04.2023</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Мои записи -->
+        <div id="appointments" class="page">
+          <h1 class="page-title">Мои записи на прием</h1>
+          <button
+            onclick="showPage('new-appointment')"
+            style="margin-bottom: 20px"
+          >
+            <i class="fas fa-plus"></i> Записаться на прием
+          </button>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Дата</th>
+                  <th>Время</th>
+                  <th>Врач</th>
+                  <th>Специальность</th>
+                  <th>Статус</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15.06.2023</td>
+                  <td>10:30</td>
+                  <td>Петрова Е.С.</td>
+                  <td>Терапевт</td>
+                  <td><span class="status confirmed">Подтвержден</span></td>
+                  <td>
+                    <button class="cancel-btn" onclick="cancelAppointment(1)">
+                      Отменить
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>25.06.2023</td>
+                  <td>14:00</td>
+                  <td>Сидоров А.В.</td>
+                  <td>Кардиолог</td>
+                  <td><span class="status pending">Ожидание</span></td>
+                  <td>
+                    <button class="cancel-btn" onclick="cancelAppointment(2)">
+                      Отменить
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10.05.2023</td>
+                  <td>11:15</td>
+                  <td>Петрова Е.С.</td>
+                  <td>Терапевт</td>
+                  <td><span class="status cancelled">Отменен</span></td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Новая запись -->
+        <div id="new-appointment" class="page">
+          <h1 class="page-title">Запись на прием</h1>
+
+          <div class="form-group">
+            <label for="doctor">Выберите врача:</label>
+            <select id="doctor">
+              <option value="">-- Выберите врача --</option>
+              <option value="1">Петрова Елена Сергеевна (Терапевт)</option>
+              <option value="2">
+                Сидоров Алексей Владимирович (Кардиолог)
+              </option>
+              <option value="3">Козлова Мария Ивановна (Невролог)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Дата приема:</label>
+            <input type="date" id="date" />
+          </div>
+
+          <div class="form-group">
+            <label for="time">Время приема:</label>
+            <select id="time">
+              <option value="">-- Выберите время --</option>
+              <option value="9:00">9:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="symptoms">Описание симптомов (необязательно):</label>
+            <textarea
+              id="symptoms"
+              rows="4"
+              placeholder="Опишите ваши симптомы или причину обращения"
+            ></textarea>
+          </div>
+
+          <div style="display: flex; gap: 10px">
+            <button onclick="createAppointment()">Записаться</button>
+            <button
+              onclick="showPage('appointments')"
+              style="background-color: #6c757d"
+            >
+              Отмена
+            </button>
+          </div>
+        </div>
+
+        <!-- Медицинская карта -->
+        <div id="medical-records" class="page">
+          <h1 class="page-title">Медицинская карта</h1>
+
+          <div class="info-cards">
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-allergies"></i> Аллергии
+              </h3>
+              <div class="card-content">
+                <p>• Пенициллин (тяжелая реакция)</p>
+                <p>• Пыльца березы (сезонная)</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-disease"></i> Хронические заболевания
+              </h3>
+              <div class="card-content">
+                <p>• Гипертония 1 степени (с 2018)</p>
+                <p>• Гастрит (с 2020)</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>История посещений</h2>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Дата</th>
+                  <th>Врач</th>
+                  <th>Диагноз</th>
+                  <th>Рекомендации</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01.05.2023</td>
+                  <td>Петрова Е.С. (Терапевт)</td>
+                  <td>Острая респираторная инфекция</td>
+                  <td>
+                    Постельный режим, обильное питье, парацетамол при
+                    температуре
+                  </td>
+                </tr>
+                <tr>
+                  <td>15.04.2023</td>
+                  <td>Сидоров А.В. (Кардиолог)</td>
+                  <td>Артериальная гипертензия</td>
+                  <td>
+                    Контроль давления, прием Лозапа 50мг/сут, ограничение соли
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Рецепты -->
+        <div id="prescriptions" class="page">
+          <h1 class="page-title">Мои рецепты</h1>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Лекарство</th>
+                  <th>Дозировка</th>
+                  <th>Врач</th>
+                  <th>Дата выписки</th>
+                  <th>Срок действия</th>
+                  <th>Статус</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Лозап</td>
+                  <td>50 мг, 1 раз в день</td>
+                  <td>Сидоров А.В.</td>
+                  <td>15.04.2023</td>
+                  <td>15.07.2023</td>
+                  <td><span class="status confirmed">Активен</span></td>
+                </tr>
+                <tr>
+                  <td>Аспирин Кардио</td>
+                  <td>100 мг, 1 раз в день</td>
+                  <td>Сидоров А.В.</td>
+                  <td>15.04.2023</td>
+                  <td>15.07.2023</td>
+                  <td><span class="status confirmed">Активен</span></td>
+                </tr>
+                <tr>
+                  <td>Омепразол</td>
+                  <td>20 мг, 2 раза в день</td>
+                  <td>Петрова Е.С.</td>
+                  <td>01.05.2023</td>
+                  <td>01.06.2023</td>
+                  <td><span class="status cancelled">Истек</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Мои врачи -->
+        <div id="doctors" class="page">
+          <h1 class="page-title">Мои врачи</h1>
+
+          <div class="info-cards">
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-user-md"></i> Петрова Елена Сергеевна
+              </h3>
+              <div class="card-content">
+                <p><strong>Специальность:</strong> Терапевт</p>
+                <p><strong>Стаж:</strong> 15 лет</p>
+                <p><strong>Контакты:</strong> +7 (495) 123-45-67</p>
+                <p><strong>Последний визит:</strong> 01.05.2023</p>
+                <p><strong>Следующий визит:</strong> 15.06.2023</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">
+                <i class="fas fa-heart"></i> Сидоров Алексей Владимирович
+              </h3>
+              <div class="card-content">
+                <p><strong>Специальность:</strong> Кардиолог</p>
+                <p><strong>Стаж:</strong> 12 лет</p>
+                <p><strong>Контакты:</strong> +7 (495) 234-56-78</p>
+                <p><strong>Последний визит:</strong> 15.04.2023</p>
+                <p><strong>Следующий визит:</strong> 25.06.2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Настройки профиля -->
+        <div id="profile" class="page">
+          <h1 class="page-title">Настройки профиля</h1>
+
+          <div
+            class="notification success"
+            id="profile-success"
+            style="display: none"
+          >
+            <div>
+              <i class="fas fa-check-circle"></i> Данные успешно сохранены!
+            </div>
+            <button
+              class="close-notification"
+              onclick="this.parentElement.style.display='none'"
+            >
+              &times;
+            </button>
+          </div>
+
+          <form id="profile-form">
+            <div class="form-group">
+              <label for="full-name">ФИО:</label>
+              <input type="text" id="full-name" value="Иванов Иван Иванович" />
+            </div>
+
+            <div class="form-group">
+              <label for="birth-date">Дата рождения:</label>
+              <input type="date" id="birth-date" value="1985-05-15" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Телефон:</label>
+              <input type="tel" id="phone" value="+7 (900) 123-45-67" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Электронная почта:</label>
+              <input type="email" id="email" value="ivanov@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Адрес:</label>
+              <input
+                type="text"
+                id="address"
+                value="г. Москва, ул. Примерная, д. 10, кв. 25"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password"
+                >Новый пароль (оставьте пустым, если не хотите менять):</label
+              >
+              <input type="password" id="password" />
+            </div>
+
+            <button type="button" onclick="saveProfile()">
+              Сохранить изменения
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="../js/script.js"></script>
+</html>
