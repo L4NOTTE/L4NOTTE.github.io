@@ -1,0 +1,49 @@
+<div id="new-appointment" class="page">
+  <h1 class="page-title">Запись на прием</h1>
+
+  <div class="form-group">
+    <label for="doctor">Выберите врача:</label>
+    <select id="doctor">
+      <option value="">-- Выберите врача --</option>
+      <option value="1">Петрова Елена Сергеевна (Терапевт)</option>
+      <option value="2">Сидоров Алексей Владимирович (Кардиолог)</option>
+      <option value="3">Козлова Мария Ивановна (Невролог)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="date">Дата приема:</label>
+    <input type="date" id="date" />
+  </div>
+
+  <div class="form-group">
+    <label for="time">Время приема:</label>
+    <select id="time">
+      <option value="">-- Выберите время --</option>
+      <option value="9:00">9:00</option>
+      <option value="10:00">10:00</option>
+      <option value="11:00">11:00</option>
+      <option value="14:00">14:00</option>
+      <option value="15:00">15:00</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="symptoms">Описание симптомов (необязательно):</label>
+    <textarea
+      id="symptoms"
+      rows="4"
+      placeholder="Опишите ваши симптомы или причину обращения"
+    ></textarea>
+  </div>
+
+  <div style="display: flex; gap: 10px">
+    <button onclick="createAppointment()">Записаться</button>
+    <button
+      onclick="showPage('appointments')"
+      style="background-color: #6c757d"
+    >
+      Отмена
+    </button>
+  </div>
+</div>

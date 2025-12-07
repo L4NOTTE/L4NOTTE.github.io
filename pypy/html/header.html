@@ -1,0 +1,41 @@
+<header>
+  <div class="container header-container">
+    <div class="logo">
+      <i class="fas fa-heartbeat"></i>
+      <span>МедКлиент</span>
+    </div>
+    <div class="user-info">
+      <div class="user-avatar" id="userAvatar">NN</div>
+      <div>
+        <div class="user-name" id="userName"></div>
+        <div class="user-id" id="userId"></div>
+      </div>
+      <form action="../php/logout.php" method="POST" class="logout-form">
+        <button class="logout-btn" type="submit">
+          <i class="fas fa-sign-out-alt"></i> Выйти
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<script>
+// Загрузка данных пользователя при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('../php/lk.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.user) {
+                // Обновляем шапку
+                document.getElementById('userName').textContent = data.user.full_name;
+                document.getElementById('userId').textContent = `ID: ${data.user.id}`;
+                
+                // Обновляем аватар (первые буквы имени и фамилии)
+                const names = data.user.full_name.split(' ');
+                const initials = (names[0][0] + (names[1] ? names[1][0] : '')).toUpperCase();
+                document.getElementById('userAvatar').textContent = initials;
+            }
+        })
+        .catch(error => console.error('Ошибка загрузки данных:', error));
+});
+</script>

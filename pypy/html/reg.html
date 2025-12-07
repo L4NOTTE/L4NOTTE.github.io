@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    // Функция для получения параметров URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    
+    // Проверяем есть ли ошибки в URL
+    window.onload = function() {
+        var error = getUrlParameter('error');
+        if (error) {
+            var errorDiv = document.getElementById('server-error-message');
+            errorDiv.textContent = error;
+            errorDiv.style.display = 'block';
+        }
+    };
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>МедКлиент</span>
+            </div>
+            <h2>Регистрация</h2>
+            <form action="../php/reg.php" method="post" id="regForm">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="full_name" id="full_name" placeholder="ФИО" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Подтвердите пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                <br><br>
+                <a href="../html/login.html" class="btn btn-secondary">Уже есть аккаунт?</a>
+                <div id="client-error-message" class="error-message" style="display: none;"></div>
+                <div id="server-error-message" class="error-message" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    // Валидация на стороне клиента
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        const email = document.getElementById('email').value;
+        const fullName = document.getElementById('full_name').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        const errorDiv = document.getElementById('client-error-message');
+        
+        // Скрываем предыдущие ошибки
+        errorDiv.style.display = 'none';
+        errorDiv.textContent = '';
+        
+        // Валидация
+        if (!email || !fullName || !password || !confirmPassword) {
+            e.preventDefault();
+            errorDiv.textContent = 'Заполните все поля';
+            errorDiv.style.display = 'block';
+            return false;
+        }
+        
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            errorDiv.textContent = 'Пароли не совпадают';
+            errorDiv.style.display = 'block';
+            return false;
+        }
+        
+        if (password.length < 6) {
+            e.preventDefault();
+            errorDiv.textContent = 'Пароль должен быть не менее 6 символов';
+            errorDiv.style.display = 'block';
+            return false;
+        }
+        
+        if (fullName.length < 2) {
+            e.preventDefault();
+            errorDiv.textContent = 'ФИО должно содержать не менее 2 символов';
+            errorDiv.style.display = 'block';
+            return false;
+        }
+        
+        // Проверка email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            e.preventDefault();
+            errorDiv.textContent = 'Введите корректный email';
+            errorDiv.style.display = 'block';
+            return false;
+        }
+    });
+    </script>
+</body>
+</html>

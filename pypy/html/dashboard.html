@@ -1,0 +1,74 @@
+<div id="dashboard" class="page active">
+  <h1 class="page-title">
+    Добро пожаловать,
+    <?php echo htmlspecialchars($user_data['full_name']); ?>!
+  </h1>
+
+  <div class="notification info">
+    <div>
+      <i class="fas fa-info-circle"></i> Добро пожаловать в ваш личный кабинет
+    </div>
+    <button
+      class="close-notification"
+      onclick="this.parentElement.style.display='none'"
+    >
+      &times;
+    </button>
+  </div>
+
+  <div class="info-cards">
+    <div class="card">
+      <h3 class="card-title"><i class="fas fa-user"></i> Ваш профиль</h3>
+      <div class="card-content">
+        <p>
+          <strong>Email:</strong>
+          <?php echo htmlspecialchars($user_data['email']); ?>
+        </p>
+        <p>
+          <strong>Телефон:</strong>
+          <?php echo !empty($user_data['phone']) ? htmlspecialchars($user_data['phone']) : 'Не указан'; ?>
+        </p>
+        <?php if (!empty($user_data['birth_date'])): 
+                                $birth_date = new DateTime($user_data['birth_date']);
+                            ?>
+        <p>
+          <strong>Дата рождения:</strong>
+          <?php echo $birth_date->format('d.m.Y'); ?>
+        </p>
+        <?php else: ?>
+        <p><strong>Дата рождения:</strong> Не указана</p>
+        <?php endif; ?>
+        <p>
+          <strong>Адрес:</strong>
+          <?php echo !empty($user_data['address']) ? htmlspecialchars($user_data['address']) : 'Не указан'; ?>
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">
+        <i class="fas fa-heartbeat"></i> Быстрые действия
+      </h3>
+      <div class="card-content">
+        <p>
+          •
+          <a href="javascript:void(0)" onclick="showPage('new-appointment')"
+            >Записаться на прием</a
+          >
+        </p>
+        <p>
+          •
+          <a href="javascript:void(0)" onclick="showPage('profile')"
+            >Редактировать профиль</a
+          >
+        </p>
+        <p>
+          •
+          <a href="javascript:void(0)" onclick="showPage('medical-records')"
+            >Посмотреть медицинскую карту</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

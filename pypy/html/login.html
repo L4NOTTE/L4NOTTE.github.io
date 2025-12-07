@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    // Функция для получения параметров URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    
+    // Проверяем есть ли ошибки в URL
+    window.onload = function() {
+        var error = getUrlParameter('error');
+        if (error) {
+            var errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = error;
+            errorDiv.style.display = 'block';
+        }
+    };
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>МедКлиент</span>
+            </div>
+            <h2>Вход в личный кабинет</h2>
+            <form action="../php/login.php" method="post" id="loginForm">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+                <br><br>
+                <a href="../html/reg.html" class="btn btn-secondary">Регистрация</a>
+                <div id="error-message" class="error-message" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    // Валидация формы
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        if (!email || !password) {
+            e.preventDefault();
+            document.getElementById('error-message').textContent = 'Заполните все поля';
+            document.getElementById('error-message').style.display = 'block';
+            return false;
+        }
+    });
+    </script>
+</body>
+</html>
