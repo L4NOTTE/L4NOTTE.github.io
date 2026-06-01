@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог — ПРОМСНАБ</title>
+<link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+<style>
+
+      /* ── ПЕРЕМЕННЫЕ ── */
+      :root {
+        --bg: #f0f4f8;
+        --surf: #ffffff;
+        --surf2: #eef1f7;
+        --line: #dde3ee;
+        --line2: #c5cfdf;
+        --acc: #e31e24;
+        --acc2: #0056a3;
+        --navy: #034583;
+        --txt: #0f1f3d;
+        --muted: #6b7a99;
+        --muted2: #a8b4c8;
+        --white: #ffffff;
+        --ff-h: "Bebas Neue", sans-serif;
+        --ff-b: "Geologica", sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--ff-b);
+        background: var(--bg);
+        color: var(--txt);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* ── КНОПКИ ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        border-radius: 3px;
+        font-family: var(--ff-h);
+        font-size: 16px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-red {
+        background: var(--acc);
+        color: #fff;
+      }
+      .btn-red:hover {
+        background: #c01820;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(227, 30, 36, 0.35);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid var(--line2);
+      }
+      .header-inner .btn-ghost {
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .header-inner .btn-ghost:hover {
+        border-color: var(--acc);
+        color: var(--acc);
+      }
+      .btn-ghost:hover {
+        border-color: var(--acc);
+        color: var(--acc);
+      }
+      .btn-sm {
+        padding: 9px 18px;
+        font-size: 13px;
+      }
+
+      /* ── ШАПКА ── */
+      .topbar {
+        background: var(--surf);
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+      }
+      .topbar .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .topbar-l,
+      .topbar-r {
+        display: flex;
+        gap: 24px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .topbar-r a,
+      .topbar-l a {
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .topbar-r a:hover,
+      .topbar-l a:hover {
+        color: var(--txt);
+      }
+
+      header {
+        background: rgba(24, 82, 188, 0.98);
+        backdrop-filter: blur(12px);
+        /* border-bottom: 1px solid var(--line); */
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 66px;
+        gap: 24px;
+      }
+      .logo {
+        font-family: var(--ff-h);
+        font-size: 24px;
+        letter-spacing: 4px;
+        color: var(--white);
+      }
+      .logo span {
+        color: #8b8b8b;
+      }
+      .nav {
+        display: flex;
+        gap: 0;
+      }
+      .nav a {
+        padding: 0 14px;
+        height: 66px;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav a:hover {
+        color: #ffffff;
+        border-color: var(--acc);
+      }
+      .header-r {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .hphone {
+        font-family: var(--ff-h);
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: #ffffff;
+      }
+      .hphone:hover {
+        color: var(--acc2);
+      }
+
+      /* ── ОБЁРТКА ── */
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: #071c36;
+      }
+      .hero-mesh {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 55% 70% at 75% 40%,
+            rgba(0, 86, 163, 0.1) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 35% 40% at 15% 70%,
+            rgba(0, 86, 163, 0.06) 0%,
+            transparent 60%
+          );
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(0, 141, 210, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 141, 210, 0.07) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(0, 0, 0, 0.6) 25%,
+          rgba(0, 0, 0, 0.6) 75%,
+          transparent
+        );
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+        padding: 112px 0 96px;
+      }
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .hero-line {
+        width: 36px;
+        height: 2px;
+        background: var(--acc);
+      }
+      .hero-eyebrow span {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #8ea4c0;
+      }
+      .hero h1 {
+        font-family: var(--ff-h);
+        font-size: clamp(54px, 6.5vw, 92px);
+        line-height: 0.95;
+        letter-spacing: 1px;
+        color: #ffffff;
+        margin-bottom: 24px;
+      }
+      .hero h1 .ac {
+        color: var(--acc2);
+        display: block;
+      }
+      .hero h1 .hl {
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
+        color: transparent;
+        display: block;
+      }
+      .hero-desc {
+        font-size: 15px;
+        color: #b0bfd4;
+        line-height: 1.8;
+        max-width: 440px;
+        margin-bottom: 40px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+      }
+      .hero-nums {
+        display: flex;
+        gap: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 40px;
+      }
+      .hero-num {
+        padding-right: 40px;
+        margin-right: 40px;
+        border-right: 1px solid var(--line);
+      }
+      .hero-num:last-child {
+        border: none;
+      }
+      .hero-num-v {
+        font-family: var(--ff-h);
+        font-size: 42px;
+        letter-spacing: 1px;
+        color: #ffffff;
+        line-height: 1;
+      }
+      .hero-num-v em {
+        font-style: normal;
+        color: var(--acc2);
+      }
+      .hero-num-l {
+        font-size: 11px;
+        color: #8ea4c0;
+        margin-top: 5px;
+        letter-spacing: 0.3px;
+      }
+
+      /* Hero правая часть */
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hcard {
+        background: var(--surf);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        padding: 20px 22px;
+        transition: border-color 0.2s;
+      }
+      .hcard:hover {
+        border-color: rgba(227, 30, 36, 0.4);
+      }
+      .hcard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .hcard-cat {
+        font-size: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .badge {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(227, 30, 36, 0.15);
+        color: var(--acc2);
+      }
+      .badge.g {
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+      }
+      .hcard-name {
+        font-family: var(--ff-h);
+        font-size: 17px;
+        letter-spacing: 0.5px;
+        color: var(--txt);
+        margin-bottom: 6px;
+      }
+      .hcard-specs {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .hcard-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+      .hcard-price {
+        font-family: var(--ff-h);
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: var(--acc2);
+      }
+      .hcard-link {
+        font-size: 11px;
+        color: var(--muted);
+        letter-spacing: 0.5px;
+      }
+
+      /* ── TICKER ── */
+      .ticker {
+        background: var(--acc);
+        overflow: hidden;
+        padding: 11px 0;
+      }
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: tick 30s linear infinite;
+      }
+      .ticker-item {
+        font-family: var(--ff-h);
+        font-size: 14px;
+        letter-spacing: 2.5px;
+        white-space: nowrap;
+        padding: 0 28px;
+        color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .ticker-dot {
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+      }
+      @keyframes tick {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── СЕКЦИИ ── */
+      .section {
+        padding: 112px 0;
+      }
+      .section-alt {
+        background: var(--surf);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .s-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 60px;
+      }
+      .s-tag {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--acc);
+        margin-bottom: 14px;
+      }
+      .s-tag::before {
+        content: "— ";
+      }
+      h2.s-title {
+        font-family: var(--ff-h);
+        font-size: clamp(30px, 3.5vw, 46px);
+        letter-spacing: 1px;
+        line-height: 1;
+        color: var(--txt);
+        margin-bottom: 10px;
+      }
+      .s-sub {
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 460px;
+        line-height: 1.7;
+      }
+
+      /* ── КАТЕГОРИИ ── */
+      .cats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        background: var(--line);
+        border: 2px solid var(--line);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .cat {
+        background: var(--surf);
+        padding: 36px 28px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        display: block;
+        transition: background 0.2s;
+      }
+      .cat:hover {
+        background: var(--surf2);
+      }
+      .cat::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--acc);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+      .cat:hover::after {
+        transform: scaleX(1);
+      }
+      .cat-ico {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        background: var(--surf2);
+        border: 1px solid var(--line2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 22px;
+      }
+      .cat-name {
+        font-family: var(--ff-h);
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        color: var(--txt);
+        margin-bottom: 6px;
+      }
+      .cat-hint {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .cat-arrow {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        color: var(--line2);
+        font-size: 18px;
+        transition: all 0.2s;
+      }
+      .cat:hover .cat-arrow {
+        color: var(--acc);
+        transform: translate(3px, -3px);
+      }
+      .cat-hot {
+        background: rgba(0, 86, 163, 0.08) !important;
+        border-bottom: 2px solid var(--acc);
+      }
+
+      /* ── ПРЕИМУЩЕСТВА ── */
+      .adv-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1px;
+        background: var(--line);
+      }
+      .adv {
+        background: var(--surf);
+        padding: 40px 28px;
+        position: relative;
+      }
+      .adv::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--acc);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s;
+      }
+      .adv:hover::before {
+        transform: scaleX(1);
+      }
+      .adv-ico {
+        font-size: 26px;
+        margin-bottom: 14px;
+      }
+      .adv-t {
+        font-family: var(--ff-h);
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: var(--txt);
+        margin-bottom: 8px;
+      }
+      .adv-d {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      /* ── ТОВАРЫ НА ГЛАВНОЙ ── */
+      .prods-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .pcard {
+        background: var(--surf);
+        border: 1px solid var(--line);
+        border-radius: 3px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          border-color 0.25s,
+          transform 0.25s;
+      }
+      .pcard:hover {
+        border-color: rgba(227, 30, 36, 0.4);
+        transform: translateY(-4px);
+      }
+      .pcard-img {
+        aspect-ratio: 4/3;
+        background: var(--surf2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        position: relative;
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+      }
+      .pcard-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .pcard-sticker {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 1;
+        font-family: var(--ff-h);
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        padding: 4px 12px;
+        border-radius: 2px;
+      }
+      .stk-green {
+        background: #16a34a;
+        color: #fff;
+      }
+      .stk-orange {
+        background: var(--acc2);
+        color: #fff;
+      }
+      .pcard-body {
+        padding: 24px;
+      }
+      .pcard-name {
+        font-family: var(--ff-h);
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        color: var(--txt);
+        margin-bottom: 8px;
+      }
+      .pcard-specs {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+      .pcard-specs li {
+        list-style: none;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+      .pcard-specs li::before {
+        content: "·";
+        color: var(--acc);
+        flex-shrink: 0;
+      }
+      .pcard-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .pcard-price {
+        font-family: var(--ff-h);
+        font-size: 20px;
+        color: var(--txt);
+      }
+      .pcard-price small {
+        font-size: 12px;
+        font-family: var(--ff-b);
+        color: var(--muted);
+        font-weight: 400;
+      }
+      .pcard-btn {
+        padding: 8px 16px;
+        border-radius: 2px;
+        font-family: var(--ff-h);
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        border: 1px solid var(--line2);
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .pcard-btn:hover {
+        background: var(--acc);
+        border-color: var(--acc);
+        color: #fff;
+      }
+
+      /* ── КАК РАБОТАЕМ ── */
+      .how-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        position: relative;
+      }
+      .how-grid::before {
+        content: "";
+        position: absolute;
+        top: 27px;
+        left: 12%;
+        width: 76%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          var(--acc),
+          var(--acc2),
+          var(--line2)
+        );
+        z-index: 0;
+      }
+      .how-step {
+        position: relative;
+        z-index: 1;
+        padding: 0 32px;
+        text-align: center;
+      }
+      .how-num-ring {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid var(--acc);
+        background: var(--surf);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+      }
+      .how-num-v {
+        font-family: var(--ff-h);
+        font-size: 20px;
+        color: var(--acc);
+      }
+      .how-t {
+        font-family: var(--ff-h);
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: var(--txt);
+        margin-bottom: 8px;
+      }
+      .how-d {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── ОТРАСЛИ ── */
+      .ind-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+      }
+      .ind {
+        background: var(--surf);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 32px 16px;
+        text-align: center;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .ind:hover {
+        border-color: var(--acc);
+        background: var(--surf2);
+      }
+      .ind:hover .ind-l {
+        color: var(--acc);
+      }
+      .ind-ico {
+        font-size: 26px;
+        margin-bottom: 10px;
+      }
+      .ind-l {
+        font-family: var(--ff-h);
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+
+      /* ── CTA ── */
+      .cta-band {
+        background: var(--surf);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        right: -80px;
+        top: -80px;
+        width: 440px;
+        height: 440px;
+        background: radial-gradient(
+          circle,
+          rgba(227, 30, 36, 0.1) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .cta-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        position: relative;
+        z-index: 1;
+        padding: 100px 0;
+      }
+      .cta-h {
+        font-family: var(--ff-h);
+        font-size: clamp(28px, 3.5vw, 48px);
+        letter-spacing: 1px;
+        line-height: 1.05;
+        color: var(--txt);
+        margin-bottom: 12px;
+      }
+      .cta-sub {
+        font-size: 14px;
+        color: var(--muted);
+        max-width: 380px;
+        line-height: 1.7;
+      }
+      .cta-form {
+        flex: 0 0 360px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .inp {
+        width: 100%;
+        padding: 13px 16px;
+        background: var(--bg);
+        border: 1px solid var(--line2);
+        border-radius: 3px;
+        color: var(--txt);
+        font-family: var(--ff-b);
+        font-size: 13px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .inp::placeholder {
+        color: var(--muted2);
+      }
+      .inp:focus {
+        border-color: var(--acc);
+      }
+      .inp-row {
+        display: flex;
+        gap: 10px;
+      }
+      .form-legal {
+        font-size: 10px;
+        color: var(--muted2);
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #0a2648;
+        border-top: 3px solid var(--acc);
+        padding: 72px 0 36px;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 72px;
+        padding-bottom: 56px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 28px;
+      }
+      .foot-logo {
+        font-family: var(--ff-h);
+        font-size: 24px;
+        letter-spacing: 4px;
+        color: #ffffff;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .foot-logo span {
+        color: var(--acc);
+      }
+      .foot-about {
+        font-size: 12px;
+        color: #8ea4c0;
+        line-height: 1.75;
+        margin-bottom: 20px;
+      }
+      .foot-phone {
+        font-family: var(--ff-h);
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: #ffffff;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .foot-email {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .foot-col h4 {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #5a7a9a;
+        margin-bottom: 16px;
+      }
+      .foot-col ul {
+        list-style: none;
+      }
+      .foot-col ul li {
+        margin-bottom: 9px;
+      }
+      .foot-col ul li a {
+        font-size: 13px;
+        color: #8ea4c0;
+        transition: color 0.2s;
+      }
+      .foot-col ul li a:hover {
+        color: #ffffff;
+      }
+      .foot-bottom {
+        display: flex;
+        justify-content: space-between;
+      }
+      .foot-copy {
+        font-size: 11px;
+        color: #5a7a9a;
+      }
+
+      /* ── АНИМАЦИЯ ── */
+      .up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .up.in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ── БАННЕР «ПОДДЕРЖИ РОССИЮ» ── */
+      #ru-banner {
+        background: var(--navy);
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(
+            90deg,
+            #fff 33%,
+            #034583 33% 66%,
+            #e31e24 66%
+          )
+          1;
+        overflow: hidden;
+        max-height: 52px;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease,
+          border 0.4s ease;
+      }
+      #ru-banner.hidden {
+        max-height: 0;
+        border-width: 0;
+        pointer-events: none;
+      }
+      .ru-banner-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0;
+      }
+      .ru-banner-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.9);
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .ru-banner-text .flag {
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .ru-banner-text strong {
+        color: #ffffff;
+        font-weight: 600;
+      }
+      .ru-banner-text .sep {
+        color: rgba(255, 255, 255, 0.25);
+        margin: 0 4px;
+      }
+      .ru-banner-link {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: var(--acc2);
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 1px solid rgba(0, 141, 210, 0.4);
+        padding-bottom: 1px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .ru-banner-link:hover {
+        color: #4db8f0;
+        border-color: #4db8f0;
+      }
+      .ru-banner-x {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 16px;
+        line-height: 1;
+        padding: 4px 6px;
+        transition: color 0.2s;
+        flex-shrink: 0;
+      }
+      .ru-banner-x:hover {
+        color: #ffffff;
+      }
+
+      /* ── КАРТОЧКА «РОССИЙСКОЕ ПРОИЗВОДСТВО» ── */
+      .ru-section {
+        background: var(--d-bg);
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0;
+      }
+      .ru-section::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 42%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 86, 163, 0.18) 0%,
+          rgba(3, 69, 131, 0.08) 100%
+        );
+        clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+      }
+      .ru-card-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--d-line2);
+        position: relative;
+        z-index: 1;
+      }
+      .ru-card-left {
+        background: linear-gradient(145deg, #0c1c30, #132a46);
+        padding: 52px 48px;
+        border-right: 1px solid var(--d-line2);
+      }
+      .ru-card-flag {
+        display: flex;
+        gap: 0;
+        width: 48px;
+        height: 5px;
+        border-radius: 1px;
+        overflow: hidden;
+        margin-bottom: 28px;
+      }
+      .ru-card-flag span {
+        flex: 1;
+      }
+      .ru-card-flag .f1 {
+        background: #fff;
+      }
+      .ru-card-flag .f2 {
+        background: #034583;
+      }
+      .ru-card-flag .f3 {
+        background: #e31e24;
+      }
+      .ru-card-tag {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--acc);
+        margin-bottom: 14px;
+      }
+      .ru-card-tag::before {
+        content: "— ";
+      }
+      .ru-card-h {
+        font-family: var(--ff-h);
+        font-size: clamp(26px, 3vw, 40px);
+        letter-spacing: 1px;
+        line-height: 1.05;
+        color: var(--white);
+        margin-bottom: 16px;
+      }
+      .ru-card-h em {
+        font-style: normal;
+        color: var(--white);
+      }
+      .ru-card-p {
+        font-size: 14px;
+        color: var(--white);
+        line-height: 1.8;
+        margin-bottom: 28px;
+        max-width: 380px;
+      }
+      .ru-card-stat {
+        display: flex;
+        gap: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--d-line);
+      }
+      .ru-stat-v {
+        font-family: var(--ff-h);
+        font-size: 34px;
+        color: var(--white);
+        line-height: 1;
+      }
+      .ru-stat-v em {
+        font-style: normal;
+        font-size: 20px;
+      }
+      .ru-stat-l {
+        font-size: 11px;
+        color: var(--white);
+        margin-top: 4px;
+        line-height: 1.4;
+      }
+
+      .ru-card-right {
+        background: #0f1e30;
+        padding: 40px 40px 40px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .ru-cmp-head {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .ru-cmp-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--ff-h);
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding: 10px 14px;
+        border-radius: 5px;
+      }
+      .ru-cmp-label .fl {
+        font-size: 16px;
+      }
+      .ru-cmp-label.ru {
+        background: rgba(0, 86, 163, 0.2);
+        color: var(--white);
+        border: 1px solid rgba(0, 141, 210, 0.2);
+      }
+      .ru-cmp-label.cn {
+        background: rgba(40, 40, 50, 0.6);
+        color: var(--white);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .ru-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .ru-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .ru-row:last-child {
+        border-bottom: none;
+      }
+      .ru-cell {
+        padding: 10px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+      }
+      .ru-cell .ic {
+        font-size: 12px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .ru-cell.pos {
+        background: rgba(0, 86, 163, 0.12);
+        color: rgba(238, 242, 248, 0.85);
+      }
+      .ru-cell.pos .ic {
+        color: #4ade80;
+      }
+      .ru-cell.neg {
+        background: rgba(30, 30, 40, 0.6);
+        color: rgba(160, 175, 196, 0.7);
+      }
+      .ru-cell.neg .ic {
+        color: rgba(227, 30, 36, 0.7);
+      }
+      .ru-card-cta {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      @media (max-width: 900px) {
+        .ru-card-inner {
+          grid-template-columns: 1fr;
+        }
+        .ru-card-left {
+          border-right: none;
+          border-bottom: 1px solid var(--d-line2);
+          padding: 36px 28px;
+        }
+        .ru-card-right {
+          padding: 28px;
+        }
+      }
+
+      /* ── АДАПТИВ ── */
+      @media (max-width: 1024px) {
+        .cats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .adv-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .prods-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ind-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .how-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .how-grid::before {
+          display: none;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .cta-inner {
+          flex-direction: column;
+        }
+        .cta-form {
+          flex: unset;
+          width: 100%;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 0 16px;
+        }
+        .nav {
+          display: none;
+        }
+        .prods-grid {
+          grid-template-columns: 1fr;
+        }
+        .cats-grid {
+          grid-template-columns: 1fr;
+        }
+        .ind-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .how-grid {
+          grid-template-columns: 1fr;
+        }
+        .foot-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+      }
+    
+
+      /* ── ХЛЕБНЫЕ КРОШКИ ── */
+      .breadcrumbs {
+        padding: 14px 0; font-size: 12px; color: var(--muted);
+        border-bottom: 1px solid var(--line);
+        display: flex; align-items: center; gap: 8px;
+      }
+      .breadcrumbs a { color: var(--muted); transition: color .2s; }
+      .breadcrumbs a:hover { color: var(--txt); }
+      .breadcrumbs span { color: var(--muted2); }
+
+      /* ── ЗАГОЛОВОК КАТАЛОГА ── */
+      .cat-head { padding: 44px 0 36px; border-bottom: 1px solid var(--line); }
+      .cat-head-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+      .cat-title {
+        font-family: var(--ff-h); font-size: clamp(30px,4vw,52px);
+        letter-spacing: 1px; line-height: 1; color: var(--txt);
+      }
+      .cat-count { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+      /* ── ТАБЫ ── */
+      .tabs {
+        display: flex; gap: 0; border-bottom: 1px solid var(--line);
+        overflow-x: auto; scrollbar-width: none;
+      }
+      .tabs::-webkit-scrollbar { display: none; }
+      .tab {
+        padding: 0 20px; height: 48px; display: flex; align-items: center;
+        font-family: var(--ff-h); font-size: 13px; letter-spacing: 1.5px;
+        color: var(--muted); border-bottom: 2px solid transparent;
+        cursor: pointer; white-space: nowrap; transition: color .2s, border-color .2s;
+        background: none; border-top: none; border-left: none; border-right: none;
+      }
+      .tab:hover { color: var(--txt); }
+      .tab.active { color: var(--acc2); border-bottom-color: var(--acc2); }
+
+      /* ── LAYOUT ── */
+      .catalog-layout {
+        display: grid; grid-template-columns: 264px 1fr;
+        gap: 32px; padding: 36px 0 96px; align-items: start;
+      }
+
+      /* ── САЙДБАР ── */
+      .sidebar { position: sticky; top: 82px; display: flex; flex-direction: column; gap: 6px; }
+      .sidebar-section {
+        background: var(--surf); border: 1px solid var(--line);
+        border-radius: 6px; overflow: hidden; margin-bottom: 6px;
+      }
+      .sidebar-title {
+        font-family: var(--ff-h); font-size: 12px; letter-spacing: 2px;
+        color: var(--muted); padding: 16px 18px; border-bottom: 1px solid var(--line);
+        display: flex; justify-content: space-between; align-items: center;
+        cursor: pointer; transition: color .2s;
+      }
+      .sidebar-title:hover { color: var(--txt); }
+      .sidebar-title .arr { font-size: 10px; transition: transform .2s; color: var(--muted2); }
+      .sidebar-title.open .arr { transform: rotate(180deg); }
+      .sidebar-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+
+      .filter-check { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+      .filter-check input {
+        width: 15px; height: 15px; border-radius: 2px;
+        accent-color: var(--acc2); cursor: pointer; flex-shrink: 0;
+      }
+      .filter-check span { font-size: 13px; color: var(--muted); transition: color .2s; }
+      .filter-check:hover span { color: var(--txt); }
+      .filter-check input:checked + span { color: var(--txt); font-weight: 500; }
+
+      .price-inputs { display: flex; gap: 8px; align-items: center; }
+      .price-inp {
+        flex: 1; padding: 9px 12px; background: var(--surf2);
+        border: 1px solid var(--line2); border-radius: 4px;
+        color: var(--txt); font-family: var(--ff-b); font-size: 12px; outline: none;
+        transition: border-color .2s, box-shadow .2s;
+      }
+      .price-inp:focus { border-color: var(--acc2); box-shadow: 0 0 0 3px rgba(0,86,163,.1); }
+      .price-inp::placeholder { color: var(--muted2); }
+      .price-sep { font-size: 12px; color: var(--muted2); }
+      .sidebar-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+      .sidebar-actions .btn { justify-content: center; }
+
+      /* ── ТУЛБАР ── */
+      .catalog-toolbar {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 24px; gap: 16px; flex-wrap: wrap;
+      }
+      .toolbar-left { display: flex; align-items: center; gap: 12px; }
+      .results-count { font-size: 13px; color: var(--muted); }
+      .sort-select {
+        padding: 8px 14px; background: var(--surf); border: 1px solid var(--line2);
+        border-radius: 4px; color: var(--txt); font-family: var(--ff-b);
+        font-size: 12px; outline: none; cursor: pointer; transition: border-color .2s;
+      }
+      .sort-select:focus { border-color: var(--acc2); }
+      .view-toggle { display: flex; gap: 3px; }
+      .view-btn {
+        width: 34px; height: 34px; border-radius: 4px;
+        background: var(--surf); border: 1px solid var(--line);
+        color: var(--muted); cursor: pointer;
+        display: flex; align-items: center; justify-content: center; font-size: 14px;
+        transition: all .2s;
+      }
+      .view-btn.active { background: var(--acc2); border-color: var(--acc2); color: #fff; }
+
+      /* ── СЕТКА ТОВАРОВ ── */
+      .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+      .products-grid.list-view { grid-template-columns: 1fr; }
+
+      .pcard {
+        background: var(--surf); border: 1px solid var(--line); border-radius: 6px;
+        overflow: hidden; cursor: pointer; display: flex; flex-direction: column;
+        transition: border-color .22s, box-shadow .22s, transform .22s;
+      }
+      .pcard:hover {
+        border-color: rgba(0,86,163,.3);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0,20,60,.08);
+      }
+      .pcard-img {
+        aspect-ratio: 4/3; background: var(--surf2);
+        display: flex; align-items: center; justify-content: center; font-size: 42px;
+        position: relative; border-bottom: 1px solid var(--line); overflow: hidden; flex-shrink: 0;
+      }
+      .pcard-img::after {
+        content: ''; position: absolute; inset: 0;
+        background-image:
+          linear-gradient(rgba(0,86,163,.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,86,163,.025) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .sticker {
+        position: absolute; top: 10px; left: 10px; z-index: 1;
+        font-family: var(--ff-h); font-size: 10px; letter-spacing: 1.5px;
+        padding: 4px 10px; border-radius: 3px;
+      }
+      .stk-g { background: #16a34a; color: #fff; }
+      .stk-o { background: var(--acc); color: #fff; }
+      .stk-b { background: var(--acc2); color: #fff; }
+
+      .pcard-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+      .pcard-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+      .pcard-name {
+        font-family: var(--ff-h); font-size: 15px; letter-spacing: .5px;
+        color: var(--txt); margin-bottom: 8px; line-height: 1.2;
+      }
+      .pcard-chars { font-size: 11px; color: var(--muted); line-height: 1.85; margin-bottom: 12px; flex: 1; }
+      .pcard-chars li { list-style: none; display: flex; gap: 6px; align-items: baseline; }
+      .pcard-chars li::before { content: '·'; color: var(--acc2); flex-shrink: 0; }
+      .pcard-foot {
+        display: flex; align-items: center; justify-content: space-between;
+        padding-top: 12px; border-top: 1px solid var(--line);
+      }
+      .pcard-price { font-family: var(--ff-h); font-size: 18px; color: var(--txt); }
+      .pcard-price small { font-size: 11px; font-family: var(--ff-b); color: var(--muted); font-weight: 400; }
+      .pcard-btn {
+        padding: 7px 14px; border-radius: 3px;
+        font-family: var(--ff-h); font-size: 11px; letter-spacing: 1.5px;
+        border: 1px solid var(--line2); background: transparent; color: var(--muted);
+        cursor: pointer; transition: all .2s;
+      }
+      .pcard-btn:hover { background: var(--acc2); border-color: var(--acc2); color: #fff; }
+
+      /* list-view */
+      .products-grid.list-view .pcard { flex-direction: row; }
+      .products-grid.list-view .pcard-img { width: 200px; aspect-ratio: unset; height: 160px; border-bottom: none; border-right: 1px solid var(--line); }
+      .products-grid.list-view .pcard-body { padding: 20px 22px; }
+      .products-grid.list-view .pcard-name { font-size: 17px; }
+      .products-grid.list-view .pcard-chars { display: flex; flex-wrap: wrap; gap: 0; }
+      .products-grid.list-view .pcard-chars li { width: 50%; font-size: 12px; }
+
+      /* ── ПАГИНАЦИЯ ── */
+      .pagination { display: flex; justify-content: center; gap: 4px; margin-top: 48px; }
+      .page-btn {
+        width: 36px; height: 36px; border-radius: 3px;
+        background: var(--surf); border: 1px solid var(--line);
+        color: var(--muted); font-family: var(--ff-h); font-size: 13px;
+        cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s;
+      }
+      .page-btn:hover { border-color: var(--acc2); color: var(--acc2); }
+      .page-btn.active { background: var(--acc2); border-color: var(--acc2); color: #fff; }
+
+      /* ── FAB ── */
+      .fab {
+        position: fixed; bottom: 28px; right: 28px; z-index: 500;
+        background: var(--acc); color: #fff;
+        width: 56px; height: 56px; border-radius: 50%; border: none;
+        font-size: 20px; cursor: pointer;
+        box-shadow: 0 6px 24px rgba(227,30,36,.4);
+        transition: transform .2s, box-shadow .2s;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .fab:hover { transform: scale(1.08); box-shadow: 0 10px 32px rgba(227,30,36,.5); }
+
+      /* ── МОДАЛКА ── */
+      .modal-overlay {
+        position: fixed; inset: 0; background: rgba(10,20,35,.7); z-index: 900;
+        display: none; align-items: center; justify-content: center; backdrop-filter: blur(6px);
+      }
+      .modal-overlay.open { display: flex; }
+      .modal {
+        background: #fff; border: 1px solid var(--line); border-radius: 8px;
+        padding: 36px; width: 100%; max-width: 440px; position: relative;
+        box-shadow: 0 24px 64px rgba(0,20,60,.15);
+      }
+      .modal-close {
+        position: absolute; top: 14px; right: 14px;
+        background: var(--surf2); border: none; color: var(--muted); font-size: 18px;
+        cursor: pointer; width: 28px; height: 28px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 4px; transition: all .2s;
+      }
+      .modal-close:hover { background: var(--line); color: var(--txt); }
+      .modal-title { font-family: var(--ff-h); font-size: 26px; letter-spacing: 1px; color: var(--txt); margin-bottom: 8px; }
+      .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 22px; line-height: 1.65; }
+      .inp {
+        width: 100%; padding: 12px 15px; background: var(--surf2);
+        border: 1px solid var(--line2); border-radius: 4px;
+        color: var(--txt); font-family: var(--ff-b); font-size: 13px; outline: none;
+        transition: border-color .2s, box-shadow .2s; margin-bottom: 10px;
+      }
+      .inp::placeholder { color: var(--muted2); }
+      .inp:focus { border-color: var(--acc2); box-shadow: 0 0 0 3px rgba(0,86,163,.1); }
+      .form-legal { font-size: 10px; color: var(--muted2); text-align: center; line-height: 1.5; margin-top: 8px; }
+
+      /* ── АНИМАЦИЯ ── */
+      .up { opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .5s; }
+      .up.in { opacity: 1; transform: none; }
+
+      /* ── АДАПТИВ ── */
+      @media(max-width:1024px) {
+        .catalog-layout { grid-template-columns: 1fr; }
+        .sidebar { position: static; }
+        .products-grid { grid-template-columns: repeat(2,1fr); }
+        .foot-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media(max-width:640px) {
+        .wrap { padding: 0 18px; }
+        .nav { display: none; }
+        .products-grid { grid-template-columns: 1fr; }
+        .products-grid.list-view .pcard { flex-direction: column; }
+        .products-grid.list-view .pcard-img { width: 100%; height: 180px; border-right: none; border-bottom: 1px solid var(--line); }
+        .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+      }
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+  ШАПКА
+════════════════════════════════ -->
+
+    <!-- ═══ ТОПБАР ═══ -->
+    <div class="topbar">
+      <div class="wrap">
+        <div class="topbar-l">
+          <span>Работаем по всей России</span>
+          <a href="#">Доставка</a>
+          <a href="#">Сервис</a>
+          <a href="#">Лизинг</a>
+        </div>
+        <div class="topbar-r">
+          <a href="mailto:info@company.ru">info@company.ru</a>
+          <span>Пн–Пт 9:00–18:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⬇ ХЕДЕР STICKY: логотип, навигация, телефон, кнопка заявки -->
+    <header>
+      <div class="wrap header-inner">
+        <a href="index.html" class="logo">ПРОМ<span>СНАБ</span></a>
+        <nav class="nav">
+          <a href="catalog.html" class="active">Каталог</a>
+          <a href="catalog.html?tab=instock">В наличии</a>
+          <a href="#">Отрасли</a>
+          <a href="#">Сервис</a>
+          <a href="#">Лизинг</a>
+          <a href="#">О компании</a>
+          <a href="#">Контакты</a>
+        </nav>
+        <div class="header-r">
+          <a href="tel:88001234567" class="hphone">8 800 123-45-67</a>
+          <a href="#cta" class="btn btn-red btn-sm">Заявка</a>
+        </div>
+      </div>
+    </header>
+
+
+
+    <!-- ════════════════════════════════
+  ХЛЕБНЫЕ КРОШКИ + ЗАГОЛОВОК
+  ✏  Хлебные крошки — навигация по разделам
+     Заголовок меняется при выборе категории в сайдбаре
+     Счётчик "Показано N товаров" — обновляется динамически
+════════════════════════════════ -->
+    <div class="wrap">
+      <div class="breadcrumbs" style="margin-top: 4px">
+        <a href="index.html">Главная</a>
+        <span>/</span>
+        <span style="color: var(--txt)">Каталог</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════
+  ЗАГОЛОВОК КАТАЛОГА
+  ✏  Заголовок меняется при выборе категории
+     cat-count — "Найдено X товаров"
+     Кнопки справа — быстрый звонок + заявка
+════════════════════════════════ -->
+    <div class="wrap">
+      <div class="cat-head up">
+        <div class="cat-head-inner">
+          <div>
+            <h1 class="cat-title" id="catTitle">Каталог оборудования</h1>
+            <div class="cat-count" id="catCount">Найдено 48 товаров</div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-shrink: 0">
+            <a href="tel:88001234567" class="btn btn-ghost btn-sm"
+              >📞 Позвонить</a
+            >
+            <button class="btn btn-red btn-sm" onclick="openModal()">
+              Получить КП
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════
+  ТАБЫ КАТЕГОРИЙ
+  ИСТОЧНИК: горизонтальные табы как у stankomach.com/products
+  ✏  Список категорий первого уровня
+     Активный таб подсвечивает категорию + меняет заголовок и сетку
+     Таб "В наличии" — всегда первый или выделенный
+════════════════════════════════ -->
+    <div class="wrap">
+      <div class="tabs up" style="margin-top: 4px">
+        <button
+          class="tab active"
+          onclick="setTab(this, 'Все категории', '48')"
+        >
+          Все категории
+        </button>
+        <button
+          class="tab"
+          style="color: var(--acc2); border-bottom-color: var(--acc2)"
+          onclick="setTab(this, 'В наличии на складе', '12')"
+        >
+          🟢 В наличии
+        </button>
+        <button class="tab" onclick="setTab(this, 'Металлообработка', '18')">
+          Металлообработка
+        </button>
+        <button class="tab" onclick="setTab(this, 'Деревообработка', '9')">
+          Деревообработка
+        </button>
+        <button
+          class="tab"
+          onclick="setTab(this, 'Лазерное оборудование', '7')"
+        >
+          Лазерное
+        </button>
+        <button class="tab" onclick="setTab(this, 'Сварочное', '6')">
+          Сварочное
+        </button>
+        <button class="tab" onclick="setTab(this, 'Компрессоры', '5')">
+          Компрессоры
+        </button>
+        <button class="tab" onclick="setTab(this, 'Подъёмное', '3')">
+          Подъёмное
+        </button>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════
+  ОСНОВНОЙ LAYOUT: САЙДБАР + СЕТКА
+════════════════════════════════ -->
+    <div class="wrap">
+      <div class="catalog-layout">
+        <!-- ════════════════
+      САЙДБАР ФИЛЬТРОВ
+      ИСТОЧНИК: структура фильтров как у stanki.ru + компактность southcnc.ru
+      ✏  ЧТО ЗАПОЛНЯТЬ:
+         Тип станка — подкатегории активной вкладки
+         Бренд — список производителей (HAAS, DMG, Fanuc, отечественные)
+         Цена — min/max из реального прайса
+         ЧПУ — системы управления
+         Наличие — обязательный фильтр всегда сверху
+    ════════════════ -->
+        <aside class="sidebar up">
+          <!-- Наличие — ВСЕГДА ПЕРВЫМ -->
+          <div class="sidebar-section">
+            <div class="sidebar-title open" onclick="toggleSection(this)">
+              Наличие <span class="arr">▼</span>
+            </div>
+            <div class="sidebar-body">
+              <label class="filter-check">
+                <input type="checkbox" checked />
+                <span>В наличии на складе</span>
+              </label>
+              <label class="filter-check">
+                <input type="checkbox" />
+                <span>Под заказ (14–30 дней)</span>
+              </label>
+              <label class="filter-check">
+                <input type="checkbox" />
+                <span>Под заказ (30–90 дней)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Тип оборудования -->
+          <div class="sidebar-section">
+            <div class="sidebar-title open" onclick="toggleSection(this)">
+              Тип оборудования <span class="arr">▼</span>
+            </div>
+            <div class="sidebar-body">
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Токарные с ЧПУ</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Фрезерные с ЧПУ</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span
+                  >Обрабатывающие центры</span
+                ></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Шлифовальные</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Пятиосевые</span></label
+              >
+            </div>
+          </div>
+
+          <!-- Цена -->
+          <div class="sidebar-section">
+            <div class="sidebar-title open" onclick="toggleSection(this)">
+              Цена, ₽ <span class="arr">▼</span>
+            </div>
+            <div class="sidebar-body">
+              <div class="price-inputs">
+                <input class="price-inp" type="text" placeholder="от" />
+                <span class="price-sep">—</span>
+                <input class="price-inp" type="text" placeholder="до" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Бренд/Производитель -->
+          <div class="sidebar-section">
+            <div class="sidebar-title open" onclick="toggleSection(this)">
+              Производитель <span class="arr">▼</span>
+            </div>
+            <div class="sidebar-body">
+              <label class="filter-check"
+                ><input type="checkbox" /><span>HAAS</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>DMG MORI</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Mazak</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Goodway</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Victor Taichung</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Отечественные</span></label
+              >
+            </div>
+          </div>
+
+          <!-- Система ЧПУ -->
+          <div class="sidebar-section">
+            <div class="sidebar-title" onclick="toggleSection(this)">
+              Система ЧПУ <span class="arr">▼</span>
+            </div>
+            <div class="sidebar-body" style="display: none">
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Fanuc</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Siemens</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Mitsubishi</span></label
+              >
+              <label class="filter-check"
+                ><input type="checkbox" /><span>Heidenhain</span></label
+              >
+            </div>
+          </div>
+
+          <div class="sidebar-actions">
+            <button
+              class="btn btn-red"
+              style="width: 100%; justify-content: center"
+            >
+              Применить
+            </button>
+            <button
+              class="btn btn-ghost btn-sm"
+              style="width: 100%; justify-content: center"
+            >
+              Сбросить
+            </button>
+          </div>
+        </aside>
+
+        <!-- ════════════════
+      СЕТКА ТОВАРОВ
+    ════════════════ -->
+        <div>
+          <!-- ════════════════════════════════
+        ТУЛБАР: счётчик + сортировка + вид
+        ✏  sort-select — варианты сортировки из реального каталога
+           view-toggle — переключение сетка/список
+      ════════════════════════════════ -->
+          <div class="catalog-toolbar up">
+            <div class="toolbar-left">
+              <span class="results-count" id="resCount"
+                >Найдено: 48 товаров</span
+              >
+              <select class="sort-select">
+                <option>По умолчанию</option>
+                <option>Сначала дешевле</option>
+                <option>Сначала дороже</option>
+                <option>Новинки</option>
+                <option>В наличии сначала</option>
+              </select>
+            </div>
+            <div class="view-toggle">
+              <button
+                class="view-btn active"
+                id="gridBtn"
+                onclick="setView('grid')"
+                title="Сетка"
+              >
+                ⊞
+              </button>
+              <button
+                class="view-btn"
+                id="listBtn"
+                onclick="setView('list')"
+                title="Список"
+              >
+                ☰
+              </button>
+            </div>
+          </div>
+
+          <!-- ════════════════════════════════
+        КАРТОЧКИ ТОВАРОВ
+        ИСТОЧНИК: карточки stankomach.com + бейджи наличия pegas.company
+        ✏  ЧТО ЗАПОЛНЯТЬ НА КАЖДОЙ КАРТОЧКЕ:
+           sticker — зелёный "В наличии" / оранжевый "Скидка X%" / красный "Хит"
+           pcard-cat — категория (хлебная крошка внутри карточки)
+           pcard-name — полное название модели
+           pcard-chars — 4 ключевых характеристики (самые важные для выбора)
+           pcard-price — цена "от X ₽" с пометкой "с НДС"
+           pcard-img — реальное фото или 3D-рендер оборудования
+      ════════════════════════════════ -->
+          <div class="products-grid up" id="productsGrid">
+            <div class="pcard">
+              <div class="pcard-img">
+                ⚙️
+                <div class="sticker stk-g">В наличии</div>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Токарные с ЧПУ</div>
+                <div class="pcard-name">
+                  Токарный ЧПУ ST-46 (наклонная станина)
+                </div>
+                <ul class="pcard-chars">
+                  <li>Диаметр патрона 250 мм</li>
+                  <li>Расстояние между центрами 600 мм</li>
+                  <li>Система ЧПУ: Fanuc 0i-TF</li>
+                  <li>Мощность шпинделя 11 кВт</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">
+                    2 480 000 ₽ <small>с НДС</small>
+                  </div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-img">
+                🔷
+                <div class="sticker stk-g">В наличии</div>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Обрабатывающие центры</div>
+                <div class="pcard-name">Вертикальный ОЦ VS-850 (3 оси)</div>
+                <ul class="pcard-chars">
+                  <li>Стол 850×500 мм</li>
+                  <li>Шпиндель 8000 об/мин, конус БТ40</li>
+                  <li>Система ЧПУ: Mitsubishi M80</li>
+                  <li>Точность позиционирования ±0.005</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">
+                    3 950 000 ₽ <small>с НДС</small>
+                  </div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-img">
+                💡
+                <div class="sticker stk-o">Скидка 8%</div>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Лазерное оборудование</div>
+                <div class="pcard-name">
+                  Лазерный комплекс Fiber 3015 / 6 кВт
+                </div>
+                <ul class="pcard-chars">
+                  <li>Рабочий стол 3000×1500 мм</li>
+                  <li>Источник IPG 6000 Вт</li>
+                  <li>Резка н/ж до 25 мм</li>
+                  <li>Система BCS Bodor</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">
+                    5 200 000 ₽ <small>с НДС</small>
+                  </div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-img">
+                🪵
+                <div class="sticker stk-r">Хит</div>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Деревообработка</div>
+                <div class="pcard-name">Фрезерный ЧПУ-центр ATC-1325</div>
+                <ul class="pcard-chars">
+                  <li>Рабочая зона 1300×2500 мм</li>
+                  <li>Смена инструмента 8 позиций</li>
+                  <li>Скорость подачи до 30 м/мин</li>
+                  <li>Вакуумный стол в комплекте</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">890 000 ₽ <small>с НДС</small></div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-img">🔩</div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Сварочное</div>
+                <div class="pcard-name">Сварочный полуавтомат MIG-500</div>
+                <ul class="pcard-chars">
+                  <li>Ток сварки до 500 А</li>
+                  <li>ПВ 60% при 500 А</li>
+                  <li>Напряжение питания 3×380 В</li>
+                  <li>Синергетическое управление</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">185 000 ₽ <small>с НДС</small></div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcard">
+              <div class="pcard-img">
+                💨
+                <div class="sticker stk-g">В наличии</div>
+              </div>
+              <div class="pcard-body">
+                <div class="pcard-cat">Компрессоры</div>
+                <div class="pcard-name">
+                  Винтовой компрессор АС-22В (22 кВт)
+                </div>
+                <ul class="pcard-chars">
+                  <li>Производительность 3.5 м³/мин</li>
+                  <li>Давление 10 бар</li>
+                  <li>Встроенный осушитель</li>
+                  <li>Уровень шума 67 дБ</li>
+                </ul>
+                <div class="pcard-foot">
+                  <div class="pcard-price">420 000 ₽ <small>с НДС</small></div>
+                  <button class="pcard-btn" onclick="openModal(this)">
+                    Запросить
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /products-grid -->
+
+          <!-- ════════════════════════════════
+        ПАГИНАЦИЯ
+        ✏  Количество страниц — динамически от числа товаров
+           При фильтрации — пагинация сбрасывается на страницу 1
+      ════════════════════════════════ -->
+          <div class="pagination up">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">›</button>
+          </div>
+        </div>
+        <!-- /main content -->
+      </div>
+      <!-- /catalog-layout -->
+    </div>
+    <!-- /wrap -->
+
+    
+
+<!-- FOOTER -->
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <a href="index.html" class="foot-logo">ПРОМ<span>СНАБ</span></a>
+            <p class="foot-about">
+              Поставка промышленного оборудования по всей России. Склад в
+              Москве, сервисные центры в 12 городах. Работаем с 2009 года.
+            </p>
+            <a href="tel:88001234567" class="foot-phone">8 800 123-45-67</a>
+            <a href="mailto:info@company.ru" class="foot-email"
+              >info@company.ru</a
+            >
+          </div>
+          <div class="foot-col">
+            <h4>Каталог</h4>
+            <ul>
+              <li><a href="catalog.html?cat=metal">Металлообработка</a></li>
+              <li><a href="catalog.html?cat=wood">Деревообработка</a></li>
+              <li><a href="catalog.html?cat=laser">Лазерное</a></li>
+              <li><a href="catalog.html?cat=weld">Сварочное</a></li>
+              <li><a href="catalog.html?cat=comp">Компрессоры</a></li>
+              <li><a href="catalog.html?tab=instock">В наличии</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Компания</h4>
+            <ul>
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Сервис</a></li>
+              <li><a href="#">Лизинг</a></li>
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Отзывы</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="foot-col">
+            <h4>Отрасли</h4>
+            <ul>
+              <li><a href="#">Авиастроение</a></li>
+              <li><a href="#">Автомобили</a></li>
+              <li><a href="#">Нефтегаз</a></li>
+              <li><a href="#">Медицина</a></li>
+              <li><a href="#">Энергетика</a></li>
+              <li><a href="#">Образование</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span class="foot-copy">© 2025 ПРОМСНАБ. Все права защищены.</span>
+          <span class="foot-copy"
+            >Политика конфиденциальности · Публичная оферта</span
+          >
+        </div>
+      </div>
+    </footer>
+
+<script>
+      // Scroll reveal
+      const obs = new IntersectionObserver(
+        (e) =>
+          e.forEach((el, i) => {
+            if (el.isIntersecting) {
+              setTimeout(() => el.target.classList.add("in"), i * 60);
+              obs.unobserve(el.target);
+            }
+          }),
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".up").forEach((el) => obs.observe(el));
+
+      // Табы
+      function setTab(el, title, count) {
+        document
+          .querySelectorAll(".tab")
+          .forEach((t) => t.classList.remove("active"));
+        el.classList.add("active");
+        document.getElementById("catTitle").textContent = title;
+        document.getElementById("catCount").textContent =
+          "Найдено " + count + " товаров";
+        document.getElementById("resCount").textContent =
+          "Найдено: " + count + " товаров";
+      }
+
+      // Переключение вид
+      function setView(v) {
+        const grid = document.getElementById("productsGrid");
+        document
+          .getElementById("gridBtn")
+          .classList.toggle("active", v === "grid");
+        document
+          .getElementById("listBtn")
+          .classList.toggle("active", v === "list");
+        grid.classList.toggle("list-view", v === "list");
+      }
+
+      // Аккордеон сайдбара
+      function toggleSection(el) {
+        el.classList.toggle("open");
+        const body = el.nextElementSibling;
+        body.style.display = el.classList.contains("open") ? "flex" : "none";
+      }
+
+      // Модалка
+      function openModal(btn) {
+        document.getElementById("modalOverlay").classList.add("open");
+        if (btn) {
+          const name = btn
+            .closest(".pcard")
+            .querySelector(".pcard-name").textContent;
+          document.getElementById("modalProduct").value = name;
+        }
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("modalOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function closeOnOverlay(e) {
+        if (e.target === e.currentTarget) closeModal();
+      }
+      function submitModal(btn) {
+        btn.textContent = "✓ Заявка отправлена!";
+        btn.style.background = "#16a34a";
+        setTimeout(closeModal, 1800);
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Пагинация
+      document.querySelectorAll(".page-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".page-btn")
+            .forEach((b) => b.classList.remove("active"));
+          if (this.textContent !== "‹" && this.textContent !== "›")
+            this.classList.add("active");
+        });
+      });
+
+      // Banner dismiss
+      (function () {
+        const banner = document.getElementById("ru-banner");
+        const btn = document.getElementById("ruBannerX");
+        if (sessionStorage.getItem("ruBannerClosed"))
+          banner.classList.add("hidden");
+        btn.addEventListener("click", () => {
+          banner.classList.add("hidden");
+          sessionStorage.setItem("ruBannerClosed", "1");
+        });
+      })();
+    </script>
+  </body>
+</html>
