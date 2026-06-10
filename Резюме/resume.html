@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Резюме — Шамсимухаметов Тимур</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8f9fc;
+        --surface: #ffffff;
+        --border: #e2e6ef;
+        --accent: #1a56db;
+        --accent-dim: rgba(26, 86, 219, 0.08);
+        --accent2: #0a7c5c;
+        --text: #1a1f2e;
+        --muted: #5a6478;
+        --tag-bg: #eef1f8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 1.65;
+        min-height: 100vh;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .wrapper {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 32px;
+        align-items: start;
+        padding-bottom: 36px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 48px;
+      }
+
+      .name {
+        font-family: "JetBrains Mono", monospace;
+        font-size: clamp(28px, 5vw, 44px);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        color: var(--accent);
+      }
+
+      .name span {
+        color: var(--accent);
+      }
+
+      .role {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .location {
+        margin-top: 8px;
+        font-size: 14px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .location::before {
+        content: "◎";
+        color: var(--accent2);
+      }
+
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
+        font-size: 13.5px;
+      }
+
+      .contacts a {
+        color: var(--muted);
+        transition: color 0.15s;
+      }
+
+      .contacts a:hover {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .contact-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .contact-line .icon {
+        font-size: 12px;
+        color: var(--accent);
+        width: 16px;
+        text-align: center;
+      }
+
+      .section {
+        margin-bottom: 44px;
+      }
+
+      .section-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        background: var(--tag-bg);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12.5px;
+        padding: 5px 12px;
+        border-radius: 4px;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+
+      .tag:hover {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+      }
+
+      .tag.primary {
+        border-color: rgba(79, 142, 247, 0.4);
+        color: var(--accent);
+      }
+
+      .exp-item {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 24px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .exp-item:last-child {
+        border-bottom: none;
+      }
+
+      .exp-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .exp-period {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--accent2);
+        font-weight: 700;
+      }
+
+      .exp-company {
+        font-size: 13px;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .exp-title {
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .exp-desc {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .exp-desc ul {
+        list-style: none;
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .exp-desc ul li::before {
+        content: "→ ";
+        color: var(--accent);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      .edu-item {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 24px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .edu-item:last-child {
+        border-bottom: none;
+      }
+
+      .edu-title {
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      .edu-sub {
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+
+      .portfolio-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .portfolio-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        transition: border-color 0.15s;
+      }
+
+      .portfolio-item:hover {
+        border-color: var(--accent);
+      }
+
+      .portfolio-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .portfolio-name {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--accent);
+      }
+
+      .portfolio-url {
+        font-size: 12.5px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+        word-break: break-all;
+      }
+
+      /* ── About ── */
+      .about-text {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 620px;
+        border-left: 2px solid var(--accent);
+        padding-left: 18px;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(45, 212, 160, 0.1);
+        border: 1px solid rgba(45, 212, 160, 0.3);
+        color: var(--accent2);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-top: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        background: var(--accent2);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header {
+          grid-template-columns: 1fr;
+        }
+        .contacts {
+          align-items: flex-start;
+        }
+        .exp-item,
+        .edu-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          color: #111;
+        }
+        .wrapper {
+          padding: 20px;
+        }
+        :root {
+          --bg: #fff;
+          --surface: #f5f5f5;
+          --border: #ddd;
+          --accent: #1a56db;
+          --accent2: #0a7c5c;
+          --text: #111;
+          --muted: #555;
+          --tag-bg: #f0f0f0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div>
+          <div class="name">Шамсимухаметов<br /><span>Тимур</span></div>
+          <div class="role">Junior Frontend Developer · PHP</div>
+          <div class="location">Ижевск - очно / удалённо</div>
+          <div class="status">
+            <span class="dot"></span>Открыт к предложениям
+          </div>
+        </div>
+        <div class="contacts">
+          <div class="contact-line">
+            <span class="icon">✉</span>
+            <a href="mailto:shamsimuhametov14@gmail.com"
+              >shamsimuhametov14@gmail.com</a
+            >
+          </div>
+          <div class="contact-line">
+            <span class="icon">☎</span>
+            <a href="tel:+79120032992">+7 912 003-29-92</a>
+          </div>
+          <div class="contact-line">
+            <span class="icon">⌥</span>
+            <a
+              href="https://github.com/L4NOTTE/L4NOTTE.github.io"
+              target="_blank"
+              >github.com/L4NOTTE</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <div class="section">
+        <div class="section-label">О себе</div>
+        <p class="about-text">
+          Студент 3-го курса СПО, активно развиваюсь в веб-разработке и дизайне.
+          Два года прохожу практику на ИЭМЗ «Купол» - участвовал в разработке
+          интерфейсов корпоративных продуктов, 3D-макетов оборудования и
+          прототипов сайтов. Планирую после 4-го курса работать в «Купол» и
+          параллельно получить высшее образование заочно.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Технологии</div>
+        <div class="skills-grid">
+          <span class="tag primary">PHP</span>
+          <span class="tag primary">HTML5</span>
+          <span class="tag primary">CSS3</span>
+          <span class="tag primary">JavaScript</span>
+          <span class="tag">jQuery</span>
+          <span class="tag">Python</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">Figma</span>
+          <span class="tag">3D-макеты</span>
+          <span class="tag">Git</span>
+          <span class="tag">Адаптивная вёрстка</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Опыт</div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">2023 - н.в.</div>
+            <div class="exp-company">ИЭМЗ «Купол»</div>
+          </div>
+          <div>
+            <div class="exp-title">Стажёр-разработчик / UX-дизайнер</div>
+            <div class="exp-desc">
+              <ul>
+                <li>
+                  Разработка UI/UX макетов для продуктов Kupol Flow, KupolCool,
+                  KupolPRO в Figma
+                </li>
+                <li>
+                  Прототипирование корпоративного сайта KupolPRO - вёрстка и
+                  базовый функционал на PHP
+                </li>
+                <li>Создание 3D-макетов промышленного оборудования</li>
+                <li>Участие в полном цикле: от прототипа до рабочего кода</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Учебные проекты</div>
+            <div class="exp-company">СПО / Самостоятельно</div>
+          </div>
+          <div>
+            <div class="exp-title">Веб-разработчик</div>
+            <div class="exp-desc">
+              <ul>
+                <li>
+                  Разработка информационной системы доставки (PHP, MySQL,
+                  jQuery, AJAX)
+                </li>
+                <li>
+                  Вёрстка B2B-сайта для поставщика промышленного оборудования
+                  ПРОМСНАБ
+                </li>
+                <li>
+                  Построение DFD-диаграмм и технических заданий для
+                  информационных систем
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Образование</div>
+
+        <div class="edu-item">
+          <div class="exp-meta">
+            <div class="exp-period">2023 - 2027</div>
+            <div class="exp-company">СПО (2-й курс)</div>
+          </div>
+          <div>
+            <div class="edu-title">
+              Информационные системы и программирование
+            </div>
+            <div class="edu-sub">
+              Специальность: разработка и сопровождение информационных систем
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="exp-meta">
+            <div class="exp-period">Планируется</div>
+            <div class="exp-company">Заочно</div>
+          </div>
+          <div>
+            <div class="edu-title">Высшее образование</div>
+            <div class="edu-sub">
+              Планирует поступить после окончания СПО в 2027 году
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Портфолио</div>
+        <div class="portfolio-list">
+          <a
+            href="https://github.com/L4NOTTE/L4NOTTE.github.io"
+            target="_blank"
+            class="portfolio-item"
+          >
+            <div class="portfolio-icon">⌥</div>
+            <div>
+              <div class="portfolio-name">GitHub</div>
+              <div class="portfolio-url">
+                github.com/L4NOTTE/L4NOTTE.github.io
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.figma.com/design/7XPPQbVRDYGMRg0vPLaclg/Untitled?t=eTmjGJxhmk0ZVw4O-1"
+            target="_blank"
+            class="portfolio-item"
+          >
+            <div class="portfolio-icon">◈</div>
+            <div>
+              <div class="portfolio-name">Figma — Дизайн-макет (UI Kit)</div>
+              <div class="portfolio-url">
+                figma.com/design/7XPPQbVRDYGMRg0vPLaclg
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.figma.com/make/W0Ba02SJwrgb9W29ObP78R/Corporate-Industrial-Website-Design?t=eTmjGJxhmk0ZVw4O-1"
+            target="_blank"
+            class="portfolio-item"
+          >
+            <div class="portfolio-icon">◈</div>
+            <div>
+              <div class="portfolio-name">
+                Figma Make — Corporate Industrial Website
+              </div>
+              <div class="portfolio-url">
+                figma.com/make/W0Ba02SJwrgb9W29ObP78R
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
