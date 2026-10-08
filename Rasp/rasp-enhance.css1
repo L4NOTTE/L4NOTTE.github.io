@@ -1,0 +1,251 @@
+/* rasp-enhance.css — подключать ПОСЛЕ py.css */
+body.light, body{
+  --bg:#f5f7fb; --card:#fff; --text:#1d2433; --muted:#6b7488; --line:#e2e6ef;
+  --accent:#4A6BFF; --accent-soft:#eaf0ff; --remote:#eef7ff; --remote-text:#1b6fb5;
+  --now:#16a34a; --now-soft:#e3f7ea;
+  --background:var(--bg); --color-text:var(--text); --hover:#f1f4fb; --button-background:#fff;
+  background:var(--bg); color:var(--text); text-align:left;
+  font-family:'Manrope','Roboto',system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --pad:12px; --pt:16px;
+  padding:var(--pt) max(var(--pad),env(safe-area-inset-right)) 24px max(var(--pad),env(safe-area-inset-left)); display:block;
+}
+html,body{overflow-x:hidden}
+p{text-align:left}
+
+/* ── Верх: Назад / поиск / навигация по дням ── */
+.link{font-size:14px;font-weight:600;padding:8px 14px;max-width:none;width:auto;margin:12px 0 0;border-radius:10px;border:1px solid var(--line);background:#fff}
+.link:hover{border-color:var(--accent)}
+form{margin:0}
+.input-container{max-width:none;margin:12px 0 0}
+.input-label{display:none}
+.input-field{height:44px;font-size:16px;min-width:0;padding:0 14px;border:1px solid var(--line);border-right:0;border-radius:10px 0 0 10px;box-shadow:none}
+.input-container button.link{height:44px;margin:0;border-radius:0 10px 10px 0;background:var(--accent);border-color:var(--accent);color:#fff;cursor:pointer}
+.day-navigation{justify-content:space-between;gap:8px;margin:12px 0;flex-wrap:wrap}
+.nav-link{flex:1;min-width:140px;text-align:center;padding:10px 12px;font-family:inherit;font-size:14px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:10px;box-sizing:border-box}
+.nav-link:active{color:#fff}
+
+/* ── Панель выбора ── */
+#rasp-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin:0 0 14px;position:sticky;top:0;z-index:20;box-shadow:0 2px 8px rgba(20,30,60,.06)}
+#rasp-bar select{font:inherit;font-size:16px;flex:1 1 150px;min-width:0;max-width:100%;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:0 10px;height:44px}
+
+#rasp-bar button{font:inherit;font-size:14px;font-weight:600;height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer}
+#rasp-bar button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ── Режим «Таблица» ── */
+.table-wrapper{padding:0 0 4px;margin-bottom:6px}
+.table-wrapper table{width:max-content;min-width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:13px}
+.table-wrapper td{white-space:normal;min-width:118px;max-width:190px;padding:8px;text-align:left;vertical-align:top;line-height:1.3;border-color:var(--line)}
+.table-wrapper td p{margin:0;text-align:left}
+.table-wrapper td p:first-child{font-weight:700}
+.table-wrapper td p+p{color:var(--muted)}
+.table-wrapper td:first-child{position:sticky;left:0;z-index:3;background:#f3f5fa;min-width:70px;max-width:80px;text-align:center;font-size:12px;border-right:1px solid var(--line)}
+.table-wrapper td:first-child p:first-child{color:var(--text)}
+.table-wrapper tr:first-child td{background:#f3f5fa;text-align:center;vertical-align:middle;position:relative}
+.table-wrapper tr:first-child td:first-child{z-index:4}
+.table-wrapper h1{font-size:14px;font-weight:700;border:0;margin:0;padding:0;white-space:nowrap}
+.table-wrapper td.grp{cursor:pointer}
+.table-wrapper td.grp:hover{background:var(--accent-soft)}
+.table-wrapper td.is-remote{background:var(--remote)}
+.table-wrapper td.is-remote p:last-child{color:var(--remote-text);font-weight:600}
+p strong{font-size:17px}
+.rasp-day-title{margin:18px 0 8px}
+.rasp-sign{color:var(--muted);font-size:13px;margin:4px 0 20px}
+
+/* ── Режим «Карточки» ── */
+body.mode-cards .table-wrapper,
+body.mode-cards .rasp-day-title,
+body.mode-cards .rasp-sign{display:none}
+body.mode-table #rasp-cards{display:none}
+#rasp-cards{max-width:760px;margin:0 auto}
+.rc-head{font-size:19px;font-weight:800;margin:4px 2px 2px}
+.rc-sub{color:var(--muted);font-size:13px;margin:0 2px 8px}
+.rc-day{margin:0 0 18px}
+.rc-dh{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;margin:14px 2px 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.rc-dh.today{color:var(--accent)}
+.rc-dh small{color:var(--muted);font-weight:500}
+.rc-les{display:grid;grid-template-columns:62px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:8px}
+.rc-time{text-align:center;line-height:1.2}
+.rc-time b{font-size:20px;display:block}
+.rc-time span{font-size:12px;color:var(--muted)}
+.rc-subj{font-weight:700;font-size:16px}
+.rc-meta{color:var(--muted);font-size:14px;margin-top:3px;display:flex;flex-wrap:wrap;gap:2px 14px}
+.rc-tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle;background:var(--accent-soft);color:var(--accent)}
+.rc-les.remote{border-left:4px solid #5aa9e6}
+.rc-les.remote .rc-tag.r{background:var(--remote);color:var(--remote-text)}
+.rc-les.now{border:2px solid var(--now);background:var(--now-soft)}
+.rc-tag.live{background:var(--now);color:#fff}
+.rc-left{color:var(--now);font-weight:700;font-size:13px;margin-top:4px}
+.rc-gap{margin-top:8px;padding:6px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px;text-align:center}
+.rc-empty{margin-top:8px;padding:18px;text-align:center;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:12px}
+@media (max-width:480px){.rc-les{grid-template-columns:54px 1fr;padding:10px}}
+
+/* ── Печать ── */
+@media print{
+  #rasp-bar,.day-navigation,form,.link{display:none!important}
+  body{background:#fff;padding:0}
+  .rc-les,.rc-day{break-inside:avoid}
+  .table-wrapper td:first-child{position:static}
+}
+
+/* ═════════ АДАПТИВ: 320px → большие экраны ═════════ */
+body{max-width:1400px;margin:0 auto;overflow-wrap:break-word}
+#rasp-hint{display:none;color:var(--muted);font-size:13px;margin:-6px 2px 10px}
+body.mode-table #rasp-hint{display:block}
+.rc-meta span,.rc-subj{min-width:0;overflow-wrap:anywhere}
+.rc-les>div{min-width:0}
+
+/* прокрутка таблицы: плавная, не «пробивает» страницу назад, ячейки притягиваются к краю */
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scroll-snap-type:none}
+.table-wrapper::-webkit-scrollbar{height:8px}
+.table-wrapper::-webkit-scrollbar-thumb{background:#c5cce0;border-radius:8px}
+
+@media (min-width:1100px){
+  #rasp-cards{max-width:900px}
+  .table-wrapper td{max-width:none}
+}
+@media (max-width:700px){
+  /* таблица на всю ширину экрана, без полей */
+  .table-wrapper{margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 0 6px}
+  .table-wrapper table{margin:0 var(--pad)}
+  .table-wrapper table{font-size:12px;border-radius:10px}
+  .table-wrapper td{min-width:104px;max-width:150px;padding:7px 6px}
+  .table-wrapper td:first-child{min-width:56px;max-width:60px;font-size:11px;padding:7px 3px}
+  .table-wrapper h1{font-size:13px}
+  p strong{font-size:15px}
+  .rasp-day-title{margin:14px 0 6px}
+}
+@media (max-width:480px){
+  .day-navigation{gap:6px}
+  .nav-link{min-width:0;flex:1 1 calc(50% - 3px);padding:10px 6px;font-size:13px}
+  #rasp-bar{padding:8px;gap:6px}
+  #rasp-bar select{flex:1 1 100%}
+  .rc-head{font-size:17px}
+  .rc-subj{font-size:15px}
+  .rc-meta{font-size:13px}
+  .rc-time b{font-size:18px}
+}
+@media (max-width:340px){
+  body.light,body{--pad:8px;--pt:12px}
+  .table-wrapper td{min-width:96px}
+  .rc-les{grid-template-columns:46px 1fr;gap:8px;padding:8px}
+  .rc-time span{font-size:11px}
+  .link{padding:8px 10px}
+}
+
+/* ═════════ v3: непрозрачная закреплённая колонка + крупнее на десктопе ═════════ */
+.table-wrapper td{background:#fff}
+.table-wrapper tr:hover td{background:#f6f8ff}
+.table-wrapper td.is-remote{background:var(--remote)}
+.table-wrapper tr:hover td.is-remote{background:#e1f0ff}
+/* закреплённая колонка и шапка — всегда сплошной фон, при наведении не меняются */
+.table-wrapper td:first-child,
+.table-wrapper tr:first-child td,
+.table-wrapper tr:hover td:first-child,
+.table-wrapper tr:first-child:hover td{background:#f3f5fa!important}
+.table-wrapper tr:first-child td.grp:hover{background:var(--accent-soft)!important}
+
+@media (min-width:701px){
+  body.light,body{--pad:16px;--pt:20px}
+  .table-wrapper table{font-size:15px}
+  .table-wrapper td{min-width:140px;max-width:215px;padding:11px 13px}
+  .table-wrapper td:first-child{min-width:92px;max-width:none;padding:11px 8px;font-size:13px;white-space:nowrap}
+  .table-wrapper td:first-child p{display:inline}
+  .table-wrapper td:first-child p:first-child{display:block;font-size:14px;margin-bottom:2px}
+  .table-wrapper h1{font-size:16px}
+  p strong{font-size:18px}
+  #rasp-bar select{font-size:16px}
+}
+@media (min-width:1100px){
+  body.light,body{--pad:24px;--pt:28px}
+  body{font-size:17px}
+  .table-wrapper table{font-size:16.5px;border-radius:14px}
+  .table-wrapper td{min-width:165px;max-width:260px;padding:14px 16px}
+  .table-wrapper td:first-child{min-width:112px;padding:14px 10px;font-size:14.5px}
+  .table-wrapper td:first-child p:first-child{font-size:16px}
+  .table-wrapper h1{font-size:19px}
+  p strong{font-size:21px}
+  .rasp-day-title{margin:26px 0 12px}
+  .link{font-size:15px;padding:10px 18px}
+  .input-field{height:50px;font-size:17px}
+  .input-container button.link{height:50px}
+  .nav-link{font-size:16px;padding:13px 16px}
+  #rasp-bar{padding:12px;gap:10px}
+  #rasp-bar select{height:50px;font-size:17px}
+  #rasp-hint{font-size:14px}
+  .rc-head{font-size:24px}
+  .rc-sub{font-size:15px}
+  .rc-dh{font-size:18px}
+  .rc-les{grid-template-columns:76px 1fr;padding:16px;gap:16px}
+  .rc-time b{font-size:24px}
+  .rc-time span{font-size:13.5px}
+  .rc-subj{font-size:19px}
+  .rc-meta{font-size:16px}
+  .rc-tag{font-size:12.5px}
+  .rc-gap,.rc-empty{font-size:15px}
+}
+@media (min-width:1500px){
+  body{max-width:1640px;font-size:18px}
+  .table-wrapper table{font-size:17.5px}
+  .table-wrapper td{min-width:175px;max-width:290px}
+}
+
+/* ═════════ v4: верхняя панель и колонка времени ═════════ */
+
+/* --- верхняя панель --- */
+#rasp-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 12px}
+#rasp-top .link,#rasp-top .nav-link{color:var(--text);text-decoration:none}
+#rasp-top>.link{order:1;margin:0;height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;font-size:15px;font-weight:600;box-sizing:border-box;white-space:nowrap}
+#rasp-top>form{order:2;flex:1 1 280px;min-width:0;margin:0}
+#rasp-top .input-container{margin:0;max-width:none;width:100%}
+#rasp-top .input-field{flex:1 1 auto;min-width:0}
+#rasp-top .input-container button.link{margin:0;width:auto;padding:0 18px;color:#fff;text-decoration:none}
+#rasp-top>.day-navigation{order:3;margin:0;padding:0;flex:0 0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+#rasp-top .nav-link{flex:0 0 auto;min-width:0;height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px;font-size:15px;font-weight:600;white-space:nowrap;box-sizing:border-box}
+#rasp-top .nav-link:hover{border-color:var(--accent);color:var(--accent)}
+#rasp-bar{margin-top:0}
+
+/* --- панель выбора: не растягиваем один список на всю ширину --- */
+@media (min-width:701px){
+  #rasp-bar select{flex:0 1 280px}
+}
+
+/* --- колонка времени: обычная колонка таблицы, тень только при прокрутке --- */
+.table-wrapper td:first-child{text-align:center;line-height:1.35;box-shadow:none;border-right:1px solid var(--line)}
+.table-wrapper td:first-child p{text-align:center}
+.table-wrapper.is-scrolled td:first-child{box-shadow:5px 0 8px -5px rgba(20,30,60,.28)}
+.table-wrapper td:first-child p:nth-child(3){display:none}
+.table-wrapper td:first-child p:nth-child(4)::before{content:"– "}
+.table-wrapper td:first-child p:nth-child(2),
+.table-wrapper td:first-child p:nth-child(4){color:var(--muted);font-weight:500}
+@media (min-width:701px){
+  .table-wrapper td:first-child p:nth-child(4)::before{content:"\00a0–\00a0"}
+}
+
+/* --- мобильная панель: «Назад» + поиск в первой строке, дни — во второй --- */
+@media (max-width:700px){
+  #rasp-top{gap:8px}
+  #rasp-top>form{flex:1 1 170px}
+  #rasp-top>.day-navigation{order:4;flex:1 1 100%}
+  #rasp-top .nav-link{flex:1 1 0;padding:0 8px;font-size:13.5px}
+  #rasp-top>.link{padding:0 12px}
+}
+@media (min-width:1100px){
+  #rasp-top{gap:12px}
+  #rasp-top>.link,#rasp-top .nav-link{height:50px;font-size:16px;padding:0 20px}
+  #rasp-top .input-container button.link{height:50px}
+}
+
+/* ═════════ v5: отступы сверху, поиск, верхняя панель ═════════ */
+#rasp-top{margin-bottom:16px}
+#rasp-top>form{flex:1 1 320px;max-width:520px}
+#rasp-top form .input-container{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;width:100%!important;max-width:none!important;margin:0!important}
+#rasp-top form .input-container input.input-field{width:100%;min-width:0;height:44px;box-sizing:border-box;margin:0}
+#rasp-top form .input-container button.link{height:44px;margin:0;padding:0 18px;border-radius:0 10px 10px 0;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+#rasp-top>.day-navigation{margin-left:auto}
+@media (max-width:700px){
+  #rasp-top>form{flex:1 1 170px;max-width:none}
+  #rasp-top>.day-navigation{margin-left:0}
+}
+@media (min-width:1100px){
+  #rasp-top form .input-container input.input-field,#rasp-top form .input-container button.link{height:50px}
+}

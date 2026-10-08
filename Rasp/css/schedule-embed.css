@@ -1,0 +1,24 @@
+/* schedule-embed.css — оформление блока с расписанием на schedule.html */
+.schedule .container-schedule{max-width:1100px}
+.schedule__bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:8px 0 12px}
+.schedule__title{font-size:1.6rem;margin:0}
+.schedule__actions{display:flex;gap:8px;flex-wrap:wrap}
+.schedule__btn{font:inherit;font-size:.9rem;font-weight:600;color:inherit;text-decoration:none;background:#fff;border:1px solid #dfe3ec;border-radius:10px;padding:9px 14px;min-height:42px;display:inline-flex;align-items:center;cursor:pointer;transition:border-color .15s,background .15s}
+.schedule__btn:hover{border-color:#4A6BFF;background:#f4f6ff;color:inherit}
+.schedule__btn--accent{background:#4A6BFF;border-color:#4A6BFF;color:#fff}
+.schedule__btn--accent:hover{background:#3b59e0;color:#fff}
+.schedule__frame{position:relative;background:#f5f7fb;border:1px solid #e2e6ef;border-radius:14px;overflow:hidden;min-height:360px}
+.schedule__frame iframe{display:block;width:100%;height:80vh;min-height:360px;border:0;background:transparent}
+.schedule__loader{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:10px;color:#6b7488;background:#f5f7fb;z-index:2}
+.schedule__frame.is-loading .schedule__loader{display:flex}
+.schedule__spinner{width:20px;height:20px;border-radius:50%;border:3px solid #d5dbea;border-top-color:#4A6BFF;animation:schspin .8s linear infinite}
+@keyframes schspin{to{transform:rotate(360deg)}}
+.schedule__hint{font-size:.85rem;color:#6b7488;margin:10px 2px 24px}
+@media (max-width:576px){
+  .schedule__title{font-size:1.3rem}
+  .schedule__actions{width:100%}
+  .schedule__btn{flex:1 1 calc(50% - 4px);justify-content:center;padding:8px 10px;font-size:.85rem}
+  .schedule__btn--accent{flex-basis:100%}
+  .schedule__frame{border-radius:10px}
+}
+@media (max-width:340px){.schedule .container-schedule{padding-left:8px;padding-right:8px}}

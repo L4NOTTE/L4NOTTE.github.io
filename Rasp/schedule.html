@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание - Ижевский промышленно-экономический колледж</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/schedule-embed.css">
+    <link rel="icon" type="image/x-icon" href="./img/header/logoheader.png">
+</head>
+<body>
+<script type="module" src="/comps/comps.js"></script>
+<!-- ══ HEADER ══ -->
+<site-header></site-header>
+
+    <section class="schedule">
+        <div class="container container-schedule">
+
+            <div class="schedule__bar">
+                <h1 class="schedule__title">Расписание занятий</h1>
+                <div class="schedule__actions">
+                    <button type="button" class="schedule__btn" id="schReload">↻ Обновить</button>
+                    <button type="button" class="schedule__btn" id="schPrint">🖨 Печать</button>
+                    <a class="schedule__btn schedule__btn--accent" href="/rasp" target="_blank" rel="noopener">⤢ На весь экран</a>
+                </div>
+            </div>
+
+            <div class="schedule__frame is-loading" id="schFrame">
+                <div class="schedule__loader" aria-hidden="true"><span class="schedule__spinner"></span>Загружаем расписание…</div>
+                <iframe id="schIframe" src="/rasp" title="Расписание занятий"></iframe>
+            </div>
+
+            <p class="schedule__hint">
+                Расписание отображается некорректно? <a href="/rasp" target="_blank" rel="noopener">Открыть в новой вкладке</a>
+            </p>
+
+        </div>
+    </section>
+<site-footer></site-footer>
+<script src="./js/main.js"></script>
+<script>
+(function () {
+    var frame = document.getElementById('schFrame');
+    var iframe = document.getElementById('schIframe');
+
+    // Высота iframe = высота содержимого: нет прокрутки внутри прокрутки
+    function fit() {
+        try {
+            var d = iframe.contentDocument;
+            // body.getBoundingClientRect, а не scrollHeight: scrollHeight не меньше высоты самого iframe,
+            // и после переключения «таблица → карточки» iframe никогда бы не уменьшился
+            var h = Math.ceil(d.body.getBoundingClientRect().height);
+            if (h > 100) iframe.style.height = Math.max(h, 360) + 'px';
+        } catch (e) { /* другой домен — остаётся высота из CSS */ }
+    }
+
+    iframe.addEventListener('load', function () {
+        frame.classList.remove('is-loading');
+        fit();
+        try {
+            if (window.ResizeObserver) new ResizeObserver(fit).observe(iframe.contentDocument.body);
+        } catch (e) {}
+        setInterval(fit, 1000);
+    });
+    window.addEventListener('resize', fit);
+
+    document.getElementById('schReload').addEventListener('click', function () {
+        frame.classList.add('is-loading');
+        iframe.contentWindow.location.reload();
+    });
+    document.getElementById('schPrint').addEventListener('click', function () {
+        try { iframe.contentWindow.focus(); iframe.contentWindow.print(); }
+        catch (e) { window.open('/rasp', '_blank'); }
+    });
+})();
+</script>
+</body>
+</html>
