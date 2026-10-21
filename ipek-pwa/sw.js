@@ -1,5 +1,5 @@
 /* Service worker: оболочка приложения кэшируется при установке, schedule.json — «сеть, затем кэш» (чтобы расписание было свежим, а офлайн — доступным) */
-const V = 'ipek-v1';
+const V = 'ipek-v2';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'schedule.json', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png', 'fonts/manrope-cyrillic.woff2', 'fonts/manrope-latin.woff2'];
 self.addEventListener('install', e => e.waitUntil(caches.open(V).then(c => c.addAll(SHELL))));
 self.addEventListener('message', e => { if (e.data === 'SKIP_WAITING') self.skipWaiting(); });
