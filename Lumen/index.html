@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Lumen для Windows. Возможности браузера и интерактивная схема отрисовки веб-страницы.">
+<title>Lumen — браузер на Rust</title>
+<link rel="icon" href="lumen.png">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <i></i><i></i><i></i>
+</div>
+<a class="skip" href="#about">К содержанию</a>
+<section class="opening" id="intro" aria-label="Заставка Lumen">
+  <div class="star-stage" aria-hidden="true">
+    <div class="star-flight"><div class="star-point"></div></div>
+    <div class="star-flare"></div>
+  </div>
+  <a class="opening-skip" href="#about">Пропустить заставку <span aria-hidden="true">↓</span></a>
+</section>
+<header class="shell"><nav aria-label="Разделы сайта">
+<a class="brand" href="#main"><img src="lumen.png" alt="" width="32" height="32"> Lumen</a>
+<a class="nav-about" href="#about">О браузере</a><a href="#features">Возможности</a><a href="#render">Рендеринг</a><a class="nav-start" href="#start">Установка</a>
+<a class="nav-git" href="https://github.com/L4NOTTE/Lumen">GitHub <span aria-hidden="true">↗</span></a>
+</nav></header>
+<main id="main">
+<section class="hero shell" id="about" tabindex="-1" aria-labelledby="about-title">
+<div class="hero-copy">
+<p class="eyebrow">О браузере · Windows x64</p>
+<h1 id="about-title">Lumen<span aria-hidden="true">.</span></h1>
+<p class="intro">Lumen — браузер для Windows с нативной логикой на Rust. Страницы отображает WebView2 на основе Chromium. Вкладки можно переносить между окнами, а фоновые страницы — выгружать из памяти.</p>
+<div class="actions"><a class="primary" href="https://github.com/L4NOTTE/LUMEN-IS-Web-browser/releases">Скачать с GitHub <span aria-hidden="true">↗</span></a><a class="secondary" href="#render">Как рисуется страница <span aria-hidden="true">↓</span></a></div>
+</div>
+<div class="visual" aria-hidden="true">
+<div class="orbit"></div>
+<div class="stage-floor"></div>
+<div class="browser-shadow sheet-far"></div>
+<div class="browser-shadow sheet-near"></div>
+<div class="browser">
+<div class="tabstrip"><div class="mock-tab"><img src="lumen.png" alt="" width="16" height="16"> Новая вкладка</div><span>+</span><span class="window-controls">− □ ×</span></div>
+<div class="toolbar"><span>←</span><span>↻</span><div class="address">Поиск или адрес сайта</div><span>☆</span></div>
+<div class="mock-page"><div class="mock-wordmark">LUMEN</div><div class="mock-search">Поиск или адрес сайта</div><div class="tiles"><i></i><i></i><i></i><i></i></div></div>
+</div>
+</div>
+</section>
+<section class="features" id="features" aria-labelledby="features-title"><div class="shell feature-inner">
+<div><h2 id="features-title">Что умеет Lumen.</h2><p class="feature-intro">Вкладки, поиск и управление браузером реализованы на Rust. Настройки ниже относятся к версии для Windows.</p></div>
+<div class="feature-list">
+<article><h3>Вкладки и сеанс</h3><p>Перетащите вкладку за пределы панели, чтобы открыть её в отдельном окне. Ссылки средней кнопкой открываются в фоне. После перезапуска Lumen сначала загружает активную вкладку, а долго простаивающие страницы может выгружать из памяти.</p></article>
+<article><h3>Поиск, закладки и оформление</h3><p>Центральное поле новой вкладки показывает подсказки из локальной истории. Панель избранного открывается поверх сайта. Можно выбрать тему, акцент, шрифт и фон, а масштаб сохраняется отдельно для каждого сайта.</p></article>
+<article><h3>Блокировка рекламы</h3><p>Базовый режим блокирует известные рекламные домены. Усиленный режим использует списки фильтров и скрывает часть рекламных элементов на страницах. Режим можно сменить в настройках.</p></article>
+<article><h3>VPN для браузера</h3><p>В разделе «Поиск и VPN» можно импортировать HTTPS-подписку или ключ VLESS. Lumen использует Xray-core для трафика браузера. Подключение зависит от протокола и параметров сервера.</p></article>
+<article><h3>Расширения и загрузки</h3><p>В обычном окне Windows можно вставить ссылку из Chrome Web Store. Совместимость зависит от API WebView2. Список загрузок открывается через Ctrl + J. Там можно найти файл, открыть папку или отменить загрузку.</p></article>
+</div>
+</div></section>
+
+<section class="protection shell" id="protection" aria-labelledby="protection-title">
+  <div class="protection-heading">
+    <h2 id="protection-title">Как работает защита.</h2>
+    <p>Интерактивные демонстрации VPN и блокировки рекламы в Lumen.</p>
+  </div>
+  <div class="protection-grid">
+    <article class="protection-card vpn-demo" data-state="off" aria-labelledby="vpn-demo-title">
+      <div class="protection-top"><h3 id="vpn-demo-title">VPN для браузера</h3><span class="connection-state" id="vpn-demo-status" role="status">Выключен</span></div>
+      <div class="vpn-network" aria-hidden="true">
+        <div class="network-end"><div class="network-node browser-node"><img src="lumen.png" width="32" height="32" alt=""></div><span>Lumen</span></div>
+        <div class="vpn-link"></div>
+        <div class="network-end"><div class="network-node tunnel-node"><span class="tunnel-symbol">↗</span><span class="connection-check">✓</span></div><span>Xray</span></div>
+        <div class="vpn-link"></div>
+        <div class="network-end"><div class="network-node server-node"><i></i><i></i><i></i></div><span>Сервер VPN</span></div>
+      </div>
+      <p class="demo-feedback" id="vpn-demo-feedback">Подключите VPN, чтобы увидеть маршрут трафика.</p>
+      <button class="protection-action" id="vpn-demo-toggle" type="button" aria-pressed="false">Подключить</button>
+    </article>
+    <article class="protection-card adblock-demo" data-state="idle" aria-labelledby="adblock-demo-title">
+      <div class="protection-top"><h3 id="adblock-demo-title">Блокировка рекламы</h3><span class="blocked-total" role="status"><span id="blocked-count">0</span> заблокировано</span></div>
+      <div class="filter-preview" aria-hidden="true">
+        <div class="filter-toolbar"><span></span><span></span><span></span><i></i><b class="filter-shield">✓</b></div>
+        <div class="filter-page">
+          <div class="ad-slot ad-banner"><div><span>Реклама</span><i></i></div></div>
+          <div class="filter-content"><div class="article-preview"><div></div><i></i><i></i></div><div class="ad-slot ad-side"><div><span>Реклама</span><i></i></div></div></div>
+          <div class="ad-slot ad-bottom"><div><span>Реклама</span><i></i></div></div>
+        </div>
+      </div>
+      <p class="demo-feedback" id="adblock-demo-feedback">Посмотрите, как фильтры убирают рекламные блоки.</p>
+      <button class="protection-action" id="adblock-demo-play" type="button">Показать блокировку</button>
+    </article>
+  </div>
+</section>
+
+<section class="render shell" id="render" aria-labelledby="render-title">
+<div class="render-heading"><h2 id="render-title">От кода<br>до кадра.</h2><p>Lumen управляет окнами и вкладками на Rust. Страницы в Windows отображает Microsoft Edge WebView2 на основе Chromium.</p></div>
+<div class="demo">
+<div class="demo-copy">
+<div class="steps" role="group" aria-label="Этапы отрисовки">
+<button type="button" data-stage="source" aria-pressed="true">HTML и CSS</button>
+<button type="button" data-stage="layout" aria-pressed="false">Разметка</button>
+<button type="button" data-stage="paint" aria-pressed="false">Отрисовка</button>
+</div>
+<h3 id="step-title">Структура и стили</h3>
+<p id="step-copy" aria-live="polite">Движок разбирает HTML в дерево элементов и вычисляет CSS-стили для каждого элемента.</p>
+</div>
+<div class="demo-art" data-stage="source" aria-hidden="true"><div class="demo-top"><i></i><i></i><i></i></div><div class="demo-content"><i></i><i></i><i></i><i></i></div></div>
+</div>
+</section>
+<section class="start shell" id="start" aria-labelledby="start-title">
+<h2 id="start-title">Установка</h2>
+<p class="start-intro">Для запуска нужны Windows x64 и Microsoft Edge WebView2 Runtime.</p>
+<div class="start-grid">
+<article><h3>Установить</h3><p>Закройте открытые окна Lumen и запустите <code>LumenSetup.exe</code> из последнего релиза.</p></article>
+<article><h3>Запустить из архива</h3><p>Распакуйте <code>Portable.x64.zip</code> и запустите <code>Lumen.cmd</code>. Профиль будет храниться рядом с браузером.</p></article>
+<article><h3>Обновить</h3><p>В установочной версии откройте «Настройки → Обновления». Для портативной версии скачайте новый архив.</p></article>
+</div>
+<a class="start-link" href="https://github.com/L4NOTTE/LUMEN-IS-Web-browser/releases">Открыть релизы на GitHub <span aria-hidden="true">↗</span></a>
+</section>
+</main>
+<footer class="shell"><a class="brand" href="#main"><img src="lumen.png" alt="" width="26" height="26"> Lumen</a><a href="https://github.com/L4NOTTE/Lumen">Исходники на GitHub ↗</a><a href="https://github.com/L4NOTTE/LUMEN-IS-Web-browser/releases">Релизы ↗</a><button class="sky-toggle" type="button" aria-pressed="true" hidden>Анимация фона</button></footer>
+</body></html>
