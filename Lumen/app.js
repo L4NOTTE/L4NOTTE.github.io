@@ -128,9 +128,12 @@ sky.append(rain);
 
 let openingTimer;
 let meteorObserver;
+let meteorAnimation;
+let meteorSize = '';
 function finishOpening() {
   clearTimeout(openingTimer);
   meteorObserver?.disconnect();
+  meteorAnimation?.cancel();
   sky.setAttribute('data-falling', '');
   opening.setAttribute('data-finished', '');
 }
@@ -152,6 +155,9 @@ function prepareMeteor() {
   const { width, height } = opening.getBoundingClientRect();
 
   if (width < 100 || height < 100) return;
+  const size = width + ':' + height;
+  if (size === meteorSize) return;
+  meteorSize = size;
 
   const point = (x, y) =>
     (x * width).toFixed(1) + ' ' +
@@ -170,10 +176,21 @@ function prepareMeteor() {
            point(0.50, 0.50)
   ].join(' ');
 
-  opening.style.setProperty(
-    '--meteor-path',
-    'path("' + route + '")'
-  );
+  // Use composited transforms: older iOS versions can accept offset-path
+  // syntax while failing to animate a path supplied through a CSS variable.
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', route);
+  const length = path.getTotalLength();
+  const frames = Array.from({ length: 181 }, (_, index) => {
+    const point = path.getPointAtLength(length * index / 180);
+    return { transform: 'translate3d(' + point.x + 'px,' + point.y + 'px,0)' };
+  });
+  const elapsed = meteorAnimation?.currentTime || 0;
+  meteorAnimation?.cancel();
+  meteorAnimation = opening.querySelector('.star-flight').animate(frames, {
+    duration: 3650, easing: 'cubic-bezier(.26,.03,.30,1)', fill: 'both'
+  });
+  meteorAnimation.currentTime = elapsed;
 
   if (!opening.hasAttribute('data-flight')) {
     opening.setAttribute('data-flight', '');
@@ -192,10 +209,6 @@ function completeOpening() {
 // Measure after styles and layout settle, including on a slow mobile connection.
 function startOpening() {
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    if (!CSS.supports('offset-path', 'path("M 0 0 L 1 1")')) {
-      completeOpening();
-      return;
-    }
     prepareMeteor();
     if (!opening.hasAttribute('data-finished')) {
       meteorObserver = new ResizeObserver(prepareMeteor);
@@ -209,7 +222,7 @@ else window.addEventListener('load', startOpening, { once: true });
 opening
   .querySelector('.star-flight')
   .addEventListener('animationend', event => {
-    if (event.animationName !== 'meteor-flight') return;
+    if (event.animationName !== 'meteor-glow') return;
     if (opening.hasAttribute('data-finished')) return;
     finishOpening();
     if (

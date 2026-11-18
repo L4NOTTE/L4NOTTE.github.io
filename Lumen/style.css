@@ -334,3 +334,7 @@ html,body,main{overflow-x:clip}
 .opening:not([data-flight]):not([data-finished]) .star-flight {
   left: 50%; top: 50%; opacity: 1; offset-path: none;
 }
+.opening[data-flight] .star-flight {
+  offset-path: none;
+  animation: meteor-glow 3.65s linear both;
+}
