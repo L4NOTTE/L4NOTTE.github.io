@@ -329,3 +329,8 @@ html,body,main{overflow-x:clip}
 .vpn-link{overflow:hidden}
 
 .adblock-demo{align-items:stretch}
+/* Mobile intro viewport fallback and a visible star while styles settle. */
+.opening { min-height: 100vh; min-height: 100svh; }
+.opening:not([data-flight]):not([data-finished]) .star-flight {
+  left: 50%; top: 50%; opacity: 1; offset-path: none;
+}

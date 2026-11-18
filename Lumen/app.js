@@ -126,7 +126,11 @@ for (let index = 0; index < 24; index++) {
 }
 sky.append(rain);
 
+let openingTimer;
+let meteorObserver;
 function finishOpening() {
+  clearTimeout(openingTimer);
+  meteorObserver?.disconnect();
   sky.setAttribute('data-falling', '');
   opening.setAttribute('data-finished', '');
 }
@@ -141,13 +145,13 @@ reduced.addEventListener('change', () => {
 
 
 function prepareMeteor() {
-  if (reduced.matches || opening.hasAttribute('data-flight')) {
+  if (reduced.matches || opening.hasAttribute('data-finished')) {
     return;
   }
 
   const { width, height } = opening.getBoundingClientRect();
 
-  if (!width || !height) return;
+  if (width < 100 || height < 100) return;
 
   const point = (x, y) =>
     (x * width).toFixed(1) + ' ' +
@@ -171,15 +175,42 @@ function prepareMeteor() {
     'path("' + route + '")'
   );
 
-  opening.setAttribute('data-flight', '');
+  if (!opening.hasAttribute('data-flight')) {
+    opening.setAttribute('data-flight', '');
+    openingTimer = setTimeout(completeOpening, 4200);
+  }
 }
 
-prepareMeteor();
+function completeOpening() {
+  if (opening.hasAttribute('data-finished')) return;
+  finishOpening();
+  if (reduced.matches || location.hash || window.scrollY > 8 ||
+      document.activeElement !== document.body) return;
+  afterOpening.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Measure after styles and layout settle, including on a slow mobile connection.
+function startOpening() {
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (!CSS.supports('offset-path', 'path("M 0 0 L 1 1")')) {
+      completeOpening();
+      return;
+    }
+    prepareMeteor();
+    if (!opening.hasAttribute('data-finished')) {
+      meteorObserver = new ResizeObserver(prepareMeteor);
+      meteorObserver.observe(opening);
+    }
+  }));
+}
+if (document.readyState === 'complete') startOpening();
+else window.addEventListener('load', startOpening, { once: true });
 
 opening
   .querySelector('.star-flight')
   .addEventListener('animationend', event => {
     if (event.animationName !== 'meteor-flight') return;
+    if (opening.hasAttribute('data-finished')) return;
     finishOpening();
     if (
       reduced.matches ||
